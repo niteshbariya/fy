@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.El.Ed. કોર્સ - 4 (બ) : Proficiency in English (૧૦૦ HOT MCQs)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f7fafc; color: #2d3748; margin: 0; padding: 15px; display: flex; justify-content: center; }
+        .container { background-color: #ffffff; max-width: 840px; width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 25px; box-sizing: border-box; }
+        h1, h2 { color: #2b6cb0; text-align: center; }
+        .form-group { margin-bottom: 16px; }
+        label { display: block; font-weight: 600; margin-bottom: 6px; }
+        input[type="text"], input[type="tel"], input[type="email"] { width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; box-sizing: border-box; font-size: 15px; }
+        button { background-color: #3182ce; color: white; border: none; padding: 12px 20px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer; width: 100%; transition: background 0.2s; margin-top: 10px; }
+        button:hover { background-color: #2b6cb0; }
+        button:disabled { background-color: #a0aec0; cursor: not-allowed; }
+        .otp-box { background: #ebf8ff; border: 1px dashed #3182ce; padding: 15px; border-radius: 6px; margin-top: 15px; display: none; }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 15px; }
+        .timer { font-size: 18px; font-weight: bold; color: #e53e3e; }
+        .unit-badge { display: inline-block; background-color: #ebf8ff; color: #2b6cb0; border: 1px solid #bee3f8; padding: 5px 12px; border-radius: 4px; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+        .option-label { display: block; background: #edf2f7; padding: 12px; margin-bottom: 8px; border-radius: 6px; cursor: pointer; line-height: 1.5; border: 1px solid transparent; }
+        .option-label:hover { background: #e2e8f0; }
+        .nav-buttons { display: flex; justify-content: space-between; gap: 10px; margin-top: 20px; }
+        .nav-buttons button { width: 48%; }
+        .result-card { background: #ebf8ff; border: 1px solid #bee3f8; padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align: center; }
+        .review-item { padding: 15px; border-radius: 6px; margin-bottom: 15px; border: 1px solid #e2e8f0; }
+        .is-correct { background-color: #f0fff4; border-color: #9ae6b4; }
+        .is-wrong { background-color: #fff5f5; border-color: #feb2b2; }
+        .exp-box { background: #edf2f7; padding: 10px; border-radius: 4px; margin-top: 8px; font-size: 14px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- ૧. પ્રવેશ અને OTP સ્ક્રીન -->
+    <div id="loginScreen">
+        <h1>D.El.Ed. કોર્સ - 4 (બ)</h1>
+        <h3 style="text-align: center; color: #4a5568;">Proficiency in English (અંગ્રેજીમાં પ્રાવિણ્ય / સજ્જતા)</h3>
+        <p style="text-align: center; color: #718096;">TET / TAT પરીક્ષા વિશેષ પ્રશ્નબેંક | કુલ પ્રશ્નો: ૧૦૦ (HOT MCQs)</p>
+
+        <div class="form-group">
+            <label for="name">પૂરું નામ:</label>
+            <input type="text" id="name" placeholder="તમારું પૂરું નામ લખો">
+        </div>
+        <div class="form-group">
+            <label for="phone">મોબાઇલ નંબર:</label>
+            <input type="tel" id="phone" placeholder="૧૦ અંકનો સાચો મોબાઇલ નંબર">
+        </div>
+        <div class="form-group">
+            <label for="email">ઇમેઇલ આઇડી:</label>
+            <input type="email" id="email" placeholder="તમારું સાચું ઈમેઈલ આઈડી લખો">
+        </div>
+
+        <button id="getOtpBtn" onclick="requestOTP()">OTP મેળવો</button>
+
+        <div id="otpContainer" class="otp-box">
+            <p style="margin: 0 0 10px 0; color: #2b6cb0; font-weight: 600;">તમારા તેમજ એડમિનના ઈમેઈલ પર ૪ અંકનો OTP મોકલવામાં આવ્યો છે.</p>
+            <div class="form-group">
+                <input type="text" id="otpInput" placeholder="૪ અંકનો OTP દાખલ કરો" maxlength="4">
+            </div>
+            <button id="verifyBtn" onclick="verifyAndStart()" style="background-color: #38a169;">OTP ચકાસો અને કસોટી શરૂ કરો</button>
+        </div>
+    </div>
+
+    <!-- ૨. કસોટી સ્ક્રીન -->
+    <div id="quizScreen" style="display: none;">
+        <div class="quiz-header">
+            <div>
+                <span id="qProgress" style="font-weight: 600;">પ્રશ્ન ૧ / ૧૦૦</span>
+            </div>
+            <span class="timer" id="timerDisplay">૦૦:૦૦</span>
+        </div>
+        <div class="question-box">
+            <div id="unitBadge" class="unit-badge"></div>
+            <h3 id="questionText" style="margin-top: 5px; margin-bottom: 15px; line-height: 1.5;"></h3>
+            <div id="optionsContainer"></div>
+        </div>
+        <div class="nav-buttons">
+            <button id="prevBtn" onclick="prevQuestion()" style="background-color: #718096;">પાછળ</button>
+            <button id="nextBtn" onclick="nextQuestion()">આગળ</button>
+        </div>
+    </div>
+
+    <!-- ૩. પરિણામ સ્ક્રીન -->
+    <div id="resultScreen" style="display: none;">
+        <h2>કસોટી પરિણામ</h2>
+        <div class="result-card">
+            <p><strong>પરીક્ષાર્થીનું નામ:</strong> <span id="resName"></span></p>
+            <p><strong>વિષય:</strong> D.El.Ed. કોર્સ - 4 (બ) : Proficiency in English (૧૦૦ પ્રશ્નો)</p>
+            <p><strong>મોબાઇલ નંબર:</strong> <span id="resPhone"></span></p>
+            <p><strong>લીધેલો સમય:</strong> <span id="resTime"></span></p>
+            <p><strong>મેળવેલ ગુણ:</strong> <span id="resScore" style="color: #2b6cb0; font-weight: bold; font-size: 20px;"></span></p>
+            <p><strong>ટકાવારી:</strong> <span id="resPercent" style="color: #2f855a; font-weight: bold; font-size: 20px;"></span></p>
+            <p style="font-size: 14px; color: #4a5568; margin-top: 10px;">(વિગતવાર મૂલ્યાંકન પત્રક તમારા અને એડમિનના ઈમેઈલ પર મોકલી દેવાયું છે.)</p>
+        </div>
+        <h3>જવાબો, પ્રકરણ અને વિગતવાર સમજૂતી</h3>
+        <div id="reviewContainer"></div>
+    </div>
+</div>
+
+<script>
+// તમારી સક્રિય Apps Script Web App URL
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz-khogtnFjvjzRuv_ieBYJfx0TAxluM9OfoXlf72h9Yce14rdQu9_Xbmx3fnprk5Q30g/exec";
+
+// ૧૦૦ પ્રશ્નોનો ડેટાબેઝ
+const questions = [
+  { unit: "Unit - 1: English Language and Its Scope", q: "૧. ડૉ. ડેવિડ ક્રિસ્ટલ (David Crystal, 1997) ના મતે કોઈપણ ભાષા 'વૈશ્વિક ભાષા' (Global Language) નો દરજ્જો ક્યારે પ્રાપ્ત કરે છે?", options: ["જ્યારે તે વિશ્વના સૌથી વધુ દેશોમાં માતૃભાષા (First language) તરીકે બોલાતી હોય", "જ્યારે વિશ્વના પ્રત્યેક દેશમાં તેની એક વિશિષ્ટ ભૂમિકા (Special role) સ્વીકૃત થયેલી હોય", "જ્યારે તે સંયુક્ત રાષ્ટ્રસંઘ (UN) ની એકમાત્ર સત્તાવાર વહીવટી ભાષા બને", "જ્યારે વિશ્વની ૫૦% થી વધુ વસ્તી તે ભાષામાં સાક્ષર બને"], ans: 1, exp: "ડૉ. ડેવિડ ક્રિસ્ટલ (1997) મુજબ: 'A language gains a status as a global language when it has a special role that is recognized in every country in the world.' (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૨. અંગ્રેજી ભાષાના ઐતિહાસિક વિકાસક્રમ સંદર્ભે નીચેના પૈકી કયો કાળક્રમ સાચો છે?", options: ["10મી સદી: Old English -> 14મી સદી: Middle English/New English -> 18મી સદી: Modern English", "8મી સદી: Early English -> 12મી સદી: Middle English -> 16મી સદી: Modern English", "12મી સદી: Old English -> 16મી સદી: Modern English -> 18મી સદી: Global English", "10મી સદી: Middle English -> 14મી સદી: Old English -> 18મી સદી: Modern English"], ans: 0, exp: "મોડ્યુલ મુજબ ૧૦મી સદીમાં વપરાતી અંગ્રેજી 'Old English' હતી, ૧૪મી સદીમાં 'New/Middle English' બની અને ૧૮મી સદી તથા ત્યારબાદ ફેરફારો થતાં 'Modern English' તરીકે ઓળખાઈ. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૩. મોડ્યુલમાં દર્શાવેલ 'Top Ten English Speaking Countries' ના આંકડાકીય કોષ્ટક મુજબ અંગ્રેજી બોલનારા લોકોની કુલ સંખ્યાની દ્રષ્ટિએ વિશ્વમાં ભારત કયું સ્થાન ધરાવે છે?", options: ["પ્રથમ સ્થાન", "દ્વિતીય સ્થાન", "તૃતીય સ્થાન", "પાંચમું સ્થાન"], ans: 1, exp: "કોષ્ટક મુજબ પ્રથમ ક્રમે United States (251+ મિલિયન) અને દ્વિતીય ક્રમે India (આશરે 125,226,449 વક્તાઓ સાથે 11.38%) આવે છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૪. વિધાન (A): ભારત જેવા બહુભાષી (Multilingual) સમાજમાં અંગ્રેજી એક 'Link Language' તરીકે અનિવાર્ય ભૂમિકા ભજવે છે.\nકારણ (R): ભારતમાં જુદા જુદા પ્રદેશોના લોકોની માતૃભાષા અલગ હોવાથી આંતરરાજ્ય પ્રત્યાયન માટે અંગ્રેજી એક સામાન્ય માધ્યમ પૂરું પાડે છે.", options: ["(A) અને (R) બંને સાચાં છે અને (R) એ (A) ની સાચી સમજૂતી છે.", "(A) સાચું છે પરંતુ (R) ખોટું છે.", "(A) ખોટું છે પરંતુ (R) સાચું છે.", "(A) અને (R) બંને તદ્દન અસત્ય છે."], ans: 0, exp: "ભારતમાં ભાષાકીય વૈવિધ્ય હોવાથી અંગ્રેજી વિવિધ રાજ્યો અને પ્રદેશો વચ્ચે કડીરૂપ ભાષા (Link Language) તરીકે કાર્ય કરે છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૫. મોડ્યુલ મુજબ વૈશ્વિક માહિતી વ્યવહારમાં અંગ્રેજીના પ્રભાવ સંદર્ભે કયું વિધાન અસત્ય છે?", options: ["વિશ્વભરના કમ્પ્યુટરમાં આશરે 82% જેટલી ડેટા એન્ટ્રી અંગ્રેજીમાં થાય છે.", "દુનિયાના આશરે 70% ટેલિવિઝન પ્રોગ્રામ અંગ્રેજીમાં પ્રસારિત થાય છે.", "લગભગ 75% આંતરરાષ્ટ્રીય ટપાલો (International mails) અંગ્રેજીમાં લખાય છે.", "વિમાનચાલકો (Pilots) માટે વાયરલેસ સંદેશા વ્યવહારમાં અંગ્રેજી ભાષાનો ઉપયોગ મરજિયાત છે."], ans: 3, exp: "મોડ્યુલ મુજબ વિમાનના પાયલટો માટે વાયરલેસ સંદેશા માટે અંગ્રેજી ભાષા વાપરવાનું ફરજિયાત (compulsory) છે, મરજિયાત નથી. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૬. 'Language is a system through which one can convey messages, express ideas and feelings.' આ વ્યાખ્યા અનુસાર ભાષાનું અંતિમ અને મુખ્ય ધ્યેય શું છે?", options: ["માત્ર વ્યાકરણના નિયમોનું અર્થઘટન કરવું", "અસરકારક પ્રત્યાયન (Effective Communication) સાધવું", "ક્લિષ્ટ સાહિત્યિક ગ્રંથોનું નિર્માણ કરવું", "માત્ર યાંત્રિક ઉચ્ચારણો ઉત્પન્ન કરવાં"], ans: 1, exp: "માનવસમાજ ભાષા વડે પ્રત્યાયન કરે છે અને ભાષા વ્યવસ્થા ઊભી કરવા પાછળનો મુખ્ય ઉદ્દેશ અસરકારક પ્રત્યાયન કરવાનો છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૭. અંગ્રેજી ભાષાને 'Library Language' તરીકે શા માટે ઓળખવામાં આવે છે?", options: ["પુસ્તકાલયોના તમામ નિયમો અંગ્રેજીમાં જ લખાયેલા હોય છે.", "વિશ્વભરનું ઉચ્ચ શિક્ષણ, અદ્યતન સંશોધન, વિજ્ઞાન-ટેકનોલોજી અને જર્નલ્સનું વિપુલ સાહિત્ય અંગ્રેજીમાં સુલભ છે.", "તે માત્ર પુસ્તકાલયના કર્મચારીઓ વચ્ચેના સંવાદની ભાષા છે.", "વિદ્યાર્થીઓ માત્ર વાંચન માટે જ તેનો ઉપયોગ કરી શકે છે."], ans: 1, exp: "ઉચ્ચ અભ્યાસ અને સંદર્ભ સાહિત્યનો ભંડાર અંગ્રેજીમાં પ્રાપ્ય હોવાથી રાધાકૃષ્ણન કમિશન અને કોઠારી કમિશને તેને 'Library Language' ગણાવી છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૮. યુરોપના બિન-અંગ્રેજી ભાષી દેશો પૈકી કયા દેશમાં સૌથી વધુ ટકાવારી (90%) લોકો પોતાની મરજીથી અંગ્રેજી શીખે છે?", options: ["ફ્રાંસ", "જર્મની", "નેધરલેન્ડ", "ઇટાલી"], ans: 2, exp: "મોડ્યુલ મુજબ યુરોપીય દેશોમાં નેધરલેન્ડમાં 90%, ફ્રાંસમાં 86%, જર્મનીમાં 85% અને ઇટાલીમાં 50% લોકો કારકિર્દીના વિકાસ માટે અંગ્રેજી શીખે છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૯. 'English is a window to see the world' - આ પ્રખ્યાત વિધાન કોના દ્રષ્ટિકોણને પ્રતિબિંબિત કરે છે?", options: ["પંડિત જવાહરલાલ નેહરુ", "રવીન્દ્રનાથ ટાગોર", "સ્વામી વિવેકાનંદ", "ડૉ. એ.પી.જે. અબ્દુલ કલામ"], ans: 0, exp: "પંડિત જવાહરલાલ નેહરુએ અંગ્રેજી ભાષાના આંતરરાષ્ટ્રીય મહત્વને રેખાંકિત કરતા તેને 'વિશ્વ તરફ ખૂલતી બારી' (Window to the world) ગણાવી હતી. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૧૦. શિક્ષકના વ્યાવસાયિક વિકાસ (Professional Development) માં અંગ્રેજી ભાષા કઈ રીતે સહાયક બને છે?", options: ["પરિપત્રો, આંતરરાષ્ટ્રીય સંશોધનો અને નિયમોની સાચી સમજ કેળવવામાં", "અધ્યાપનને ગુણવત્તાયુક્ત અને સમૃદ્ધ બનાવવામાં", "સમૂહ માધ્યમો દ્વારા 'Different Thinking' (વૈવિધ્યસભર વિચારસરણી) વિકસાવવામાં", "ઉપરોક્ત તમામ"], ans: 3, exp: "મોડ્યુલના મુદ્દા 1.6.2 મુજબ વ્યાવસાયિક સંબંધો, વૈશ્વિક જ્ઞાન, અધ્યાપન ગુણવત્તા અને ચિંતન ક્ષમતા વધારવા માટે અંગ્રેજી આ તમામ બાબતોમાં સહાયક છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૧૧. ટેકનોલોજીકલ ક્રાંતિના સંદર્ભમાં ૧૯૯૫ થી ૨૦૦૫ ના દાયકાએ શિક્ષણ જગતના કયા રૂઢિચુસ્ત ખ્યાલને વિદાય અપાવી?", options: ["'ચોક એન્ડ ટોક' (Chalk and Talk) પદ્ધતિ", "નોટ્સ અને ગાઇડ આધારિત ગોખણપટ્ટી", "સીમિત પુસ્તકીય વર્ગખંડ શિક્ષણ", "ઉપરોક્ત તમામ"], ans: 3, exp: "મોડ્યુલ મુજબ ઇન્ટરનેટ, મલ્ટીમીડિયા અને કમ્પ્યુટરના આગમનથી પરંપરાગત ચોક-ટોક અને ગોખણપટ્ટીવાળા શિક્ષણનું સ્થાન આધુનિક ડિજિટલ સાધનોએ લીધું છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૧૨. ભાષા અધ્યયનના સંદર્ભમાં 'Hearing' અને 'Listening' વચ્ચેનો મૂળભૂત તફાવત કયો છે?", options: ["Hearing એ સભાન માનસિક પ્રક્રિયા છે, જ્યારે Listening એ શારીરિક ક્રિયા છે.", "Hearing કાન દ્વારા થતી શારીરિક ક્રિયા છે, જ્યારે Listening મગજ અને હૃદય દ્વારા અર્થગ્રહણ કરવાની પ્રક્રિયા છે.", "Hearing માત્ર શાળામાં થાય છે, જ્યારે Listening ઘરમાં થાય છે.", "બંને વચ્ચે કોઈ જ તાત્વિક કે વ્યાવહારિક તફાવત નથી."], ans: 1, exp: "'Hearing is the physiological act through ears, but listening is through the mind and the heart.' અર્થગ્રહણયુક્ત સાંભળવું એટલે જ શ્રવણ (Listening). (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૧૩. 'Writing makes an exact man' - આ પ્રખ્યાત વિધાન કયા તત્વચિંતક/સાહિત્યકારનું છે?", options: ["વિલિયમ શેક્સપિયર", "ફ્રાન્સિસ બેકન (Francis Bacon)", "જોન મિલ્ટન", "ઈ. એલ. થોર્નડાઈક"], ans: 1, exp: "ફ્રાન્સિસ બેકને લેખનની ચોકસાઈ અને સ્પષ્ટતા દર્શાવવા કહ્યું છે: 'Writing makes an exact man'. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૧૪. 'Reading is a process of thinking' - આ વાચન સંબંધિત વિધાન કોણે આપેલું છે?", options: ["E. A. Betts", "E. L. Thorndike", "Francis Bacon", "David Crystal"], ans: 0, exp: "મોડ્યુલ મુજબ: 'Reading is a process of thinking' - E. A. Betts જ્યારે 'Reading is a process of reasoning' - E. L. Thorndike. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૧૫. સ્વતંત્રતા પછીના ભારતમાં અંગ્રેજી પ્રત્યે નકારાત્મક વલણ પાછળનું મુખ્ય સામાજિક-માનસિક કારણ શું હતું?", options: ["અંગ્રેજીને પરદેશી/શાસકોની ભાષા ગણી શીખવામાં અતિ કઠિન માનવામાં આવતી હતી.", "અંગ્રેજીમાં વ્યાકરણના કોઈ ચોક્કસ નિયમો નહોતા.", "ભારતમાં અંગ્રેજી છાપકામની સગવડ નહોતી.", "ભારતીય બંધારણે અંગ્રેજી પર કાયદેસર પ્રતિબંધ મૂક્યો હતો."], ans: 0, exp: "સ્વાતંત્ર્યોત્તર કાળમાં પરદેશી ભાષા હોવાની લાગણી અને અઘરી હોવાની માન્યતાને કારણે શરૂઆતમાં નકારાત્મકતા પ્રવર્તતી હતી જે સમય જતાં બદલાઈ. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૧૬. ભાષાશાસ્ત્રના દ્રષ્ટિકોણથી ભાષાની વૈજ્ઞાનિક સંકલ્પના શું છે?", options: ["અક્ષરોનો કોઈપણ નિયમ વિનાનો મુક્ત સમૂહ", "યાદૃચ્છિક વાચિક ધ્વનિ સંકેતોની સુવ્યવસ્થિત પ્રણાલી (System of speech sounds)", "માત્ર પુસ્તકોમાં સંગ્રહિત લિપિચિહ્નો", "પ્રાણીઓના અવાજોનું અનુકરણ"], ans: 1, exp: "વૈજ્ઞાનિકોના મતે ભાષા એ ધ્વનિઓની નિયમિત વ્યવસ્થા છે, જેના માધ્યમથી સમાજ વિચારો અને લાગણીઓનું પ્રત્યાયન કરે છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૧૭. વૈશ્વિકીકરણ (Globalization) ના વર્તમાન યુગમાં અંગ્રેજી શીખવું એ અનિવાર્ય બન્યું છે કારણ કે:", options: ["આંતરરાષ્ટ્રીય વ્યાપાર, ઈ-કોમર્સ અને રાજદ્વારી સંબંધો મુખ્યત્વે અંગ્રેજીમાં ચાલે છે.", "અન્ય દેશોની સંસ્કૃતિ, સભ્યતા અને ઉચ્ચ જ્ઞાનનો અભ્યાસ કરવા માટે તે સેતુરૂપ છે.", "વૈશ્વિક સ્તરે રોજગાર અને ઉચ્ચ તકો પ્રાપ્ત કરવા માટે જરૂરી છે.", "ઉપરોક્ત તમામ બાબતો સાચી છે."], ans: 3, exp: "મોડ્યુલના એકમ ૧ ના મહત્વના મુદ્દાઓ મુજબ આ તમામ પરિબળો અંગ્રેજીની વૈશ્વિક અનિવાર્યતા સિદ્ધ કરે છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૧૮. સ્વ-અધ્યયન (Self Learning) માટે અંગ્રેજી ભાષા કઈ રીતે ઉત્તમ ઉપકરણ સાબિત થાય છે?", options: ["ઈ-બુક્સ અને ડિજિટલ સાહિત્યના બહોળા વાંચન દ્વારા શબ્દભંડોળ અને ભાષા સમૃદ્ધ બને છે.", "દૂરવર્તી શિક્ષણ (Distance learning) માં અંગ્રેજીમાં વિપુલ સંદર્ભ સામગ્રી ઉપલબ્ધ છે.", "સ્વનિર્દેશિત ગતિએ અદ્યતન જ્ઞાન પ્રાપ્તિ શક્ય બને છે.", "ઉપરોક્ત તમામ સાચાં છે."], ans: 3, exp: "મોડ્યુલ મુજબ સ્વઅધ્યયન માટે E-books, Vocabulary enrichment, અને Distance learning માં અંગ્રેજી ભાષા મુખ્ય ચાલકબળ છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૧૯. ભારત જેવા 'Multilingual Society' માં પ્રાથમિક શાળાના શિક્ષક માટે અંગ્રેજી શીખવવાનો અંતિમ ઉદ્દેશ શું હોવો જોઈએ?", options: ["વિદ્યાર્થીઓને માત્ર અંગ્રેજી કાવ્યો મોઢે કરાવવા", "વિદ્યાર્થી વાસ્તવિક જીવન સંદર્ભોમાં અંગ્રેજીમાં પ્રત્યાયન કરવા સક્ષમ બને", "વિદ્યાર્થીઓ માત્ર માતૃભાષાનું અંગ્રેજીમાં ભાષાંતર કરી શકે", "માત્ર લેખિત પરીક્ષામાં મહત્તમ ગુણ પ્રાપ્ત કરવા"], ans: 1, exp: "ભાષાશિક્ષણનો અંતિમ ઉદ્દેશ વિદ્યાર્થીને વાસ્તવિક જીવન વ્યવહારમાં અને પ્રત્યાયનમાં કુશળ બનાવવાનો છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૨૦. ડેટા પ્રોસેસિંગ અને કમ્પ્યુટર સોફ્ટવેર ક્રાંતિમાં વિન્ડોઝ 95 (Windows 95) નું પ્રદાન શું ગણાય છે?", options: ["તેણે કમ્પ્યુટિંગને માત્ર વૈજ્ઞાનિક પ્રયોગશાળાઓ પૂરતું સીમિત કર્યું.", "તેણે ટાઈપિંગ, લખાણ સુધારણા અને ગ્રાફિકલ પ્રસ્તુતિને જીવંત બનાવી પ્રત્યાયનમાં ક્રાંતિ લાવી.", "તેણે હસ્તલિખિત પદ્ધતિઓને સંપૂર્ણપણે નષ્ટ કરી દીધી.", "તેણે અંગ્રેજી સિવાયની અન્ય ભાષાઓનો ઉપયોગ કાયમ માટે બંધ કર્યો."], ans: 1, exp: "બિલ ગેટ્સે Windows 95 આપ્યા પછી કમ્પ્યુટર દ્વારા લખાણ મઠારવા, સુધારવા અને ઝડપી ટાઈપિંગમાં જીવંતતા આવી. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૨૧. મોડ્યુલના દેશોના કોષ્ટક મુજબ કયા દેશમાં વસ્તીના 95% થી વધુ લોકો અંગ્રેજી બોલે છે?", options: ["ભારત અને જર્મની", "યુનાઇટેડ સ્ટેટ્સ (USA) અને યુનાઇટેડ કિંગડમ (UK)", "ફ્રાંસ અને ઇટાલી", "નાઇજીરીયા અને કેનેડા"], ans: 1, exp: "કોષ્ટક મુજબ USA માં 95.81% અને UK માં 97.74% લોકો અંગ્રેજી બોલે છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૨૨. અંગ્રેજી શિક્ષણમાં સર્ચ એન્જિન્સ (જેવા કે Google, Yahoo) ની ભૂમિકા કઈ છે?", options: ["તે શિક્ષણને કાગળ પૂરતું મર્યાદિત રાખે છે.", "તે માહિતીના સુપર હાઇવે તરીકે વૈશ્વિક જ્ઞાન, સંદર્ભો અને ઇ-સામગ્રી સુધી ત્વરિત પહોંચ પૂરી પાડે છે.", "તે વિદ્યાર્થીઓની મૌલિક વિચારસરણીને કુંઠિત કરે છે.", "તે માત્ર મનોરંજનનું સાધન છે."], ans: 1, exp: "ઇન્ટરનેટ એ માહિતીનો સુપર હાઇવે છે અને સર્ચ એન્જિન વિદ્યાર્થીઓ તથા શિક્ષકોને ક્ષણભરમાં વૈશ્વિક જ્ઞાનભંડાર પૂરો પાડે છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૨૩. કોઈપણ નવી ભાષાના પ્રારંભિક અધ્યયનમાં કુદરતી ક્રમ (Natural Order) કયો સ્વીકારાયેલ છે?", options: ["Reading -> Writing -> Listening -> Speaking", "Listening -> Speaking -> Reading -> Writing (LSRW)", "Writing -> Reading -> Speaking -> Listening", "Speaking -> Listening -> Writing -> Reading"], ans: 1, exp: "ભાષા સંપાદનનો કુદરતી ક્રમ શ્રવણ (L), કથન (S), વાચન (R) અને લેખન (W) છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૨૪. વૈશ્વિક ભાષા (Global Language) બનવા માટે નીચેનામાંથી કઈ શરત સૌથી અનિવાર્ય છે?", options: ["તે ભાષા માત્ર મૂળ વતનીઓ દ્વારા જ શુદ્ધ રૂપે બોલાતી હોવી જોઈએ.", "તે ભાષા વિશ્વના મોટાભાગના પ્રદેશોમાં આંતરરાષ્ટ્રીય સંપર્ક, વેપાર અને શિક્ષણ માટે સ્વીકૃત હોવી જોઈએ.", "તેમાં પ્રાચીન ધાર્મિક ગ્રંથોની રચના થયેલી હોવી જોઈએ.", "તે માત્ર એક જ ખંડ પૂરતી બોલાતી હોવી જોઈએ."], ans: 1, exp: "Global Language સમગ્ર વિશ્વમાં પ્રથમ, દ્વિતીય કે વિદેશી ભાષા તરીકે બહોળા પ્રમાણમાં પ્રત્યાયન માટે વપરાય છે. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 1: English Language and Its Scope", q: "૨૫. 'Reading is a process of reasoning' - આ વાચન કૌશલ્ય સંબંધિત વ્યાખ્યા કોણે આપી છે?", options: ["E. L. Thorndike", "E. A. Betts", "Francis Bacon", "David Crystal"], ans: 0, exp: "મોડ્યુલના પેજ ૭/૧૦ પર સ્પષ્ટ નિર્દેશ છે: 'According to E.L. Thorndike, Reading is a process of reasoning'. (પ્રકરણ: Unit - 1 English Language and Its Scope)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૨૬. મનોવૈજ્ઞાનિક ટેલર (Taylor) ના મતે શ્રવણ અધ્યયન પ્રક્રિયા (Listening learning process) ના ત્રણ ક્રમિક તબક્કા કયા છે?", options: ["Hearing -> Attention -> Speaking", "Hearing -> Listening -> Cognition", "Receiving -> Decoding -> Translating", "Listening -> Remembering -> Responding"], ans: 1, exp: "ટેલરના મતે ત્રણ તબક્કા છે: (1) Hearing (2) Listening (3) Cognition (માનસિક અર્થબોધ). (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૨૭. શ્રવણ પ્રક્રિયાના વૈજ્ઞાનિક મોડેલ (Aural-Oral Process) માં 'Input -> Process -> Output' ના ક્રમમાં ઘટકોનું કયું જોડકું સાચું છે?", options: ["Encoding -> Processing -> Decoding", "Decoding (Listener receives message) -> Understanding (Brain processes) -> Response (Verbal/Non-verbal)", "Articulation -> Selection -> Motivation", "Hearing -> Speaking -> Writing"], ans: 1, exp: "શ્રવણ પ્રક્રિયામાં ઇનપુટ તરીકે શ્રાવ્ય સંદેશ ગ્રહણ (Decoding), પ્રોસેસમાં મગજ દ્વારા સમજ (Understanding) અને આઉટપુટમાં પ્રતિભાવ (Response) આવે છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૨૮. કથન પ્રક્રિયા (Speaking Process) ના ત્રણ તબક્કાઓમાં 'Selection' તબક્કે મગજ કયું કાર્ય કરે છે?", options: ["બાહ્ય અવાજ સાંભળવાનું કાર્ય કરે છે.", "ભાષાકીય અને માહિતી સંકલન (Linguistic & information processing) કરી યોગ્ય શબ્દો પસંદ કરે છે.", "વાણીના અવયવો દ્વારા હવા બહાર ફેંકે છે.", "કાગળ પર સંકેતો અંકિત કરે છે."], ans: 1, exp: "Speaking process ના ત્રણ તબક્કા છે: Source (પ્રેરણા) -> Selection (મગજ ભાષાકીય પ્રક્રિયા કરી મેસેજ પસંદ કરે) -> Encode (વાણી અવયવોને આદેશ આપી ઉચ્ચારણ). (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૨૯. માનવ ધ્વનિ ઉત્પાદન યંત્ર (Speech Mechanism) ના ત્રણ મુખ્ય તંત્રો પૈકી 'Phonatory System' (ધ્વનિતંત્ર) માં કયા વિશિષ્ટ અંગનો સમાવેશ થાય છે?", options: ["Lungs (ફેફસાં) અને પાંસળીના સ્નાયુઓ", "Larynx (Voice box / સ્વરપેટી)", "Palate (તાળવું) અને જીભ", "Teeth (દાંત) અને હોઠ"], ans: 1, exp: "Respiratory System માં ફેફસાં/સ્નાયુ, Phonatory System માં સ્વરપેટી (Larynx/Voice box) અને Articulatory System માં જીભ, દાંત, હોઠ, તાળવું આવે છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૩૦. ધ્વનિશાસ્ત્ર (Phonology) અનુસાર અંગ્રેજી ભાષામાં શુદ્ધ સ્વરો (Pure Vowels) ની કુલ સંખ્યા કેટલી છે?", options: ["૫", "૮", "૧૨", "૨૦"], ans: 2, exp: "અંગ્રેજી વર્ણમાળામાં સ્વર અક્ષરો ૫ છે, પરંતુ ધ્વનિશાસ્ત્ર મુજબ Pure Vowels (મોનોફ્થોંગ્સ) ની સંખ્યા ૧૨ છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૩૧. સ્વરધ્વનિ (Vowel Sound) ની સાચી વૈજ્ઞાનિક લાક્ષણિકતા કઈ છે?", options: ["તે ફેફસાંમાંથી બહાર નીકળતી હવાને મુખગુહામાં સંપૂર્ણ રોકીને ઉત્પન્ન થાય છે.", "ફેફસાંમાંથી નીકળતી હવા કોઈપણ પ્રકારના શ્રાવ્ય ઘર્ષણ કે અવરોધ (without any obstacle/friction) વિના મુક્ત રીતે બહાર નીકળે છે.", "તે માત્ર દાંત અને હોઠના સ્પર્શથી જ બોલાય છે.", "તેમાં સ્વરતંતુઓમાં કોઈ કંપન થતું નથી."], ans: 1, exp: "'Vowel sounds are sounds produced freely without any obstacle in the path of air coming out from the lungs.' (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૩૨. વ્યંજન ધ્વનિઓ (Consonant Sounds) નું વર્ગીકરણ મુખ્યત્વે કયા બે માપદંડોના આધારે કરવામાં આવે છે?", options: ["ઉચ્ચારણ સ્થાન (Place of articulation) અને ઉચ્ચારણ રીત (Manner of articulation)", "સ્વરોની સંખ્યા અને શબ્દની લંબાઈ", "ભાષાની પ્રાચીનતા અને લિપિ", "બોલનારની ઉંમર અને અવાજની પીચ"], ans: 0, exp: "Consonants are categorized according to their place of articulation and manner of articulation. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૩૩. વર્ગખંડમાં 'Patch-work Listening' પ્રવૃત્તિનો મૂળભૂત હેતુ શું છે?", options: ["વિદ્યાર્થીઓ પાસે ગીતો ગવડાવવા", "ઘોંઘાટ અને ગેપ વચ્ચેથી સાચો અર્થ ઉકેલવાની સૂક્ષ્મ શ્રવણ ક્ષમતા વિકસાવવી", "વિદ્યાર્થીઓના અક્ષરો સુધારવા", "ઝડપથી વાચન કરાવવું"], ans: 1, exp: "Patch-work listening માં બેકગ્રાઉન્ડ અવાજ અને ગેપ સાથે ઓડિયો સંભળાવી વિદ્યાર્થીઓમાં સંદર્ભ આધારિત અર્થગ્રહણ વિકસાવાય છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૩૪. વર્ગખંડમાં અંગ્રેજી ઉચ્ચારણ, રિધમ અને સ્ટ્રેસના મહાવરા માટે વપરાતી 'Listen and Repeat' પ્રવૃત્તિનું ઉત્તમ ઉદાહરણ કયું છે?", options: ["Silent Reading", "Tongue Twisters", "Essay Writing", "Note-taking"], ans: 1, exp: "મોડ્યુલ મુજબ Tongue Twisters એ વિશિષ્ટ ધ્વનિઓના મહાવરા અને રિધમ માટે ઉત્તમ 'Listen and Repeat' પ્રવૃત્તિ છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૩૫. 'Raja Says' રમત એ ભાષા શિક્ષણમાં કયા પ્રકારની પ્રવૃત્તિ છે?", options: ["Read and write activity", "Listen and do activity", "Silent reflection activity", "Free writing activity"], ans: 1, exp: "'Raja Says' એ વર્ગખંડ સૂચનાઓનું શ્રવણ કરી તે મુજબ શારીરિક ક્રિયા કરવાની (Listen and Do) પ્રવૃત્તિ છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૩૬. પ્રાથમિક કક્ષાએ શ્રવણ અને કથન કૌશલ્યના સહજ વિકાસ માટે 'Rhymes' (જોડકણાં/કાવ્યો) શા માટે સૌથી વધુ અસરકારક માધ્યમ ગણાય છે?", options: ["તે બાળકોને આનંદ સાથે લય, તાલ (Speech rhythm) અને અંગ્રેજી ધ્વનિઓથી પરિચિત કરાવે છે.", "અભિનય ગીતો (Action rhymes) દ્વારા શબ્દો અને અર્થ વચ્ચે સીધો સંબંધ સ્થપાય છે.", "બાળકો તણાવમુક્ત વાતાવરણમાં સમૂહગાન દ્વારા બોલતા શીખે છે.", "ઉપરોક્ત તમામ સાચાં છે."], ans: 3, exp: "Rhymes નાના બાળકોને આનંદ, રિધમ, ધ્વનિ પરિચય અને શારીરિક હાવભાવ દ્વારા ભાષા આત્મસાત કરાવે છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૩૭. વાસ્તવિક જીવન પરિસ્થિતિઓ (Real-life situations) માં પ્રત્યાયન કૌશલ્ય સુધારવા માટે નીચેનામાંથી કઈ પદ્ધતિ સૌથી ઝડપી પરિણામ આપે છે?", options: ["વ્યાકરણના નિયમો ગોખવા", "નાટ્યીકરણ / ભૂમિકા ભજવણી (Role Play)", "શબ્દકોશમાંથી અર્થ શોધવા", "પાઠનું મૌન વાચન કરવું"], ans: 1, exp: "મોડ્યુલ મુજબ: 'Role play is a fast way to improve speaking and listening for real life situation.' (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૩૮. ટેલિફોનિક સંવાદમાં વપરાતા Phrasal Verb 'Get through' નો સાચો અર્થ શું થાય છે?", options: ["ફોન પર પ્રતિક્ષા કરવી (To wait on the phone)", "ફોન દ્વારા કોઈ વ્યક્તિ સાથે સંપર્ક સાધવો/જોડાવું (To reach someone by phone)", "પરત ફોન કરવો (To return call)", "કોલ કાપી નાખવો (To disconnect call)"], ans: 1, exp: "મોડ્યુલના Task-5 મુજબ 'Get through' એટલે 'To reach someone by phone'. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૩૯. શિક્ષક વર્ગખંડમાં સત્રની શરૂઆતમાં 'Open your books at page 10' કહે છે, આ કયા પ્રકારની ભાષાકીય સૂચના છે?", options: ["Language for evaluation", "Classroom Instruction at the beginning of a session", "Language for casual gossip", "Concluding remark"], ans: 1, exp: "મોડ્યુલના પેજ ૧૮ મુજબ આ સત્ર શરૂ કરતી વખતે વપરાતી સામાન્ય વર્ગખંડ સૂચના છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૪૦. કથન કૌશલ્યમાં 'સંભાષણ' (Speaking) ને માત્ર 'વાતો કરવી' (Talking) કરતાં વિશિષ્ટ કેમ ગણવામાં આવે છે?", options: ["સંભાષણમાં કોઈ વ્યાકરણ હોતું નથી.", "સંભાષણમાં ચિંતન, કલ્પના, સંવેદનશીલતા અને શ્રોતાના પ્રતિભાવ (Response) નો સમાવેશ થાય છે.", "સંભાષણ માત્ર ઔપચારિક મંચ પર જ શક્ય છે.", "તેમાં માત્ર અવાજની તીવ્રતા મહત્વની છે."], ans: 1, exp: "મોડ્યુલ મુજબ: 'Speaking is more than talking. It involves thinking, imagination and sensitiveness in listening and understanding.' (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૪૧. 'I fully agree with you' આ વાક્ય પ્રત્યાયનમાં કયા પ્રકારનો ભાવ દર્શાવે છે?", options: ["Apologizing (માફી માંગવી)", "Agreeing / Supporting other's opinion (સંમતિ દર્શાવવી)", "Making a request (વિનંતી કરવી)", "Expressing disapproval (અસંમતિ દર્શાવવી)"], ans: 1, exp: "મોડ્યુલના Task-12 ના ટેબલ મુજબ આ અભિવ્યક્તિ બીજાના વિચારનું સમર્થન કે સંમતિ દર્શાવવા વપરાય છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૪૨. બાળક શાળામાં પોતાના શૈક્ષણિક સમયનો આશરે કેટલો હિસ્સો શ્રવણ પ્રવૃત્તિમાં વ્યતીત કરે છે?", options: ["ચોથો ભાગ (૨૫%)", "અડધો ભાગ (૫૦%)", "પોણો ભાગ (આશરે ૭૫%)", "દસમો ભાગ (૧૦%)"], ans: 2, exp: "મોડ્યુલ મુજબ: 'શાળામાં વિદ્યાર્થી લગભગ પોણા ભાગનો સમય શ્રવણમાં વ્યતિત કરે છે.' (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૪૩. વાર્તાકથન (Story-Telling) પ્રવૃત્તિ ભાષા શિક્ષણમાં શા માટે સવિશેષ મહત્વ ધરાવે છે?", options: ["તે શિક્ષણનું સૌથી પ્રાચીન અને અસરકારક સાધન છે.", "તે બાળકના કલ્પનાજગત અને શબ્દભંડોળને અત્યંત સમૃદ્ધ બનાવે છે.", "તે શ્રવણ અને કથન બંને કૌશલ્યોનો સમન્વય સાધે છે.", "ઉપરોક્ત તમામ વિધાનો સત્ય છે."], ans: 3, exp: "વાર્તાકથન સૌથી જૂનું અને ઉત્તમ સાધન છે જે કલ્પનાશક્તિ, શ્રવણ-કથન અને શબ્દભંડોળ ખીલવે છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૪૪. માનવ શરીરના નીચેના અંગો પૈકી કયું અંગ 'Articulatory System' (ઉચ્ચારણતંત્ર) નું નથી?", options: ["Tongue (જીભ)", "Palate (તાળવું)", "Lungs (ફેફસાં)", "Lips (હોઠ)"], ans: 2, exp: "Lungs એ Respiratory System (શ્વસનતંત્ર) નું અંગ છે, ઉચ્ચારણતંત્રનું નહીં. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૪૫. જો કોઈ વક્તા વાતચીત દરમિયાન અટકાવવા (Interrupt કરવા) માંગતો હોય, તો શિષ્ટ ભાષામાં કયો પ્રયોગ યોગ્ય ગણાય?", options: ["Shut up and listen to me", "Stop talking immediately", "Excuse me, before you go on, could I...?", "You are completely wrong"], ans: 2, exp: "શિષ્ટ સંભાષણમાં ચર્ચા દરમિયાન મુદ્દો મૂકવા કે અટકાવવા માટે 'Excuse me, before you go on, could I...' વપરાય છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૪૬. પ્રત્યક્ષીકરણ (Perception) ના મનોવૈજ્ઞાનિક સિદ્ધાંત મુજબ શ્રવણ પ્રક્રિયા ક્યારે પૂર્ણ ગણાય?", options: ["જ્યારે માત્ર અવાજના તરંગો કાનના પડદા સાથે અથડાય ત્યારે", "જ્યારે સાંભળેલા ધ્વનિઓ અને શબ્દોની મગજમાં શ્રાવ્ય છાપ ઊભી થઈ ચોક્કસ અર્થઘટન થાય ત્યારે", "જ્યારે વ્યક્તિ અવાજ સાંભળીને આંખો બંધ કરે ત્યારે", "જ્યારે અવાજ અત્યંત મોટો હોય ત્યારે"], ans: 1, exp: "સાંભળેલા ઉચ્ચારણો અને શબ્દોની શ્રાવ્ય છાપોનું પ્રત્યક્ષીકરણ થાય તો જ અર્થઘટન કે અર્થગ્રહણ થાય છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૪૭. ટેલિફોનિક વાતચીતમાં 'Hold on' નો વ્યવહારુ ઉપયોગ કયા સંદર્ભે થાય છે?", options: ["ફોન મુકી દેવો", "લાઈન પર થોડીવાર પ્રતિક્ષા કરવી (To wait on the phone)", "ફોન સ્પીકર પર રાખવો", "નંબર બ્લોક કરવો"], ans: 1, exp: "'Hold on' અથવા 'Hang on' નો અર્થ ફોન પર થોડીવાર રાહ જોવી (To wait on the phone) થાય છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૪૮. 'Good speaking skill is an outcome of ________.'", options: ["Good reading", "Good writing", "Good listening", "Good grammar"], ans: 2, exp: "મોડ્યુલ મુજબ: 'Good speaking skill is an outcome of good listening.' સારું શ્રવણ એ સારા કથનની જનની છે. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૪૯. ભાષા શિક્ષણમાં રમતો (Language Games) ની ઉપયોગિતા સંદર્ભે કયું વિધાન સાચું છે?", options: ["તે શિક્ષણ કાર્યમાં અનિચ્છનીય વિક્ષેપ પાડે છે.", "તે અધ્યેતાઓમાં ભાષા શીખવાનો રસ અને આત્મવિશ્વાસ લાંબા સમય સુધી જાળવી રાખે છે.", "તેનાથી માત્ર શારીરિક કસરત થાય છે, ભાષા વિકાસ થતો નથી.", "તેનો ઉપયોગ માત્ર રમતના તાસમાં જ થવો જોઈએ."], ans: 1, exp: "Games create meaningful contexts, sustain interest, and develop self-confidence in all language skills. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 2: Listening and Speaking Skill", q: "૫૦. કથન કૌશલ્યના શિક્ષણમાં શિક્ષકની ભૂમિકા શું હોવી જોઈએ?", options: ["વિદ્યાર્થીઓને સતત વ્યાકરણની ભૂલો માટે ટોકવા", "વર્ગખંડમાં મુક્ત, સહજ અને ભયમુક્ત પ્રત્યાયનની વિપુલ તકો પૂરી પાડવી", "માત્ર પોતે જ આખો તાસ બોલતા રહેવું", "વિદ્યાર્થીઓને માત્ર પુસ્તકમાંથી વાક્યો બોલવા ફરજ પાડવી"], ans: 1, exp: "શિક્ષકે વિવિધ પ્રવૃત્તિઓ, સંવાદો અને ભૂમિકા ભજવણી દ્વારા વિદ્યાર્થીઓને ભયમુક્ત બની બોલવાની તકો આપવી જોઈએ. (પ્રકરણ: Unit - 2 Listening and Speaking Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૫૧. ભાષા કૌશલ્યોના વર્ગીકરણ અનુસાર નીચેનામાંથી કઈ જોડી સાચી છે?", options: ["Receptive: Listening & Reading | Productive: Speaking & Writing", "Receptive: Speaking & Writing | Productive: Listening & Reading", "Receptive: Listening & Speaking | Productive: Reading & Writing", "Receptive: Reading & Writing | Productive: Listening & Speaking"], ans: 0, exp: "શ્રવણ અને વાચન એ અર્થગ્રહણ (Receptive/Input) કૌશલ્યો છે, જ્યારે કથન અને લેખન એ અભિવ્યક્તિ (Productive/Output) કૌશલ્યો છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૫૨. વાચન કૌશલ્ય (Reading Skill) ની સાચી સંકલ્પના કઈ છે?", options: ["મુદ્રિત શબ્દોના સ્પેલિંગ અને ઉચ્ચારો સડસડાટ બોલી જવા", "માત્ર આંખો દ્વારા અક્ષરોની છાપ ઝીલવી", "મુદ્રિત સામગ્રી સાથે પૂર્વજ્ઞાન અને અનુભવોની આંતરક્રિયા કરી સાચો અર્થ તારવવો (Comprehending from print)", "દરેક અક્ષર ઓળખી મોટેથી બૂમ પાડવી"], ans: 2, exp: "Recognizing every word does not mean reading has taken place. Only comprehension is reading. વાચન એ આંતરક્રિયાત્મક અર્થગ્રહણ છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૫૩. જો બે અલગ અલગ વ્યક્તિ એક જ ફકરો વાંચીને પોતાની રીતે જુદો જુદો અર્થ તારવે, તો વાચન વિજ્ઞાન અનુસાર શું કહી શકાય?", options: ["બંનેમાંથી કોઈ એક વ્યક્તિ ચોક્કસ ખોટી જ છે.", "બંને વ્યક્તિઓ સાચી હોઈ શકે છે, કારણ કે વાચક પોતાના અનુભવો અને પૂર્વજ્ઞાનના આધારે વ્યક્તિગત અર્થ નિર્માણ કરે છે.", "ફકરો વ્યાકરણની દ્રષ્ટિએ દોષયુક્ત છે.", "વાચન પ્રક્રિયા નિષ્ફળ ગઈ છે."], ans: 1, exp: "મોડ્યુલના ચેક યોર પ્રોગ્રેસ મુજબ વાચક પોતાના સંદર્ભ અને અનુભવો મુજબ અર્થનું સર્જન કરે છે, જેથી બંનેના અર્થઘટનો સાચા હોઈ શકે છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૫૪. 'Reading a language is the magic door to enter in the world of knowledge' - આ વિધાન કોનું છે?", options: ["Sir Arthur Conan Doyle", "Sir Artherkn", "Francis Bacon", "E. A. Betts"], ans: 1, exp: "મોડ્યુલના પેજ ૩૦ મુજબ: 'According to Sir Artherkn, Reading a language is the magic door to enter in the world of knowledge'. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૫૫. વાચન વિજ્ઞાન (Mechanics of Reading) માં 'Fixation' શબ્દનો અર્થ શું થાય છે?", options: ["વાંચતી વખતે આંખો પુસ્તક પર સ્થિર ન રહેવી", "વાંચતી વખતે આંખ શબ્દ કે શબ્દસમૂહ પર ક્ષણિક સ્થિર થઈ અર્થ ઝીલે તે વિરામબિંદુ", "વારંવાર અગાઉ વંચાઈ ગયેલા શબ્દ પર પાછા ફરવું", "પુસ્તકના પાનાં પલટાવવાની પ્રક્રિયા"], ans: 1, exp: "વાચન દરમિયાન આંખ સતત સરકતી નથી પણ કૂદકા મારી ચોક્કસ શબ્દ પર ક્ષણભર સ્થિર થાય છે જેને Fixation કહે છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૫૬. વાચન કરતી વખતે વાચકની આંખ અજાણતાં ફરીથી પાછલા વંચાઈ ગયેલા શબ્દ પર પાછી જાય તે દોષપૂર્ણ ક્રિયાને શું કહે છે?", options: ["Return sweep", "Regression", "Fixation", "Note-taking"], ans: 1, exp: "Regression એટલે વાંચતી વખતે વારંવાર પાછળ જવું, જે વાચનની ઝડપ ઘટાડે છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૫૭. લીટીના અંતે પહોંચ્યા પછી આંખ બીજી લીટીના પ્રથમ શબ્દ તરફ ઝડપથી પાછી ફરે તે શારીરિક હલનચલનને શું કહે છે?", options: ["Regression", "Return Sweep", "Interfixation", "Sub-vocalization"], ans: 1, exp: "લીટી પૂરી થતાં ડાબી બાજુ નવી લીટીની શરૂઆતમાં આંખનું પરત આવવું તે 'Return Sweep' કહેવાય છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૫૮. નીચેના પૈકી મુખવાચન (Reading Aloud) નો મુખ્ય ઉદ્દેશ કયો છે?", options: ["ઊંડાણપૂર્વકનું ગહન ચિંતન કરવું", "ભાષાના આરોહ-અવરોહ (Intonation), ઉચ્ચારણ (Pronunciation), તાલ (Rhythm) અને ગતિની સુટેવ કેળવવી", "પુસ્તકાલયમાં અન્યને ખલેલ પહોંચાડ્યા વિના ઝડપથી વાંચવું", "પરીક્ષામાં સુવાચ્ય અક્ષરો લખવા"], ans: 1, exp: "મુખવાચનથી વિદ્યાર્થીઓમાં શુદ્ધ ઉચ્ચાર, આરોહ-અવરોહ, સ્ટ્રેસ અને સંભાષણનો આત્મવિશ્વાસ ખીલે છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૫૯. મૂકવાચન (Silent Reading) ના વિકાસ માટે નીચેના પૈકી કઈ ટેવને ટાળવી (Avoid કરવી) જોઈએ?", options: ["મનમાં અર્થ સમજવાનો પ્રયત્ન કરવો", "વાંચતી વખતે હોઠ ફફડાવવા (Lip movement), ગણગણાટ કરવો કે લીટી નીચે આંગળી/પેન રાખવી", "સમગ્ર ફકરાના સંદર્ભમાં અજાણ્યા શબ્દનો અર્થ તારવવો", "એકાગ્રતાપૂર્વક સળંગ વાંચન કરવું"], ans: 1, exp: "હોઠ ફફડાવવા, ગણગણાટ કે આંગળી રાખવાથી મૂકવાચનની ઝડપ અને અર્થગ્રહણ ઘટે છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૬૦. જીવનભર મનુષ્ય દ્વારા કરવામાં આવતું મોટાભાગનું વ્યવહારુ વાચન કયા પ્રકારનું હોય છે?", options: ["મુખવાચન (Reading aloud)", "મૂકવાચન (Silent reading)", "નાટકીય વાચન (Choral reading)", "શ્રુતવાચન (Dictated reading)"], ans: 1, exp: "વિદ્યાર્થીકાળ પછી અને પુખ્ત વયે રોજિંદા જીવનમાં ૯૫% થી વધુ વાચન મનમાં એટલે કે મૂકવાચન (Silent reading) જ હોય છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૬૧. વાચન કૌશલ્યના પેટા-કૌશલ્યો (Sub-skills) પૈકી 'Skimming' નો ચોક્કસ અર્થ શું થાય છે?", options: ["ચોક્કસ તારીખ કે ટેલિફોન નંબર શોધવો", "લખાણનો મુખ્ય વિચાર કે સારાંશ (Gist/Main idea) તારવવા માટે ઝડપથી ઉપરછલ્લું વાંચવું", "દરેક શબ્દનું વ્યાકરણ તપાસવું", "શબ્દકોશમાં જોડણી જોવી"], ans: 1, exp: "Skimming એટલે લખાણનો કેન્દ્રીય વિચાર કે સાર મેળવવા માટેનું ઝડપી વિહંગાવલોકન વાચન. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૬૨. ટેલિફોન ડિરેક્ટરીમાંથી મિત્રનો નંબર શોધવો અથવા ટાઈમટેબલમાંથી ટ્રેનનો સમય શોધવો એ કઈ વાચન પ્રયુક્તિનું ઉદાહરણ છે?", options: ["Skimming", "Scanning", "Intensive reading", "Loud reading"], ans: 1, exp: "ચોક્કસ માહિતી (Specific piece of information) શોધવા માટે કરવામાં આવતા લક્ષિત વાચનને Scanning કહેવાય છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૬૩. શાળા કે કૉલેજમાં 'English Reading Club' ની સ્થાપના પાછળનો મુખ્ય આશય કયો છે?", options: ["માત્ર અંગ્રેજી પુસ્તકો વેચવા માટે દુકાન ખોલવી", "વિદ્યાર્થીઓ અને શિક્ષકો નિયમિત વાંચન કરે, પુસ્તક સમીક્ષા કરે અને વાચન પ્રવૃત્તિઓનું આયોજન કરી ભાષા ક્ષમતા કેળવે", "વાર્ષિક પરીક્ષાના પેપરો તપાસવા", "માત્ર મૂક ફિલ્મ દર્શાવવી"], ans: 1, exp: "Reading club એ પુસ્તક સમીક્ષા, ચર્ચા અને વિવિધ વાચન સ્પર્ધાઓ દ્વારા વાંચન રસ અને કૌશલ્ય વિકસાવવાનું મંચ છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૬૪. વાચન દરમિયાન જ્યારે કોઈ અપરિચિત શબ્દ આવે ત્યારે આદર્શ વાચકે તત્કાલ શું કરવું જોઈએ?", options: ["વાંચન તરત જ બંધ કરી દેવું", "સમગ્ર વાક્ય અને સંદર્ભ (Context) પરથી શબ્દના અર્થનું અનુમાન (Guessing meaning) કરવાનો પ્રયત્ન કરવો", "પુસ્તકના પાના પર પેનથી છેકો મારી દેવો", "તે શબ્દ છોડીને આગળનો આખો પાઠ વાંચવાનું ટાળવું"], ans: 1, exp: "દરેક શબ્દ માટે શબ્દકોશ ખોલવાને બદલે સંદર્ભ પરથી અર્થ તારવવો (Contextual guessing) એ વાચનનું મહત્વનું પેટાકૌશલ્ય છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૬૫. મુખવાચન (Reading Aloud) કયા પ્રસંગે અનિવાર્ય અને ઉપયોગી સાબિત થાય છે?", options: ["જાહેર સભાઓ, અહેવાલ વાચન અને સૂચનાઓની જાહેરાત વખતે", "રાત્રે સૂતી વખતે શાંત રૂમમાં", "પરીક્ષાખંડમાં પેપર લખતી વખતે", "લાયબ્રેરીમાં સ્વ-અધ્યયન કરતી વખતે"], ans: 0, exp: "મોડ્યુલ મુજબ સભાઓ, મીટિંગો અને જાહેરાતોમાં અન્ય સુધી માહિતી પહોંચાડવા મુખવાચન અનિવાર્ય છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૬૬. અધ્યેતાની વાચન ગતિ (Reading Speed) વધારવા માટે નીચેનામાંથી કયો ઉપાય સૌથી વધુ કારગત છે?", options: ["શબ્દે-શબ્દ વાંચવાને બદલે અર્થસભર શબ્દસમૂહો (Phrase / Thought units) માં વાંચવાની ટેવ પાડવી", "મોટે મોટેથી બૂમો પાડીને વાંચવું", "લીટી પર આંગળી ફેરવતા જવું", "અક્ષરોની ગણતરી કરતા જવું"], ans: 0, exp: "Span of recognition વધારવાથી અને વિચાર એકમો (Thought units) માં વાંચવાથી વાચન ઝડપ અને અર્થગ્રહણ બંને વધે છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૬૭. 'Reading is an interactive process' - આ વિધાનનો સાચો ભાવાર્થ શું છે?", options: ["પુસ્તક વાચક સાથે સાચેસાચ વાતો કરવા લાગે છે.", "વાચક મુદ્રિત લખાણના સંકેતો અને પોતાના પૂર્વજ્ઞાન/અનુભવો વચ્ચે સક્રિય સંવાદ સાધી અર્થ નિષ્પન્ન કરે છે.", "બે વિદ્યાર્થીઓ સામસામે બેસીને વાતો કરે છે.", "કમ્પ્યુટર સ્ક્રીન ટચ કરવી."], ans: 1, exp: "There must be interaction between the reader and the text; the reader reconstructs the meaning using background knowledge. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૬૮. નીચેના પૈકી કઈ સામગ્રી સામાન્ય રીતે 'Reading Aloud' કરવા માટે સૌથી વધુ યોગ્ય છે?", options: ["લાયબ્રેરીનું મોટું પુસ્તક", "નોટિસ બોર્ડ પરની સૂચના કે નાટકનો સંવાદ", "સંશોધન નિબંધ (Research thesis)", "આર્થિક વાર્ષિક અહેવાલ (Annual Balance sheet)"], ans: 1, exp: "સંવાદો, કાવ્યો અને જાહેર નોટિસનું મુખવાચન અન્ય શ્રોતાઓ સુધી સંદેશ પહોંચાડવા માટે આદર્શ છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૬૯. વાચન ક્ષમતા કેળવવા માટેના ચાર મુખ્ય પ્રયોજનો (Reasons for reading) કયા છે?", options: ["To sleep, to pass time, to copy, to forget", "For pleasure, to enjoy, to enrich and to be well informed", "For argument, for fighting, for money, for status", "Only for examination, only for degree, only for job, only for teacher"], ans: 1, exp: "મોડ્યુલ મુજબ: 'There are four reasons for developing reading abilities: We read for pleasure, to enjoy, to enrich and to be well informed.' (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૭૦. શિક્ષકે પ્રાથમિક કક્ષાએ વાચન શીખવતી વખતે 'Phonic Method' નો ઉપયોગ શા માટે કરવો જોઈએ?", options: ["જેથી બાળક અક્ષરો અને તેના વિશિષ્ટ ધ્વનિ સંકેતો વચ્ચેનો સંબંધ સમજી ઉચ્ચાર કરી શકે.", "જેથી બાળક આખો શબ્દ ગોખી નાખે.", "જેથી બાળકને ચિત્ર દોરતાં આવડે.", "જેથી બાળક વ્યાકરણના નિયમો લખી શકે."], ans: 0, exp: "ફોનિક મેથડથી મૂળાક્ષરોના ધ્વનિ (Sounds) સ્પષ્ટ થાય છે જે શુદ્ધ વાચનનો પાયો છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૭૧. નીચેના પૈકી કયું વાચન 'Intensive Reading' (ગહન વાચન) નું ઉદાહરણ છે?", options: ["રેલવે સ્ટેશન પર સમય પસાર કરવા મેગેઝિનનાં પાનાં ઉથલાવવાં", "પાઠ્યપુસ્તકના પાઠની વિગતો, વ્યાકરણ અને અર્થબોધ માટેનું ઝીણવટભર્યું વાચન", "રસ્તા પરના હોર્ડિંગ્સ વાંચવા", "છાપામાં ક્રિકેટ સ્કોર જોવો"], ans: 1, exp: "Intensive reading એટલે ભાષાકીય ઘટકો, વ્યાકરણ અને ઊંડા અર્થગ્રહણ માટે વર્ગખંડમાં કરાતું ઝીણવટભર્યું વાચન. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૭૨. 'Extensive Reading' (વિસ્તૃત/ઇતર વાચન) નો મુખ્ય હેતુ શો હોય છે?", options: ["આનંદ મેળવવો (Reading for pleasure) અને વાચન ટેવનો સામાન્ય વિકાસ કરવો", "દરેક વાક્યનું વ્યાકરણ પૃથક્કરણ કરવું", "સ્પેલિંગની પરીક્ષા આપવી", "એક જ પાનું દિવસભર વાંચવું"], ans: 0, exp: "વાર્તાપુસ્તકો, નવલકથા વગેરેનું આનંદ અને સામાન્ય જ્ઞાન માટે થતું બહોળું વાચન Extensive reading છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૭૩. વાચન દરમિયાન 'Sub-vocalization' એટલે શું?", options: ["ખૂબ જોરથી લાઉડસ્પીકરમાં વાંચવું", "મૂકવાચન વખતે મનોમન અથવા ગળામાં આંતરિક ગણગણાટ સાથે શબ્દો બોલવા", "આંખો બંધ કરીને સાંભળવું", "પુસ્તક ઊંધું પકડવું"], ans: 1, exp: "Sub-vocalization એ મૂકવાચનમાં આંતરિક ઉચ્ચારણ કરવાની ટેવ છે, જે વાચનની સ્પીડ ઘટાડે છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૭૪. 'Local Comprehension' અને 'Global Comprehension' માં શું તફાવત છે?", options: ["Local એટલે પોતાના ગામ વિશે વાંચવું, Global એટલે વિદેશ વિશે વાંચવું.", "Local એટલે વાક્ય કે વિશિષ્ટ વિગતનું ચોક્કસ અર્થગ્રહણ, જ્યારે Global એટલે સમગ્ર લખાણના કેન્દ્રીય વિચારનું વ્યાપક અર્થગ્રહણ.", "Local મુખવાચન છે, Global મૂકવાચન છે.", "બંને વચ્ચે કોઈ તફાવત નથી."], ans: 1, exp: "Local comprehension ચોક્કસ હકીકતો ઝીલે છે, જ્યારે Global comprehension સમગ્ર ફકરા કે લખાણનો મુખ્ય સારાંશ સમજે છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 3: Reading Skill", q: "૭૫. વાચન કૌશલ્ય શીખવવામાં શિક્ષક દ્વારા પ્રારંભમાં અપાતા 'Pre-reading activities' નો હેતુ શો હોય છે?", options: ["વિદ્યાર્થીઓનું મૂલ્યાંકન કરી ગુણ આપવા", "વિદ્યાર્થીઓના પૂર્વજ્ઞાન (Schema) ને જાગ્રત કરવું અને વાચન માટે જિજ્ઞાસા ઊભી કરવી", "વિદ્યાર્થીઓને વર્ગખંડમાંથી બહાર મોકલવા", "પાઠના તમામ જવાબો સીધા બોર્ડ પર લખાવી દેવા"], ans: 1, exp: "પૂર્વ-વાચન પ્રવૃત્તિઓ વિદ્યાર્થીઓને પાઠના વિષયવસ્તુ સાથે માનસિક રીતે જોડે છે અને રસ ઉત્પન્ન કરે છે. (પ્રકરણ: Unit - 3 Reading Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૭૬. લેખન કૌશલ્યના પ્રકારોના સંદર્ભમાં 'શિક્ષક-કેન્દ્રી' (Teacher-centered) પ્રકાર કયો ગણાય છે?", options: ["Free Writing (મુક્ત લેખન)", "Controlled Writing (નિયંત્રિત લેખન - જેમ કે અનુલેખન અને શ્રુતલેખન)", "Creative Writing (સર્જનાત્મક લેખન)", "Independent Essay Writing"], ans: 1, exp: "Controlled Writing માં વિદ્યાર્થી માત્ર અનુકરણ કરે છે અને સંપૂર્ણ નિયંત્રણ શિક્ષકના હાથમાં હોય છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૭૭. શિક્ષક વિદ્યાર્થીઓને નિબંધ કે ફકરાલેખન માટે માત્ર મુદ્દાઓ (Points/Outlines) આપે છે અને વિદ્યાર્થીઓ તેના આધારે વાક્યરચના કરે છે, આ કયા પ્રકારનું લેખન છે?", options: ["Controlled Writing", "Guided Writing (માર્ગદર્શિત લેખન)", "Free Writing", "Transcription"], ans: 1, exp: "શિક્ષક સહાયકની ભૂમિકા ભજવી મુદ્દા પૂરા પાડે અને તેના આધારે વિદ્યાર્થીઓ લખાણ કરે તેને Guided Writing કહેવાય છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૭૮. મુક્ત લેખન (Free Writing) ની મુખ્ય લાક્ષણિકતા કઈ છે?", options: ["શિક્ષકે બોર્ડ પર લખેલા વાક્યો બેઠા ઉતારવા", "વ્યાકરણની ભૂલોના ભય વિના આપેલા વિષય પર પોતાની મરજી મુજબ મૌલિક વિચારો અને શબ્દોમાં લેખિત અભિવ્યક્તિ કરવી", "માત્ર એક જ શબ્દ વારંવાર લખવો", "ચોક્કસ ખાલી જગ્યાઓ પૂરવી"], ans: 1, exp: "Free writing માં વિદ્યાર્થીને શબ્દભંડોળ, વાક્યરચના અને વિચારોની સંપૂર્ણ સ્વાયત્તતા હોય છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૭૯. અનુલેખન (Transcription) અને શ્રુતલેખન (Dictation) વચ્ચેનો મૂળભૂત તફાવત કયો છે?", options: ["Transcription માં શ્રવણ કૌશલ્ય સંકળાયેલું છે, જ્યારે Dictation માં વાચન કૌશલ્ય.", "Transcription જોઈ જોઈને લખવાની પ્રક્રિયા છે જેમાં વાચન-લેખન જોડાય છે; જ્યારે Dictation સાંભળીને લખવાની પ્રક્રિયા છે જેમાં શ્રવણ-લેખન જોડાય છે.", "બંને પદ્ધતિઓમાં વિદ્યાર્થી માત્ર ચિત્રો દોરે છે.", "Transcription મુક્ત લેખન છે, જ્યારે Dictation માર્ગદર્શિત લેખન છે."], ans: 1, exp: "અનુલેખન જોઈને (વાચન આધારિત) અને શ્રુતલેખન સાંભળીને (શ્રવણ આધારિત) શુદ્ધ જોડણી અને અક્ષર સુધારણા માટે થાય છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૮૦. સારા હસ્તાક્ષરો (Good Handwriting) ના લક્ષણો પૈકી 'Distinctiveness' (અનન્યતા/વિશિષ્ટતા) નો અર્થ શું છે?", options: ["બધા જ અક્ષરો એકબીજા જેવા દેખાવા", "દરેક મૂળાક્ષરનો પોતાનો આગવો મરોડ અને ઓળખ સ્પષ્ટ હોવી (દા.ત. p અને b, b અને d, M અને W વચ્ચે સ્પષ્ટ ભેદ દેખાવો)", "અક્ષરો ખૂબ નાના લખવા", "શાહી ઢોળાયેલી હોવી"], ans: 1, exp: "Distinctiveness એટલે પ્રત્યેક મૂળાક્ષરની આગવી લાક્ષણિકતા જે અન્ય મૂળાક્ષર સાથે ભળી ન જાય. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૮૧. વિરામચિહ્નો (Punctuation Marks) ના સંદર્ભે 'A woman! without her, man is nothing' અને 'A woman, without her man, is nothing' - આ ઉદાહરણ શું સાબિત કરે છે?", options: ["અંગ્રેજીમાં વિરામચિહ્નો બિનજરૂરી છે.", "વિરામચિહ્નનું સ્થાન બદલાતાં વાક્યનો સમગ્ર અર્થ સંપૂર્ણપણે બદલાઈ જાય છે.", "બંને વાક્યો એક જ સમાન અર્થ દર્શાવે છે.", "અંગ્રેજી વ્યાકરણમાં અલ્પવિરામનો કોઈ નિયમ નથી."], ans: 1, exp: "વિરામચિહ્નનું સ્થાન વાક્યના સમગ્ર સંદર્ભ અને અર્થઘટનને ધરમૂળથી બદલી નાખે છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૮૨. પૂર્વ-લેખન તબક્કા (Pre-writing stage) માં 'Brainstorming' અને 'Word Web' પ્રવૃત્તિ કરાવવાનો મુખ્ય હેતુ કયો છે?", options: ["વિદ્યાર્થીઓને લેખન વિષય સાથે જોડાયેલા શબ્દો, વિચારો અને પેટામુદ્દાઓનું સર્જન તથા સંકલન કરાવવું", "વિદ્યાર્થીઓને વર્ગમાં શાંત બેસાડી રાખવા", "બોર્ડ પરથી સીધો ફકરો ગોખાવી દેવો", "વિદ્યાર્થીઓની બોલપેનની ચકાસણી કરવી"], ans: 0, exp: "Word web અને Brainstorming દ્વારા વિષય સંલગ્ન શબ્દભંડોળ એકત્ર થાય છે અને વિચારોનું તાર્કિક વર્ગીકરણ સરળ બને છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૮૩. ફકરાલેખનના સામાન્ય નિયમો મુજબ, જો કોઈ 'મુલાકાત' (Visit to a Science Fair) કે 'ઘટના' (Event) વિશે લખવાનું હોય, તો તે મુખ્યત્વે કયા કાળમાં લખાય છે?", options: ["સાદો ભવિષ્યકાળ (Simple Future Tense)", "ભૂતકાળ (Past Tense)", "ચાલુ વર્તમાનકાળ (Present Continuous Tense)", "પૂર્ણ ભવિષ્યકાળ (Future Perfect Tense)"], ans: 1, exp: "કોઈપણ મુલાકાત (Visit) કે ભૂતકાળમાં બનેલી ઘટના (Event) નું વર્ણન હંમેશાં ભૂતકાળમાં (Past tense) થાય છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૮૪. જો કોઈ 'તહેવાર' (Festival) કે સામાન્ય 'વ્યક્તિ' (Person) ની દિનચર્યા વિશે ફકરો લખવાનો હોય, તો સામાન્ય રીતે કયો કાળ પ્રયોજાય છે?", options: ["સાદો વર્તમાનકાળ (Simple Present Tense)", "સાદો ભૂતકાળ (Simple Past Tense)", "ચાલુ ભૂતકાળ (Past Continuous Tense)", "પૂર્ણ ભૂતકાળ (Past Perfect Tense)"], ans: 0, exp: "મોડ્યુલ મુજબ Person ની ફરજ/દિનચર્યા અને Festival નું મહત્વ સામાન્ય રીતે વર્તમાનકાળ (Present Tense) માં વર્ણવાય છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૮૫. નોકરી માટે લખાતી ઔપચારિક અરજી (Job Application) માં નીચેના પૈકી કઈ બાબત 'Enclosed Copies' (બિડાણ) માં સમાવિષ્ટ થતી નથી?", options: ["શૈક્ષણિક ગુણપત્રકો (Marksheets)", "પ્રમાણપત્રો (Degree Certificates)", "અનુભવનું પ્રમાણપત્ર (Experience Certificate)", "દૈનિક ઘરખર્ચનો હિસાબ"], ans: 3, exp: "અરજીના બિડાણમાં શૈક્ષણિક માર્કશીટ, ડિગ્રી સર્ટિફિકેટ અને અનુભવના પ્રમાણપત્રોની સત્ય નકલ જોડાય છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૮૬. સત્તાવાર નોકરીની અરજી (Formal Job Application) ના અંતે આદર્શ વિદાયવચન (Subscription) કયું વપરાય છે?", options: ["Yours lovingly", "Yours affectionately", "Yours faithfully", "Your sweet friend"], ans: 2, exp: "ઔપચારિક વ્યાવસાયિક પત્રો અને અરજીઓમાં વિદાયવચન તરીકે 'Yours faithfully' વપરાય છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૮૭. સર્જનાત્મક નિબંધ લેખન (Essay Writing) ના ચાર મુખ્ય પ્રકારોમાં 'My Experience As a Teacher' એ કયા પ્રકારનું લેખન છે?", options: ["Descriptive (વર્ણનાત્મક)", "Biographical (ચરિત્રાત્મક)", "Autobiographical (આત્મકથનાત્મક)", "Narrative (કથનાત્મક)"], ans: 2, exp: "મોડ્યુલના પેજ ૫૭ મુજબ પોતાના જાતઅનુભવોનું આલેખન એ Autobiographical (આત્મકથનાત્મક) લેખન છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૮૮. સારા હસ્તાક્ષરોમાં 'Uniformity' (એકરૂપતા) નો સાચો અર્થ શું થાય છે?", options: ["બધા વિદ્યાર્થીઓએ એક જ કંપનીની પેન વાપરવી", "અક્ષરોનું કદ (Size), લંબાઈ, વળાંક (Slant) અને જાડાઈમાં સમગ્ર લખાણમાં સમાનતા જળવાવી", "બધા અક્ષરો કેપિટલ જ લખવા", "એક લીટી લાલ અને બીજી વાદળી શાહીથી લખવી"], ans: 1, exp: "Uniformity એટલે લખાણના તમામ અક્ષરોના કદ, ઝુકાવ અને પ્રમાણમાં સુસંગત એકરૂપતા. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૮૯. લેખન કાર્યના સમૃદ્ધિકરણ (Enrichment of Writing) માટે નીચેના પૈકી કઈ પ્રક્રિયા અનિવાર્ય ગણાય છે?", options: ["એકવાર લખ્યા પછી ક્યારેય સુધારો ન કરવો", "એકવાર લેખન કાર્ય પૂર્ણ થયા બાદ તેનું સ્વ-સંપાદન (Editing & Proofreading) અવશ્ય કરવું", "વાક્યરચનામાં વૈવિધ્ય ન લાવવું", "માત્ર એક જ પ્રકારના સાદા વાક્યોનું પુનરાવર્તન કરવું"], ans: 1, exp: "મોડ્યુલ મુજબ સારા લેખન માટે લખાણનું રી-રીડિંગ અને એડિટિંગ (Editing) કરવું અત્યંત મહત્વનું પગથિયું છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૯૦. અહેવાલ લેખન (Report Writing) કરતી વખતે ભાષાશૈલી અને કાળ સંદર્ભે કયો નિયમ પાળવો અનિવાર્ય છે?", options: ["અહેવાલ હંમેશાં ભવિષ્યકાળમાં અને અતિશયોક્તિપૂર્ણ અલંકારોમાં લખાય છે.", "અહેવાલ હંમેશાં ભૂતકાળમાં, સરળ, સંક્ષિપ્ત અને હકીકતલક્ષી/માહિતીસભર ભાષામાં લખાય છે.", "અહેવાલ માત્ર સંવાદ સ્વરૂપે જ લખાય છે.", "તેમાં તારીખ કે સમય ક્યારેય દર્શાવવામાં આવતા નથી."], ans: 1, exp: "મોડ્યુલ મુજબ ઘટના કે પ્રવૃત્તિ બની ગયા પછી રિપોર્ટ લખાતો હોવાથી તે ભૂતકાળમાં અને માહિતીસભર હોવો જોઈએ. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૯૧. ચિત્ર આધારિત લેખન (Picture-based Writing) કરાવતી વખતે શિક્ષકે કયો તાર્કિક ક્રમ અપનાવવો જોઈએ?", options: ["સીધો જ વિદ્યાર્થીઓને ૧૦ પાનાનો નિબંધ લખવા આપી દેવો", "ચિત્રમાં નિર્દેશિત પાત્રો/ક્રિયાઓના શબ્દો મુદ્દા સ્વરૂપે નોંધાવવા -> સાદા વાક્યો રચાવવા -> ક્રમિક ફકરો બનાવવો", "વિદ્યાર્થીઓને ચિત્ર તરફ જોવાની મનાઈ કરવી", "માત્ર ચિત્રમાં રંગ પૂરવા પૂરતું સીમિત રાખવું"], ans: 1, exp: "ચિત્ર આધારિત લેખનમાં પહેલા કી-વર્ડ્સની નોંધ, ત્યારબાદ વાક્યરચના અને અંતે સુગ્રથિત ફકરાલેખનનો ક્રમ આદર્શ છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૯૨. અંગ્રેજી લેખનમાં શબ્દો વચ્ચે અયોગ્ય અંતર (Spacing/Distance) રાખવાથી કેવો દોષ સર્જાય છે?", options: ["લખાણ ખૂબ સુંદર લાગે છે.", "'God is now here' નું 'God is no where' જેવો ગંભીર અર્થનો અનર્થ થઈ શકે છે.", "કાગળની બચત થાય છે.", "વાંચન ગતિ આપમેળે બમણી થઈ જાય છે."], ans: 1, exp: "શબ્દો વચ્ચે યોગ્ય જગ્યા ન હોય તો અક્ષરો ભળી જઈને તદ્દન વિપરીત અર્થ સર્જે છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૯૩. વિધાન (A): લેખન કૌશલ્ય (Writing Skill) એ અન્ય ત્રણેય ભાષા કૌશલ્યો કરતાં સૌથી વધુ જટિલ (Complex) કૌશલ્ય છે.\nકારણ (R): લેખનમાં વિચારોની મૌલિકતા ઉપરાંત સ્પેલિંગ, વ્યાકરણશુદ્ધિ, હસ્તાક્ષર અને સુગ્રથિત આયોજનની એકસાથે જરૂર પડે છે.", options: ["(A) અને (R) બંને સાચાં છે અને (R) એ (A) ની સાચી સમજૂતી છે.", "(A) સાચું છે પરંતુ (R) ખોટું છે.", "(A) ખોટું છે પરંતુ (R) સાચું છે.", "બંને વિધાનો ખોટાં છે."], ans: 0, exp: "લેખન એ ન્યુરો-મસ્ક્યુલર અને મનોવૈજ્ઞાનિક પ્રક્રિયા છે જેમાં ચોકસાઈ અને પ્રસ્તુતિનું સંકલન જરૂરી હોવાથી તે સૌથી જટિલ કૌશલ્ય છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૯૪. અંગ્રેજી મૂળાક્ષરોમાં 'Upper Case' નો સાચો વ્યાકરણિક ઉપયોગ ક્યાં થાય છે?", options: ["વાક્યના પ્રથમ અક્ષર તરીકે અને સંજ્ઞાવાચક નામ (Proper Noun) ના પ્રથમ અક્ષર તરીકે", "અંગ્રેજી સર્વનામ 'I' (હું) તરીકે હંમેશાં કેપિટલ લખાણમાં", "વાક્યમાં વપરાતા વિશિષ્ટ ટૂંકાક્ષરી નામો (Abbreviations) માં", "ઉપરોક્ત તમામ પરિસ્થિતિઓમાં"], ans: 3, exp: "અંગ્રેજીમાં વાક્યની શરૂઆત, Proper Nouns, સર્વનામ 'I' અને ટૂંકાક્ષરોમાં Upper case (કેપિટલ) વપરાય છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૯૫. બાળકના હાથના નાના સ્નાયુઓની કેળવણી (Fine motor skills) અને શુદ્ધ જોડણી માટે પ્રાથમિક તબક્કે સૌથી શ્રેષ્ઠ પ્રવૃત્તિ કઈ છે?", options: ["સ્વતંત્ર નિબંધ સ્પર્ધા", "અનુલેખન (Transcription)", "પુસ્તકાલય સંશોધન", "વક્તૃત્વ સ્પર્ધા"], ans: 1, exp: "અનુલેખનથી બાળકના હાથના સ્નાયુઓ કેળવાય છે, અક્ષરોના વળાંક સુધરે છે અને શુદ્ધ જોડણીની ટેવ પડે છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૯૬. અનૌપચારિક પત્ર (Social / Informal Letter - દા.ત. મિત્રને પત્ર) માં સંબોધન (Salutation) તરીકે સામાન્ય રીતે શું વપરાય છે?", options: ["Respected Sir", "To Whomsoever It May Concern", "Dear friend / Dear [Name]", "Hon'ble Authority"], ans: 2, exp: "મિત્રો કે સ્નેહીજનોને લખાતા સામાજિક પત્રોમાં 'Dear...' વડે અનૌપચારિક સંબોધન કરવામાં આવે છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૯૭. જો કોઈ વિદ્યાર્થી 'Cricket I play and hockey friend my with' લખે છે, તો શિક્ષકે તેને ભાષાના કયા પાસાનું માર્ગદર્શન આપવું જોઈએ?", options: ["સુવાચ્ય હસ્તાક્ષર (Legibility)", "અંગ્રેજી વાક્યરચનાનો પદક્રમ (Sentence Pattern: Subject + Verb + Object)", "મૂળાક્ષરોનો વળાંક", "બોલવાની ઝડપ"], ans: 1, exp: "આ વાક્યમાં પદો અસ્તવ્યસ્ત છે. સાચો પદક્રમ 'I play cricket and hockey with my friend' થાય, જે Sentence pattern નો વિષય છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૯૮. લેખન કૌશલ્યમાં 'Composing' (રચના) ના પાસાનો મૂળ અર્થ શું છે?", options: ["માત્ર કાગળ પર શાહીથી અક્ષરો છાપવા", "લખનાર અને વાચક વચ્ચે અર્થપૂર્ણ સંવાદ રચવા માટે વિચારોને તાર્કિક ક્રમમાં વાક્યો દ્વારા ગૂંથવા", "પુસ્તકમાંથી સીધા પાના ફાડીને ચોંટાડવા", "ટાઈપરાઈટરનું સમારકામ કરવું"], ans: 1, exp: "લેખન માત્ર વાક્યોનું યાંત્રિક ઉત્પાદન નથી, પણ વાચક સાથે સંવાદ સ્થાપતી માનસિક રચના (Composing) છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૯૯. શાળામાં યોજાયેલ 'Science Fair' ના અહેવાલ લેખન (Report) માં નીચેનામાંથી કઈ વિગત આવવી અનિવાર્ય નથી?", options: ["કાર્યક્રમનું સ્થળ, તારીખ અને સમય", "મુખ્ય મહેમાન અને ઉદ્ઘાટન સમારોહ", "વિવિધ વિભાગોમાં પ્રદર્શિત મોડેલ્સ અને પ્રયોગોની વિગત", "મુખ્ય મહેમાનના અંગત પારિવારિક પ્રશ્નોની ચર્ચા"], ans: 3, exp: "અહેવાલમાં માત્ર કાર્યક્રમ સંલગ્ન તથ્યો (સ્થળ, સમય, અતિથિ, પ્રદર્શનો વગેરે) આવે છે, અંગત વાતો નહીં. (પ્રકરણ: Unit - 4 Development of Writing Skill)" },
+  { unit: "Unit - 4: Development of Writing Skill", q: "૧૦૦. વિદ્યાર્થીઓને નિયંત્રિત લેખનમાંથી મુક્ત લેખન (Free Writing) તરફ દોરી જવાનો શ્રેષ્ઠ તાર્કિક ક્રમ કયો છે?", options: ["Free Writing -> Guided Writing -> Controlled Writing", "Controlled Writing (અનુલેખન/શ્રુતલેખન) -> Guided Writing (મુદ્દા આધારિત લેખન) -> Free Writing (સ્વતંત્ર/સર્જનાત્મક લેખન)", "Dictation -> Free Essay -> Copying", "Story Writing -> Copy writing -> Alphabet writing"], ans: 1, exp: "લેખન કૌશલ્યના શિક્ષણનો શાસ્ત્રીય ક્રમ: પ્રથમ નિયંત્રિત (Controlled) -> પછી માર્ગદર્શિત (Guided) -> અંતે સંપૂર્ણ મુક્ત (Free Writing) છે. (પ્રકરણ: Unit - 4 Development of Writing Skill)" }
+];
+
+// સિસ્ટમ લોજિક
+let studentName, studentPhone, studentEmail;
+let currentQ = 0;
+let userAnswers = new Array(questions.length).fill(null);
+let startTime, timerInterval;
+
+function requestOTP() {
+    studentName = document.getElementById("name").value.trim();
+    studentPhone = document.getElementById("phone").value.trim();
+    studentEmail = document.getElementById("email").value.trim();
+
+    if (!studentName || studentPhone.length < 10 || !studentEmail.includes("@")) {
+        alert("કૃપા કરીને પૂરું નામ, ૧૦ અંકનો સાચો મોબાઇલ નંબર અને યોગ્ય ઇમેઇલ દાખલ કરો.");
+        return;
+    }
+
+    const btn = document.getElementById("getOtpBtn");
+    btn.disabled = true;
+    btn.innerText = "OTP મોકલાઈ રહ્યો છે...";
+
+    fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({
+            action: "sendOTP",
+            name: studentName,
+            email: studentEmail
+        })
+    })
+    .then(function() {
+        alert("તમારા તેમજ એડમિનના ઇમેઇલ પર ૪ અંકનો OTP મોકલવામાં આવ્યો છે. કૃપા કરીને ઇનબોક્સ કે સ્પામ ફોલ્ડર ચકાસો.");
+        document.getElementById("otpContainer").style.display = "block";
+        btn.innerText = "OTP ફરીથી મોકલો";
+        btn.disabled = false;
+    })
+    .catch(function(err) {
+        alert("OTP મોકલવામાં ક્ષતિ આવી. ફરી પ્રયાસ કરો.");
+        btn.disabled = false;
+        btn.innerText = "OTP મેળવો";
+    });
+}
+
+function verifyAndStart() {
+    const enteredOTP = document.getElementById("otpInput").value.trim();
+    if (enteredOTP.length !== 4) {
+        alert("કૃપા કરીને ૪ અંકનો સાચો OTP દાખલ કરો.");
+        return;
+    }
+
+    const vBtn = document.getElementById("verifyBtn");
+    vBtn.disabled = true;
+    vBtn.innerText = "ચકાસણી ચાલુ છે...";
+
+    fetch(SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({
+            action: "verifyOTP",
+            email: studentEmail,
+            otp: enteredOTP
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success" && data.verified) {
+            document.getElementById("loginScreen").style.display = "none";
+            document.getElementById("quizScreen").style.display = "block";
+            startTime = new Date();
+            timerInterval = setInterval(updateTimer, 1000);
+            loadQuestion();
+        } else {
+            alert("ખોટો OTP! સાચો કોડ દાખલ કરો.");
+            vBtn.disabled = false;
+            vBtn.innerText = "OTP ચકાસો અને કસોટી શરૂ કરો";
+        }
+    })
+    .catch(err => {
+        alert("ચકાસણીમાં ભૂલ થઈ. ફરી પ્રયાસ કરો.");
+        vBtn.disabled = false;
+        vBtn.innerText = "OTP ચકાસો અને કસોટી શરૂ કરો";
+    });
+}
+
+function updateTimer() {
+    const elapsed = Math.floor((new Date() - startTime) / 1000);
+    const mins = String(Math.floor(elapsed / 60)).padStart(2, '0');
+    const secs = String(elapsed % 60).padStart(2, '0');
+    document.getElementById("timerDisplay").innerText = `${mins}:${secs}`;
+}
+
+function loadQuestion() {
+    const q = questions[currentQ];
+    document.getElementById("qProgress").innerText = `પ્રશ્ન ${currentQ + 1} / ${questions.length}`;
+    document.getElementById("unitBadge").innerText = `📖 ${q.unit}`;
+    document.getElementById("questionText").innerText = q.q;
+    const optContainer = document.getElementById("optionsContainer");
+    optContainer.innerHTML = "";
+
+    q.options.forEach((opt, idx) => {
+        const label = document.createElement("label");
+        label.className = "option-label";
+        const isChecked = userAnswers[currentQ] === idx ? "checked" : "";
+        label.innerHTML = `<input type="radio" name="opt" value="${idx}" ${isChecked} onchange="userAnswers[${currentQ}]=${idx}"> ${opt}`;
+        optContainer.appendChild(label);
+    });
+
+    document.getElementById("prevBtn").style.visibility = (currentQ === 0) ? "hidden" : "visible";
+    document.getElementById("nextBtn").innerText = (currentQ === questions.length - 1) ? "ટેસ્ટ સબમિટ કરો" : "આગળ";
+}
+
+function prevQuestion() {
+    if (currentQ > 0) { currentQ--; loadQuestion(); }
+}
+
+function nextQuestion() {
+    if (currentQ < questions.length - 1) {
+        currentQ++;
+        loadQuestion();
+    } else {
+        submitQuiz();
+    }
+}
+
+function submitQuiz() {
+    clearInterval(timerInterval);
+    const elapsed = Math.floor((new Date() - startTime) / 1000);
+    const formattedTime = `${Math.floor(elapsed / 60)} મિનિટ ${elapsed % 60} સેકન્ડ`;
+
+    let score = 0;
+    questions.forEach((q, i) => { if (userAnswers[i] === q.ans) score++; });
+    const percent = ((score / questions.length) * 100).toFixed(2);
+
+    document.getElementById("quizScreen").style.display = "none";
+    document.getElementById("resultScreen").style.display = "block";
+    document.getElementById("resName").innerText = studentName;
+    document.getElementById("resPhone").innerText = studentPhone;
+    document.getElementById("resTime").innerText = formattedTime;
+    document.getElementById("resScore").innerText = `${score} / ${questions.length}`;
+    document.getElementById("resPercent").innerText = `${percent}%`;
+
+    const revBox = document.getElementById("reviewContainer");
+    revBox.innerHTML = "";
+    
+    let emailReviewHtml = "";
+
+    questions.forEach((q, i) => {
+        const isCorrect = (userAnswers[i] === q.ans);
+        const userChoiceText = userAnswers[i] !== null ? q.options[userAnswers[i]] : "જવાબ આપ્યો નથી";
+        const correctChoiceText = q.options[q.ans];
+        
+        const item = document.createElement("div");
+        item.className = "review-item " + (isCorrect ? "is-correct" : "is-wrong");
+        item.innerHTML = `
+            <p style="font-weight:600; margin:0 0 8px 0;">${q.q}</p>
+            <p style="margin:4px 0; color: ${isCorrect ? '#22543d' : '#742a2a'};">
+                <strong>તમારો ઉત્તર:</strong> ${userChoiceText} ${isCorrect ? '✅' : '❌'}
+            </p>
+            ${!isCorrect ? `<p style="margin:4px 0; color:#22543d;"><strong>સાચો ઉત્તર:</strong> ${correctChoiceText}</p>` : ''}
+            <div class="exp-box">
+                <p style="margin: 0 0 4px 0; color: #2b6cb0; font-weight: 600;">📖 ${q.unit}</p>
+                <strong>સમજૂતી:</strong> ${q.exp}
+            </div>
+        `;
+        revBox.appendChild(item);
+
+        emailReviewHtml += `
+            <div style="border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; margin-bottom: 12px; background-color: ${isCorrect ? '#f0fff4' : '#fff5f5'};">
+                <p style="margin: 0 0 6px 0; font-weight: bold; color: #2d3748;">${q.q}</p>
+                <p style="margin: 3px 0; color: ${isCorrect ? '#22543d' : '#c53030'};">
+                    <strong>આપેલો ઉત્તર:</strong> ${userChoiceText} ${isCorrect ? '✅' : '❌'}
+                </p>
+                ${!isCorrect ? `<p style="margin: 3px 0; color: #22543d;"><strong>સાચો ઉત્તર:</strong> ${correctChoiceText}</p>` : ''}
+                <div style="background-color: #edf2f7; padding: 8px; border-radius: 4px; margin-top: 6px; font-size: 13px;">
+                    <p style="margin: 0 0 3px 0; color: #2b6cb0; font-weight: bold;">📖 ${q.unit}</p>
+                    <strong>સમજૂતી:</strong> ${q.exp}
+                </div>
+            </div>
+        `;
+    });
+
+    fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({
+            action: "submitResult",
+            dateTime: new Date().toLocaleString('gu-IN', { timeZone: 'Asia/Kolkata' }),
+            name: studentName,
+            phone: studentPhone,
+            email: studentEmail,
+            timeTaken: formattedTime,
+            score: `${score} / ${questions.length}`,
+            percentage: `${percent}%`,
+            subject: "D.El.Ed. કોર્સ - 4 (બ) : Proficiency in English (૧૦૦ પ્રશ્નો)",
+            detailedReviewHtml: emailReviewHtml
+        })
+    });
+}
+</script>
+
+</body>
+</html>
