@@ -82,7 +82,7 @@
 
         .container { 
             background-color: var(--container-bg); 
-            max-width: 1100px; 
+            max-width: 1000px; 
             width: 100%; 
             border-radius: 18px; 
             box-shadow: var(--shadow); 
@@ -214,26 +214,23 @@
             text-align: center;
         }
 
-        /* Test Main Layout: Two Column (Left: Question, Right: Palette) */
+        /* Test Main Layout: Single column (Questions on Top, Palette at Bottom) */
         .quiz-layout {
-            display: grid;
-            grid-template-columns: 1fr 310px;
-            gap: 20px;
-        }
-        @media (max-width: 860px) {
-            .quiz-layout {
-                grid-template-columns: 1fr;
-            }
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
         .quiz-main-card {
             background: var(--container-bg);
             border: 1.5px solid var(--border-color);
             border-radius: 14px;
-            padding: 20px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
+            min-height: 420px;
             justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
         .quiz-header { 
@@ -242,7 +239,7 @@
             align-items: center; 
             border-bottom: 1.5px solid var(--border-color); 
             padding-bottom: 12px; 
-            margin-bottom: 16px; 
+            margin-bottom: 18px; 
             flex-wrap: wrap;
             gap: 8px;
         }
@@ -251,7 +248,7 @@
             font-weight: 800; 
             color: #ef4444; 
             background: #fee2e2;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             display: inline-flex;
             align-items: center;
@@ -267,13 +264,13 @@
             border-radius: 20px; 
             font-size: 12px; 
             font-weight: 700; 
-            margin-bottom: 12px; 
+            margin-bottom: 14px; 
         }
 
         .question-text {
-            font-size: 17px;
-            line-height: 1.6;
-            margin-bottom: 18px;
+            font-size: 18px;
+            line-height: 1.65;
+            margin-bottom: 22px;
             font-weight: 700;
             color: var(--text-color);
         }
@@ -282,44 +279,45 @@
             display: flex;
             align-items: center;
             background: var(--option-bg); 
-            padding: 12px 14px; 
-            margin-bottom: 10px; 
-            border-radius: 8px; 
+            padding: 14px 18px; 
+            margin-bottom: 12px; 
+            border-radius: 10px; 
             cursor: pointer; 
-            line-height: 1.45; 
+            line-height: 1.5; 
             border: 1.5px solid var(--option-border); 
             transition: all 0.2s;
-            font-size: 14.5px;
+            font-size: 15.5px;
         }
         .option-label:hover { 
             background: var(--option-hover); 
             border-color: #3b82f6;
-            transform: translateX(3px);
+            transform: translateX(4px);
         }
         .option-label input[type="radio"] {
-            margin-right: 12px;
-            transform: scale(1.2);
+            margin-right: 14px;
+            transform: scale(1.25);
             accent-color: #2563eb;
+            cursor: pointer;
         }
 
         .quiz-actions-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 20px;
-            padding-top: 14px;
+            margin-top: 24px;
+            padding-top: 16px;
             border-top: 1.5px solid var(--border-color);
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .nav-buttons-group {
             display: flex;
-            gap: 8px;
+            gap: 10px;
         }
         .btn-prev, .btn-next, .btn-flag {
-            padding: 9px 16px;
-            font-size: 14px;
+            padding: 10px 18px;
+            font-size: 14.5px;
             font-weight: 700;
             border-radius: 8px;
             cursor: pointer;
@@ -351,49 +349,52 @@
             border-color: #b45309;
         }
 
-        /* Question Palette Sidebar */
-        .palette-card {
+        /* Question Palette at the Bottom */
+        .palette-bottom-card {
             background: var(--card-gradient);
             border: 1.5px solid var(--border-color);
             border-radius: 14px;
-            padding: 16px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
         .palette-title {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 800;
             color: var(--heading-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .legend-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px;
-            font-size: 11px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 12px;
             font-weight: 700;
-            padding-bottom: 8px;
+            padding-bottom: 10px;
             border-bottom: 1px dashed var(--border-color);
         }
-        .legend-item { display: flex; align-items: center; gap: 5px; }
-        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .legend-dot { width: 11px; height: 11px; border-radius: 50%; }
 
+        /* Multi-column grid for 100 questions */
         .palette-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 6px;
-            max-height: 380px;
+            grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
+            gap: 8px;
+            max-height: 250px;
             overflow-y: auto;
-            padding-right: 4px;
+            padding: 6px 4px;
         }
         .q-pill {
-            padding: 7px 0;
-            border-radius: 6px;
-            font-size: 12px;
+            padding: 8px 0;
+            border-radius: 7px;
+            font-size: 12.5px;
             font-weight: 800;
             text-align: center;
             cursor: pointer;
@@ -406,7 +407,7 @@
         .q-pill:hover { transform: scale(1.08); z-index: 2; }
         .q-pill.status-current {
             border-color: #2563eb !important;
-            box-shadow: 0 0 0 2px #2563eb;
+            box-shadow: 0 0 0 2.5px #2563eb;
             font-weight: 900;
         }
         .q-pill.status-answered {
@@ -422,9 +423,9 @@
         .q-pill.status-flagged::after {
             content: '🚩';
             position: absolute;
-            top: -5px;
+            top: -6px;
             right: -3px;
-            font-size: 8px;
+            font-size: 9px;
         }
 
         /* Result Screen Styles */
@@ -599,15 +600,15 @@
         </div>
     </section>
 
-    <!-- ૨. મોક ટેસ્ટ સ્ક્રીન (Two-column with Flagging & Palette) -->
+    <!-- ૨. મોક ટેસ્ટ સ્ક્રીન (ઉપર પ્રશ્ન અને વિકલ્પ માટે પૂરતી જગ્યા, નીચે પેલેટ) -->
     <section id="quizScreen" style="display: none;">
         <div class="quiz-layout">
-            <!-- Left Side: Main Question Card -->
+            <!-- Top Section: Main Question Card -->
             <div class="quiz-main-card">
                 <div>
                     <div class="quiz-header">
                         <div>
-                            <span id="qProgress" style="font-weight: 800; font-size: 15px; color: var(--heading-color);">પ્રશ્ન ૧ / ૧૦૦</span>
+                            <span id="qProgress" style="font-weight: 800; font-size: 16px; color: var(--heading-color);">પ્રશ્ન ૧ / ૧૦૦</span>
                         </div>
                         <div class="timer-badge">
                             <i class="fa-regular fa-clock"></i> <span id="timerDisplay">૦૦:૦૦</span>
@@ -631,11 +632,11 @@
                 </div>
             </div>
 
-            <!-- Right Side: Question Palette & Status Grid -->
-            <div class="palette-card">
+            <!-- Bottom Section: Question Palette, Status Legend & Submit Button -->
+            <div class="palette-bottom-card">
                 <div class="palette-title">
-                    <span><i class="fa-solid fa-table-cells"></i> પ્રશ્ન પેલેટ (૧૦૦)</span>
-                    <span id="answeredCountBadge" style="font-size: 11px; background: #10b981; color: white; padding: 2px 8px; border-radius: 10px;">0 / 100</span>
+                    <span><i class="fa-solid fa-table-cells"></i> પ્રશ્ન પેલેટ (૧૦૦ પ્રશ્નોની સ્થિતિ)</span>
+                    <span id="answeredCountBadge" style="font-size: 12px; background: #10b981; color: white; padding: 4px 10px; border-radius: 12px;">0 / 100 પૂર્ણ</span>
                 </div>
 
                 <div class="legend-grid">
@@ -647,9 +648,11 @@
 
                 <div class="palette-grid" id="questionGridContainer"></div>
 
-                <button class="btn-gradient" onclick="confirmSubmitQuiz()" style="margin-top: 10px; background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); padding: 10px; font-size: 13.5px;">
-                    <i class="fa-solid fa-circle-check"></i> કસોટી સબમિટ કરો
-                </button>
+                <div style="text-align: right; margin-top: 6px;">
+                    <button class="btn-gradient" onclick="confirmSubmitQuiz()" style="max-width: 280px; margin-left: auto; background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); padding: 11px 18px; font-size: 14.5px;">
+                        <i class="fa-solid fa-circle-check"></i> કસોટી સબમિટ કરો
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -2062,11 +2065,7 @@ function updatePaletteStats() {
             pill.classList.add("status-answered");
             answered++;
         }
-        if (userAnswers[i] !== null && !flaggedQuestions[i]) {
-            answered++;
-        }
     }
-    // Total distinct answered
     const totalAns = userAnswers.filter(a => a !== null).length;
     document.getElementById("answeredCountBadge").innerText = `${totalAns} / ${questions.length} પૂર્ણ`;
 }
@@ -2074,6 +2073,7 @@ function updatePaletteStats() {
 function jumpToQuestion(idx) {
     currentQ = idx;
     loadQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 /* ૪. પ્રશ્ન લોડિંગ અને Flagging */
@@ -2200,7 +2200,7 @@ function submitQuiz() {
     // ૩. મૂળ પ્રશ્નપત્ર (Blank Question Paper)
     renderBlankPaper();
 
-    // ૪. Apps Script માટે ક્લીન HTML રિવ્યુ પેક કરવો
+    // ૪. Apps Script માટે HTML રિવ્યુ પેક કરવો
     prepareAndSendBackendResult(score, percent, formattedTime);
 }
 
