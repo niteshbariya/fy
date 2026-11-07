@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TET / TAT / GPSC Class-2: પર્યાવરણ શિક્ષણ (HOT પ્રશ્નો ૧૦૧ થી ૨૦૦)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #059669 0%, #10b981 50%, #06b6d4 100%);
+            --header-gradient: linear-gradient(135deg, #065f46 0%, #059669 50%, #0d9488 100%);
+            --card-gradient: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #f0fdfa 100%);
+            --bg-color: #f1f5f9;
+            --container-bg: #ffffff;
+            --text-color: #0f172a;
+            --heading-color: #065f46;
+            --subheading-color: #64748b;
+            --border-color: #cbd5e1;
+            --card-border: #e2e8f0;
+            --option-bg: #f8fafc;
+            --option-hover: #e6fffa;
+            --option-border: #cbd5e1;
+            --badge-bg: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            --correct-bg: #ecfdf5;
+            --correct-border: #34d399;
+            --correct-text: #065f46;
+            --wrong-bg: #fff1f2;
+            --wrong-border: #fb7185;
+            --wrong-text: #9f1239;
+            --exp-box-bg: #f8fafc;
+            --input-bg: #ffffff;
+            --shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.12), 0 8px 10px -6px rgba(5, 150, 105, 0.08);
+        }
+
+        body.dark-mode {
+            --primary-gradient: linear-gradient(135deg, #10b981 0%, #34d399 50%, #2dd4bf 100%);
+            --header-gradient: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+            --card-gradient: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
+            --bg-color: #030712;
+            --container-bg: #0b1329;
+            --text-color: #f8fafc;
+            --heading-color: #6ee7b7;
+            --subheading-color: #94a3b8;
+            --border-color: #334155;
+            --card-border: #1e293b;
+            --option-bg: #1e293b;
+            --option-hover: #064e3b;
+            --option-border: #475569;
+            --badge-bg: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            --correct-bg: #064e3b;
+            --correct-border: #059669;
+            --correct-text: #a7f3d0;
+            --wrong-bg: #881337;
+            --wrong-border: #e11d48;
+            --wrong-text: #fecdd3;
+            --exp-box-bg: #0f172a;
+            --input-bg: #1e293b;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body { 
+            font-family: 'Noto Sans Gujarati', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            padding: 14px; 
+            display: flex; 
+            justify-content: center; 
+            transition: all 0.3s ease;
+            min-height: 100vh;
+        }
+
+        .container { 
+            background-color: var(--container-bg); 
+            max-width: 1000px; 
+            width: 100%; 
+            border-radius: 18px; 
+            box-shadow: var(--shadow); 
+            padding: 24px; 
+            position: relative;
+            border: 1.5px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 6px; }
+            .container { padding: 14px; border-radius: 12px; }
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-pill {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 800;
+            border-radius: 30px;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .theme-toggle-btn {
+            background: var(--option-bg);
+            color: var(--text-color);
+            border: 1.5px solid var(--border-color);
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 20px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        .theme-toggle-btn:hover {
+            transform: scale(1.04);
+            border-color: #10b981;
+        }
+
+        .banner-title {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 900;
+            margin: 5px 0 8px 0;
+            line-height: 1.3;
+        }
+
+        .banner-sub {
+            color: var(--subheading-color);
+            text-align: center;
+            font-size: 13.5px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        #loginScreen {
+            max-width: 480px;
+            margin: 15px auto;
+            background: var(--card-gradient);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1.5px solid var(--border-color);
+        }
+        .form-group { margin-bottom: 16px; }
+        label { display: block; font-weight: 700; margin-bottom: 6px; font-size: 13.5px; color: var(--heading-color); }
+        input[type="text"], input[type="tel"], input[type="email"] { 
+            width: 100%; 
+            padding: 11px 14px; 
+            border: 1.5px solid var(--border-color); 
+            border-radius: 8px; 
+            font-size: 14.5px; 
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            transition: border-color 0.2s;
+            font-family: inherit;
+        }
+        input:focus { outline: none; border-color: #10b981; }
+
+        .btn-gradient { 
+            background: var(--primary-gradient); 
+            color: white; 
+            border: none; 
+            padding: 12px 18px; 
+            font-size: 15px; 
+            font-weight: 800; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            width: 100%; 
+            transition: all 0.25s; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            font-family: inherit;
+        }
+        .btn-gradient:hover { opacity: 0.95; transform: translateY(-1.5px); }
+        .btn-gradient:disabled { background: #94a3b8; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        .otp-box { 
+            background: var(--container-bg); 
+            border: 2px dashed #10b981; 
+            padding: 16px; 
+            border-radius: 10px; 
+            margin-top: 16px; 
+            display: none; 
+            text-align: center;
+        }
+
+        .quiz-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .quiz-main-card {
+            background: var(--container-bg);
+            border: 1.5px solid var(--border-color);
+            border-radius: 14px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .quiz-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1.5px solid var(--border-color); 
+            padding-bottom: 12px; 
+            margin-bottom: 18px; 
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .timer-badge { 
+            font-size: 15px; 
+            font-weight: 800; 
+            color: #ef4444; 
+            background: #fee2e2;
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        body.dark-mode .timer-badge { background: #450a0a; color: #fca5a5; }
+
+        .unit-badge { 
+            display: inline-block; 
+            background: var(--badge-bg); 
+            color: white; 
+            padding: 5px 12px; 
+            border-radius: 20px; 
+            font-size: 12px; 
+            font-weight: 700; 
+            margin-bottom: 14px; 
+        }
+
+        .question-text {
+            font-size: 18px;
+            line-height: 1.65;
+            margin-bottom: 22px;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .option-label { 
+            display: flex;
+            align-items: center;
+            background: var(--option-bg); 
+            padding: 14px 18px; 
+            margin-bottom: 12px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            line-height: 1.5; 
+            border: 1.5px solid var(--option-border); 
+            transition: all 0.2s;
+            font-size: 15.5px;
+        }
+        .option-label:hover { 
+            background: var(--option-hover); 
+            border-color: #10b981;
+            transform: translateX(4px);
+        }
+        .option-label input[type="radio"] {
+            margin-right: 14px;
+            transform: scale(1.25);
+            accent-color: #059669;
+            cursor: pointer;
+        }
+
+        .quiz-actions-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1.5px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .nav-buttons-group { display: flex; gap: 10px; }
+        .btn-prev, .btn-next, .btn-flag {
+            padding: 10px 18px;
+            font-size: 14.5px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+        }
+        .btn-prev { background: #64748b; color: white; }
+        .btn-prev:hover { background: #475569; }
+        .btn-next { background: var(--primary-gradient); color: white; }
+        .btn-next:hover { opacity: 0.95; }
+
+        .btn-flag {
+            background: #fef3c7;
+            color: #b45309;
+            border: 1.5px solid #f59e0b;
+        }
+        body.dark-mode .btn-flag {
+            background: #451a03;
+            color: #fde68a;
+            border-color: #d97706;
+        }
+        .btn-flag.active-flag {
+            background: #f59e0b;
+            color: white;
+            border-color: #b45309;
+        }
+
+        .palette-bottom-card {
+            background: var(--card-gradient);
+            border: 1.5px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .palette-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--heading-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .legend-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 12px;
+            font-weight: 700;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .legend-dot { width: 11px; height: 11px; border-radius: 50%; }
+
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
+            gap: 8px;
+            max-height: 250px;
+            overflow-y: auto;
+            padding: 6px 4px;
+        }
+        .q-pill {
+            padding: 8px 0;
+            border-radius: 7px;
+            font-size: 12.5px;
+            font-weight: 800;
+            text-align: center;
+            cursor: pointer;
+            border: 1.5px solid var(--border-color);
+            background: var(--container-bg);
+            color: var(--text-color);
+            transition: all 0.15s ease;
+            position: relative;
+        }
+        .q-pill:hover { transform: scale(1.08); z-index: 2; }
+        .q-pill.status-current {
+            border-color: #059669 !important;
+            box-shadow: 0 0 0 2.5px #059669;
+            font-weight: 900;
+        }
+        .q-pill.status-answered {
+            background: #10b981 !important;
+            color: white !important;
+            border-color: #059669 !important;
+        }
+        .q-pill.status-flagged {
+            background: #f59e0b !important;
+            color: white !important;
+            border-color: #d97706 !important;
+        }
+        .q-pill.status-flagged::after {
+            content: '🚩';
+            position: absolute;
+            top: -6px;
+            right: -3px;
+            font-size: 9px;
+        }
+
+        .result-summary-card {
+            background: var(--card-gradient);
+            border: 2px solid var(--border-color);
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        .score-pill {
+            display: inline-block;
+            font-size: 32px;
+            font-weight: 900;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 6px 0;
+        }
+
+        .res-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 14px;
+        }
+        @media (max-width: 600px) {
+            .res-stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .res-stat-box {
+            padding: 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            color: white;
+            font-size: 12px;
+        }
+
+        .result-tabs-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        .res-tab-btn {
+            padding: 9px 16px;
+            font-size: 13.5px;
+            font-weight: 800;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1.5px solid var(--border-color);
+            background: var(--option-bg);
+            color: var(--text-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .res-tab-btn:hover { border-color: #10b981; }
+        .res-tab-btn.active-tab {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .review-item {
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            border: 1.5px solid var(--card-border);
+            transition: all 0.2s;
+            background: var(--container-bg);
+        }
+        .review-item.is-correct {
+            background-color: var(--correct-bg);
+            border-color: var(--correct-border);
+            color: var(--correct-text);
+        }
+        .review-item.is-wrong {
+            background-color: var(--wrong-bg);
+            border-color: var(--wrong-border);
+            color: var(--wrong-text);
+        }
+
+        .exp-box {
+            background: var(--exp-box-bg);
+            color: var(--text-color);
+            padding: 10px 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 13.5px;
+            line-height: 1.5;
+            border-left: 4px solid #10b981;
+        }
+
+        .blank-q-card {
+            background: var(--container-bg);
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+
+        .msg-box {
+            display: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .msg-error { background-color: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
+        .msg-info { background-color: #dcfce7; color: #166534; border: 1px solid #4ade80; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="header-top">
+        <span class="tag-pill"><i class="fa-solid fa-leaf"></i> TET / TAT / GPSC Class-2: પર્યાવરણ શિક્ષણ (HOT પ્રશ્નો ૧૦૧-૨૦૦)</span>
+        <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleDarkMode()">
+            <i class="fa-solid fa-moon"></i> ડાર્ક મોડ
+        </button>
+    </header>
+
+    <div id="noticeMsg" class="msg-box"></div>
+
+    <!-- ૧. પ્રવેશ અને OTP સ્ક્રીન -->
+    <section id="loginScreen">
+        <div style="text-align: center; margin-bottom: 18px;">
+            <div style="font-size: 32px; color: #059669; margin-bottom: 4px;"><i class="fa-solid fa-seedling"></i></div>
+            <h1 class="banner-title" style="font-size: 20px;">પર્યાવરણ શિક્ષણ (GCERT)</h1>
+            <p class="banner-sub" style="margin-bottom: 10px;">ડી.એલ.એડ્. કોર્સ – ૫ (બ) | ઉચ્ચ કઠિનતામૂલ્ય પ્રશ્નો (૧૦૧ થી ૨૦૦)</p>
+        </div>
+
+        <div class="form-group">
+            <label for="name">👤 પૂરું નામ:</label>
+            <input type="text" id="name" placeholder="તમારું પૂરું નામ દાખલ કરો">
+        </div>
+        <div class="form-group">
+            <label for="phone">📱 મોબાઇલ નંબર:</label>
+            <input type="tel" id="phone" placeholder="૧૦ અંકનો સાચો મોબાઇલ નંબર" maxlength="10">
+        </div>
+        <div class="form-group">
+            <label for="email">📧 ઇમેઇલ આઇડી:</label>
+            <input type="email" id="email" placeholder="તમારું સાચું ઈમેઈલ આઈડી લખો">
+        </div>
+
+        <button id="getOtpBtn" class="btn-gradient" onclick="requestOTP()">
+            <i class="fa-solid fa-paper-plane"></i> OTP મેળવો અને આગળ વધો
+        </button>
+
+        <div id="otpContainer" class="otp-box">
+            <p style="margin: 0 0 10px 0; color: var(--heading-color); font-weight: 700; font-size: 13px;">
+                📩 આપના ઈમેઈલ પર ૪ અંકનો સુરક્ષિત OTP મોકલવામાં આવ્યો છે:
+            </p>
+            <div class="form-group" style="max-width: 200px; margin: 0 auto 12px auto;">
+                <input type="text" id="otpInput" placeholder="૪ અંક OTP" maxlength="4" style="text-align: center; font-size: 20px; letter-spacing: 5px; font-weight: 800;">
+            </div>
+            <button id="verifyBtn" class="btn-gradient" onclick="verifyAndStart()" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                <i class="fa-solid fa-unlock-keyhole"></i> OTP ચકાસો અને મોક ટેસ્ટ શરૂ કરો
+            </button>
+        </div>
+    </section>
+
+    <!-- ૨. ક્વિઝ સ્ક્રીન -->
+    <section id="quizScreen" style="display: none;">
+        <div class="quiz-layout">
+            <div class="quiz-main-card">
+                <div>
+                    <div class="quiz-header">
+                        <div>
+                            <span id="qProgress" style="font-weight: 800; font-size: 16px; color: var(--heading-color);">પ્રશ્ન ૧૦૧ / ૨૦૦</span>
+                        </div>
+                        <div class="timer-badge">
+                            <i class="fa-regular fa-clock"></i> <span id="timerDisplay">૦૦:૦૦</span>
+                        </div>
+                    </div>
+                    <div class="question-box">
+                        <div id="unitBadge" class="unit-badge"></div>
+                        <div id="questionText" class="question-text"></div>
+                        <div id="optionsContainer"></div>
+                    </div>
+                </div>
+
+                <div class="quiz-actions-bar">
+                    <button id="flagBtn" class="btn-flag" onclick="toggleFlagCurrentQuestion()">
+                        <i class="fa-regular fa-bookmark"></i> Flag (રિવ્યુ માટે)
+                    </button>
+                    <div class="nav-buttons-group">
+                        <button id="prevBtn" class="btn-prev" onclick="prevQuestion()"><i class="fa-solid fa-arrow-left"></i> પાછળ</button>
+                        <button id="nextBtn" class="btn-next" onclick="nextQuestion()">આગળ <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- પ્રશ્ન પેલેટ -->
+            <div class="palette-bottom-card">
+                <div class="palette-title">
+                    <span><i class="fa-solid fa-table-cells"></i> પ્રશ્ન પેલેટ (૧૦૧ થી ૨૦૦ પ્રશ્નો)</span>
+                    <span id="answeredCountBadge" style="font-size: 12px; background: #10b981; color: white; padding: 4px 10px; border-radius: 12px;">0 / 100 પૂર્ણ</span>
+                </div>
+
+                <div class="legend-grid">
+                    <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div> જવાબ આપેલ</div>
+                    <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div> Flag / રિવ્યુ</div>
+                    <div class="legend-item"><div class="legend-dot" style="background:#94a3b8;"></div> બાકી પ્રશ્ન</div>
+                    <div class="legend-item"><div class="legend-dot" style="background:#059669;"></div> ચાલુ પ્રશ્ન</div>
+                </div>
+
+                <div class="palette-grid" id="questionGridContainer"></div>
+
+                <div style="text-align: right; margin-top: 6px;">
+                    <button class="btn-gradient" onclick="confirmSubmitQuiz()" style="max-width: 280px; margin-left: auto; background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); padding: 11px 18px; font-size: 14.5px;">
+                        <i class="fa-solid fa-circle-check"></i> કસોટી સબમિટ કરો
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ૩. પરિણામ સ્ક્રીન -->
+    <section id="resultScreen" style="display: none;">
+        <div class="result-summary-card">
+            <h2 style="color: var(--heading-color); font-size: 20px; font-weight: 900; margin-bottom: 6px;">
+                🎉 કસોટી મૂલ્યાંકન અહેવાલ
+            </h2>
+            <p style="margin: 3px 0; font-size: 14px;"><strong>પરીક્ષાર્થી:</strong> <span id="resName"></span> | <strong>સંપર્ક:</strong> <span id="resPhone"></span></p>
+            <p style="margin: 3px 0; font-size: 13px; color: var(--subheading-color);"><strong>વિષય:</strong> ડી.એલ.એડ્. કોર્સ – ૫ (બ) : પર્યાવરણ શિક્ષણ (GCERT)</p>
+            
+            <div class="score-pill" id="resScore">0 / 100</div>
+            <div style="font-size: 17px; font-weight: 800; color: #10b981;" id="resPercent">0%</div>
+
+            <div class="res-stats-grid">
+                <div class="res-stat-box" style="background:#10b981;">
+                    <div>સાચા ઉત્તર</div>
+                    <div style="font-size: 18px; font-weight: 900;" id="resCorrectCount">0</div>
+                </div>
+                <div class="res-stat-box" style="background:#ef4444;">
+                    <div>ખોટા ઉત્તર</div>
+                    <div style="font-size: 18px; font-weight: 900;" id="resWrongCount">0</div>
+                </div>
+                <div class="res-stat-box" style="background:#f59e0b;">
+                    <div>રિવ્યુ/Flagged</div>
+                    <div style="font-size: 18px; font-weight: 900;" id="resFlagCount">0</div>
+                </div>
+                <div class="res-stat-box" style="background:#059669;">
+                    <div>લીધેલો સમય</div>
+                    <div style="font-size: 15px; font-weight: 900; margin-top: 2px;" id="resTime">00:00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-tabs-nav">
+            <button class="res-tab-btn active-tab" id="tabBtnWrong" onclick="switchResultTab('wrong')">
+                <i class="fa-solid fa-triangle-exclamation" style="color: #ef4444;"></i> ❌ માત્ર ખોટા પડેલા પ્રશ્નો
+            </button>
+            <button class="res-tab-btn" id="tabBtnAnswers" onclick="switchResultTab('answers')">
+                <i class="fa-solid fa-square-check" style="color: #10b981;"></i> 📋 ઉત્તરવહી & સમજૂતી
+            </button>
+            <button class="res-tab-btn" id="tabBtnBlank" onclick="switchResultTab('blank')">
+                <i class="fa-solid fa-file-lines" style="color: #059669;"></i> 📝 મૂળ પ્રશ્નપત્ર (પ્રેક્ટિસ)
+            </button>
+        </div>
+
+        <div id="tabContentWrong">
+            <div id="wrongQuestionsList"></div>
+        </div>
+
+        <div id="tabContentAnswers" style="display: none;">
+            <div id="allAnswersList"></div>
+        </div>
+
+        <div id="tabContentBlank" style="display: none;">
+            <div id="blankQuestionsList"></div>
+        </div>
+    </section>
+</div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz-khogtnFjvjzRuv_ieBYJfx0TAxluM9OfoXlf72h9Yce14rdQu9_Xbmx3fnprk5Q30g/exec";
+
+// વર્ડ ફાઇલમાંથી મેળવેલા ૧૦૧ થી ૨૦૦ પ્રશ્નોનો ડેટાસેટ
+const questions = [
+  {
+    "q": "પ્રશ્ન 101. પર્યાવરણ શિક્ષણમાં 'પરિસ્થિતિકીય પદચિહ્ન' (Ecological Footprint) ઘટાડવા માટે પ્રાથમિક શાળા કક્ષાએ કયું સૌથી અસરકારક વર્તન પરિવર્તન લાવી શકાય?",
+    "options": [
+      "શાળાના બગીચામાં પ્લાસ્ટિકના ફૂલો લગાવવા.",
+      "મધ્યાહ્ન ભોજનમાં એંઠવાડ શૂન્ય કરવો, વરસાદી પાણીનો સંગ્રહ અને કાગળનો બંને બાજુ પુનઃઉપયોગ કરવો.",
+      "માત્ર પર્યાવરણ દિવસ પર રેલી કાઢી સૂત્રો પોકારવા.",
+      "વર્ગખંડમાં વીજળીના બલ્બ દિવસભર ચાલુ રાખવા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "ઇકોલોજિકલ ફૂટપ્રિન્ટ ઘટાડવા સંસાધનોનો કરકસરભર્યો ઉપયોગ અને કચરાનું યોગ્ય વ્યવસ્થાપન વર્તન સ્તરે જરૂરી છે."
+  },
+  {
+    "q": "પ્રશ્ન 102. NCF-2005 મુજબ પ્રાથમિક કક્ષાએ પર્યાવરણ અભ્યાસની સામગ્રી કયા પરિપ્રેક્ષ્યમાં વિકસાવવી જોઈએ?",
+    "options": [
+      "રાષ્ટ્રીય અને આંતરરાષ્ટ્રીય સ્તરની વ્યાખ્યાઓ સીધી આપવી.",
+      "સ્થાનિક જ્ઞાન, સ્થાનિક ભાષા અને સ્થાનિક સંદર્ભોથી શરૂ કરી વૈશ્વિક પરિપ્રેક્ષ્ય તરફ લઈ જવી.",
+      "ફક્ત શહેરી અને ઔદ્યોગિક વિસ્તારોને ધ્યાનમાં રાખીને બનાવવી.",
+      "બાળકની બોલીને અવગણીને માત્ર પ્રમાણિત પુસ્તકીય ભાષા વાપરવી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "NCF-2005 સ્થાનિક પર્યાવરણ, સ્થાનિક સંસાધનો અને સ્થાનિક બોલીને શિક્ષણના પાયા તરીકે સ્વીકારે છે."
+  },
+  {
+    "q": "પ્રશ્ન 103. ધોરણ ૩ માં 'આસપાસ' વિષય દાખલ કરતી વખતે બાળકની કઈ ક્ષમતાનો વિકાસ થયેલો હોવાની અપેક્ષા રાખવામાં આવે છે?",
+    "options": [
+      "ઉચ્ચ ગાણિતિક સમીકરણો ઉકેલવાની ક્ષમતા.",
+      "મૂળભૂત વાચન અને લેખન ક્ષમતા કેળવાઈ ગઈ હોય જેથી અવલોકનોનું વ્યવસ્થિત અર્થઘટન કરી શકે.",
+      "વિદેશી ભાષાઓનું પ્રભુત્વ.",
+      "અમૂર્ત ભૌતિકશાસ્ત્રના પ્રમેયો સાબિત કરવાની ક્ષમતા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "મોડ્યુલ અનુસાર ધોરણ ૧ અને ૨ માં ભાષા દ્વારા પર્યાવરણ શીખ્યા બાદ ધોરણ ૩ માં વાચનક્ષમતા વિકસ્યા પછી જ સ્વતંત્ર પાઠ્યપુસ્તક અપાય છે."
+  },
+  {
+    "q": "પ્રશ્ન 104. સામાજિક વિજ્ઞાનના આયામ તરીકે પર્યાવરણ શિક્ષણમાં 'વસુધૈવ કુટુંબકમ્' ની ભાવના શાનું નિર્માણ કરે છે?",
+    "options": [
+      "આંતરરાષ્ટ્રીય વેપાર નીતિઓ.",
+      "સમગ્ર વિશ્વ અને સૃષ્ટિને એક પર્યાવરણીય નાતે જોડી શાંતિ અને ટકાઉ વિકાસ માટેનું શિક્ષણ.",
+      "કેવળ રાજકીય સરહદોનું રક્ષણ.",
+      "આર્થિક સ્પર્ધાત્મકતા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "'વસુધૈવ કુટુંબકમ્' દ્વારા પ્રાકૃતિક અને સામાજિક તત્વો વચ્ચે વૈશ્વિક સદ્ભાવ અને સંકલન સ્થપાય છે."
+  },
+  {
+    "q": "પ્રશ્ન 105. પર્યાવરણ અધ્યયનમાં 'કાર્યકારણ સંબંધ' (Cause and Effect Relationship) સમજાવવા શિક્ષક 'દિવસ-રાત થવા' નું કયું વૈજ્ઞાનિક કારણ સ્પષ્ટ કરશે?",
+    "options": [
+      "સૂર્યનું પૃથ્વી તરફ આવવું અને જવું.",
+      "પૃથ્વીનું પોતાની ધરી પર પરિભ્રમણ કરવું.",
+      "ચંદ્રનું પૃથ્વીની આસપાસ ફરવું.",
+      "વાદળોનું સૂર્યને ઢાંકી દેવું."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "મોડ્યુલ મુજબ ઘટના પાછળ ચોક્કસ કારણ જવાબદાર હોય છે, પૃથ્વીનું ધરીભ્રમણ દિવસ-રાતનું મૂળ કારણ છે."
+  },
+  {
+    "q": "પ્રશ્ન 106. પીયાજેના મતે બાળકોમાં 'અસમાનતા કે સંઘર્ષ' (Cognitive Disequilibrium) થાય ત્યારે પર્યાવરણ શિક્ષણમાં શું પરિણામ મળે છે?",
+    "options": [
+      "બાળક શીખવાનું બંધ કરી દે છે.",
+      "બાળકમાં નવી પરિસ્થિતિ સાથે અનુકૂલન સાધવા અને જ્ઞાનનું પુનર્ગઠન કરવા માટે જિજ્ઞાસા જાગે છે.",
+      "બાળક હતાશ થઈ જાય છે.",
+      "બાળક જૂની માન્યતાઓને વળગી રહે છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "બોધાત્મક અસમતુલા બાળકના મનમાં પ્રશ્નો પેદા કરે છે, જે તેને નવીન સંકલ્પનાઓના આત્મસાતીકરણ તરફ પ્રેરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 107. વિગોત્સકીના સિદ્ધાંત મુજબ 'Zone of Proximal Development' (ZPD) એટલે શું?",
+    "options": [
+      "બાળકની શાળાની ભૌગોલિક સીમા.",
+      "બાળક પોતાની જાતે કરી શકે તે કાર્ય અને પુખ્ત કે સમવયસ્કના માર્ગદર્શનથી કરી શકે તે કાર્ય વચ્ચેનો ગાળો.",
+      "બાળકની રમતગમતનું મેદાન.",
+      "બાળક જે ક્યારેય શીખી જ ન શકે તેવો ક્ષેત્ર."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "ZPD એ બાળકની સંભવિત વિકાસ ક્ષમતા અને વાસ્તવિક ક્ષમતા વચ્ચેનો શૈક્ષણિક વિસ્તાર છે."
+  },
+  {
+    "q": "પ્રશ્ન 108. બ્રુનરના 'Enactive' (ક્રિયાલક્ષી) તબક્કામાં પર્યાવરણ શીખવવા માટે કયું સાધન સર્વોત્તમ છે?",
+    "options": [
+      "વૈજ્ઞાનિક પુસ્તકોનું મૌન વાચન.",
+      "પ્રત્યક્ષ વસ્તુઓનો સ્પર્શ, અનુભવ, માટીકામ અને હસ્તપ્રવૃત્તિઓ.",
+      "અમૂર્ત ચાર્ટ્સ અને ગ્રાફ્સ.",
+      "કેવળ રેડિયો પર ભાષણ સાંભળવું."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "Enactive મોડમાં બાળક પોતાના સ્નાયુઓ, સ્પર્શ અને પ્રત્યક્ષ ક્રિયાઓ દ્વારા જ્ઞાન પ્રાપ્ત કરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 109. આસુબેલના સિદ્ધાંત અનુસાર 'સમાવેશી અધ્યયન' (Subsumption) એટલે શું?",
+    "options": [
+      "નવા જ્ઞાનને ગોખી કાઢવું.",
+      "નવી પર્યાવરણીય માહિતી કે સંકલ્પનાઓનું બાળકની પૂર્વ બોધાત્મક સંરચનામાં સુગ્રથિત રીતે સમાઈ જવું.",
+      "જૂના જ્ઞાનને સંપૂર્ણપણે ભૂલી જવું.",
+      "વર્ગખંડમાં વિદ્યાર્થીઓની બાદબાકી કરવી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "Subsumption એ નવી માહિતીનું બાળકની હયાત બોધાત્મક રચના સાથે અર્થપૂર્ણ રીતે ભળી જવાની પ્રક્રિયા છે."
+  },
+  {
+    "q": "પ્રશ્ન 110. પર્યાવરણ શિક્ષણમાં બાળકના 'પૂર્વવિચારો' (Prior Ideas) નું સંશોધન શિક્ષકને કઈ રીતે સહાયક બને છે?",
+    "options": [
+      "બાળકોની ભૂલો શોધી તેને સજા કરવામાં.",
+      "બાળકની માનસિક વયકક્ષા સમજી નવીન શિક્ષણ પદ્ધતિ અને પરિસ્થિતિનું નિર્માણ કરવામાં.",
+      "પરીક્ષાનું પરિણામ અગાઉથી જાહેર કરવામાં.",
+      "અભ્યાસક્રમ ટૂંકાવી દેવામાં."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "બાળકના વિચારોનું સંશોધન શિક્ષણમાં નાવીન્યકરણ અને બાળકેન્દ્રી શૈક્ષણિક યોજના ઘડવામાં માર્ગદર્શક બને છે."
+  },
+  {
+    "q": "પ્રશ્ન 111. વર્ગખંડ પ્રત્યાયનમાં 'જ્ઞાનનો વિસ્ફોટ' (Knowledge Explosion) શિક્ષક સમક્ષ કયો મુખ્ય પડકાર ઊભો કરે છે?",
+    "options": [
+      "શિક્ષકે બધી જ ચોપડીઓ મોઢે કરવી પડે છે.",
+      "શિક્ષકે વિષયવસ્તુની સચોટ પસંદગી કરી અર્થપૂર્ણ પદ્ધતિઓ દ્વારા વિદ્યાર્થી સુધી પહોંચાડવું પડે છે.",
+      "વિદ્યાર્થીઓને વર્ગમાં આવતા રોકવા પડે છે.",
+      "ઇન્ટરનેટ કનેક્શન બંધ કરી દેવું પડે છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "જ્ઞાનના વિસ્ફોટના યુગમાં માહિતીના ઢગલામાંથી સારભૂત અને જીવનઉપયોગી સંકલ્પનાઓની પસંદગી અને પ્રત્યાયન ચાવીરૂપ છે."
+  },
+  {
+    "q": "પ્રશ્ન 112. પર્યાવરણ શિક્ષણમાં 'ક્ષેત્રીય મુલાકાત' (Field Visit) ના અહેવાલ લેખનમાં કઈ કાળજી રાખવી અનિવાર્ય છે?",
+    "options": [
+      "બીજા વિદ્યાર્થીના અહેવાલની બેઠી નકલ કરવી.",
+      "અવલોકન કરેલ હકીકતો, નોંધાયેલા આંકડા, સ્વાનુભવ અને તારણોની તાર્કિક અને સત્યનિષ્ઠ રજૂઆત કરવી.",
+      "માત્ર કાલ્પનિક વાર્તાઓ લખવી.",
+      "અહેવાલ જમા ન કરાવવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "અહેવાલ લેખન એ ક્ષેત્રીય મુલાકાતનું શૈક્ષણિક પરિપાક છે જેમાં વૈજ્ઞાનિક ચોકસાઈ અને પ્રમાણિકતા જરૂરી છે."
+  },
+  {
+    "q": "પ્રશ્ન 113. પર્યાવરણના એકમ 'વનસ્પતિ' માં 'એકત્રીકરણ અને વર્ગીકરણ' કૌશલ્ય ચકાસવા માટે કઈ પ્રવૃત્તિ યોગ્ય છે?",
+    "options": [
+      "વનસ્પતિના પાંચ નામ મોટેથી બોલવા.",
+      "પરિસરમાંથી ખરી પડેલા વિવિધ પર્ણો ભેગા કરી તેના આકાર, કિનારી અને શિરાવિન્યાસના આધારે જૂથ પાડવા.",
+      "વૃક્ષ નીચે બેસીને વાતો કરવી.",
+      "પાઠ્યપુસ્તકના પાના ફાડીને સંગ્રહ કરવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "પર્ણોનું એકત્રીકરણ અને લક્ષણોના આધારે વર્ગીકરણ એ અભ્યાસના ઉચ્ચ પ્રક્રિયા કૌશલ્યો વિકસાવે છે."
+  },
+  {
+    "q": "પ્રશ્ન 114. સતત અને સર્વગ્રાહી મૂલ્યાંકન (CCE) માં 'સર્વગ્રાહી' (Comprehensive) શબ્દનો અર્થ શો થાય છે?",
+    "options": [
+      "માત્ર તમામ વિષયોની વાર્ષિક પરીક્ષા લેવી.",
+      "બાળકના જ્ઞાનાત્મક (Cognitive), ભાવાત્મક (Affective) અને મનોક્રિયાત્મક (Psychomotor) તમામ પાસાઓનું મૂલ્યાંકન કરવું.",
+      "ફક્ત શારીરિક તપાસ કરવી.",
+      "વિદ્યાર્થીની આર્થિક સ્થિતિ ચકાસવી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "સર્વગ્રાહી એટલે બાળકના વ્યક્તિત્વના ત્રણેય ક્ષેત્રો – દિલ (લાગણી), દિમાગ (બુદ્ધિ) અને હાથ-પગ (કૌશલ્ય) નું મૂલ્યાંકન."
+  },
+  {
+    "q": "પ્રશ્ન 115. પ્રગતિમૂલક મૂલ્યાંકન (Formative Assessment) માટે નીચેનામાંથી કયું સાધન સૌથી અયોગ્ય છે?",
+    "options": [
+      "શિક્ષકનું દૈનિક અવલોકન પત્રક.",
+      "અણધારી બોર્ડની વાર્ષિક જાહેર કસોટી જે ગ્રેડ નક્કી કરે.",
+      "જૂથચર્ચા દરમિયાન થતી સહભાગી નોંધ.",
+      "પ્રાયોગિક કાર્ય દરમિયાન મૌખિક પ્રશ્નોત્તરી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "વાર્ષિક જાહેર કસોટી એ પરિપાકમૂલક (Summative) સાધન છે, પ્રગતિમૂલક નહીં."
+  },
+  {
+    "q": "પ્રશ્ન 116. બહુવિકલ્પ પ્રકારના પ્રશ્નો રચતી વખતે 'સ્ટેમ' (Stem - મુખ્ય પ્રશ્ન વિધાન) કેવો હોવો જોઈએ?",
+    "options": [
+      "અસ્પષ્ટ અને ગૂંચવણભર્યો.",
+      "સ્પષ્ટ, અર્થપૂર્ણ અને જે સમસ્યા રજૂ કરતો હોય તેવો સંપૂર્ણ.",
+      "જેમાં જવાબ આપોઆપ છતો થઈ જતો હોય તેવો.",
+      "અત્યંત લાંબો અને અસંબદ્ધ વિગતોવાળો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "પ્રશ્નનું મૂળ વિધાન (Stem) સ્પષ્ટ હોવું જોઈએ જેથી વિદ્યાર્થી સમસ્યાને સચોટ રીતે સમજી વિકલ્પો પર વિચાર કરી શકે."
+  },
+  {
+    "q": "પ્રશ્ન 117. પર્યાવરણ શિક્ષણમાં 'ચર્ચા પદ્ધતિ' (Discussion Method) ની મુખ્ય મર્યાદા કઈ હોઈ શકે જો શિક્ષક સજાગ ન હોય?",
+    "options": [
+      "બધા બાળકો બોલવા લાગે.",
+      "કેટલાક મુખર વિદ્યાર્થીઓ વર્ચસ્વ જમાવી લે અને મૂળ વિષય પરથી ચર્ચા ભટકી જાય.",
+      "સમયની બચત થાય.",
+      "વિષયવસ્તુ ઝડપથી પૂરું થઈ જાય."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "શિક્ષકે કુશળ મોડરેટર બની તમામ બાળકોને સમાન તક આપવી અને ચર્ચાને હેતુલક્ષી રાખવી જરૂરી છે."
+  },
+  {
+    "q": "પ્રશ્ન 118. પ્રાથમિક શાળામાં 'ટોટલ લર્નિંગ પૅકેજ' માં વિષયવસ્તુની રચનાનો મૂળ આધાર કયો છે?",
+    "options": [
+      "વિદેશી યુનિવર્સિટીઓનો અભ્યાસક્રમ.",
+      "૧૯૯૩ નો યશપાલ સમિતિનો 'ભાર વગરનું ભણતર' અહેવાલ અને NCF-2005 ની ભલામણો.",
+      "ફક્ત ખાનગી પ્રકાશકોની સામગ્રી.",
+      "પ્રાચીન સમયના નિયમો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "ગુજરાતના નવા પાઠ્યપુસ્તકો ડૉ. યશપાલ કમિટીના 'Learning Without Burden' અને NCF-2005 ના પાયા પર રચાયા છે."
+  },
+  {
+    "q": "પ્રશ્ન 119. શિક્ષક આવૃત્તિમાં આપેલ 'પૂર્વતૈયારી' (Pre-requisites) વિભાગ શિક્ષકને કઈ રીતે મદદ કરે છે?",
+    "options": [
+      "વર્ગખંડમાં જતા પહેલાં જરૂરી સાધન-સામગ્રી, ક્ષેત્ર મુલાકાતની મંજૂરી અને પ્રવૃત્તિનું પૂર્વ આયોજન કરવામાં.",
+      "માત્ર વિદ્યાર્થીઓને હોમવર્ક આપવામાં.",
+      "પરીક્ષાનું પરિણામ અગાઉથી બનાવવામાં.",
+      "રજાઓનું આયોજન કરવામાં."
+    ],
+    "ans": 0,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "પૂર્વતૈયારીથી શિક્ષક TLM અને પ્રવૃત્તિઓથી સજ્જ થઈને વર્ગખંડમાં પ્રવેશે છે જેથી સમયનો સાર્થક ઉપયોગ થાય છે."
+  },
+  {
+    "q": "પ્રશ્ન 120. વાર્તાકથન પદ્ધતિમાં 'સુખદ અંત' (Happy Ending) ધરાવતી વાર્તાઓ પ્રાથમિક બાળકો માટે શા માટે જરૂરી છે?",
+    "options": [
+      "બાળકો રડવા ન લાગે તે માટે.",
+      "બાળકના મનમાં આશાવાદ, સુરક્ષાની ભાવના અને નૈતિક મૂલ્યોનું હકારાત્મક ઘડતર થાય તે માટે.",
+      "વાર્તા ઝડપથી પૂરી કરવા.",
+      "બાળકો ઊંઘી જાય તે માટે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "મોડ્યુલ મુજબ પ્રાથમિક વયના બાળકોના કોમળ માનસ પર સુખદ અંતવાળી વાર્તાઓ આશાસ્પદ અને સુરક્ષિત જીવનદ્રષ્ટિ આપે છે."
+  },
+  {
+    "q": "પ્રશ્ન 121. પર્યાવરણ શિક્ષણમાં 'માર્બલ પ્રિન્ટ' (Marble Print) અને 'સ્પ્રે વર્ક' જેવી કલા પ્રવૃત્તિઓનો હેતુ શો છે?",
+    "options": [
+      "બાળકોના હાથ ગંદા કરવા.",
+      "રચનાત્મકતા, સૌંદર્યબોધ અને હાથ-આંખના સમન્વય (Fine Motor Skills) દ્વારા આનંદદાયી શિક્ષણ પૂરું પાડવું.",
+      "શાળામાં કલર વેચવા.",
+      "સમય પસાર કરવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "આર્ટ એન્ડ ક્રાફ્ટ બાળકોની સર્જનશક્તિ ખીલવે છે અને પર્યાવરણીય અધ્યયનને રસપ્રદ અને જીવંત બનાવે છે."
+  },
+  {
+    "q": "પ્રશ્ન 122. ધોરણ ૫ ના વિદ્યાર્થીઓ પોતાના જિલ્લાના નકશામાં કઈ વિગતો સૌથી સહેલાઈથી અર્થઘટિત કરી શકે?",
+    "options": [
+      "પૃથ્વીના પેટાળના ખડકોના પ્રકાર.",
+      "જિલ્લાના તાલુકા મથકો, મુખ્ય નદીઓ, અભયારણ્યો, ધોરીમાર્ગો અને ઐતિહાસિક સ્થળો.",
+      "આંતરરાષ્ટ્રીય સમય ક્ષેત્રો (Time Zones).
+      "વાતાવરણના વિવિધ સ્તરો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "વિકાસાત્મક આવર્તન અનુસાર ધોરણ ૫ નું બાળક પોતાના જિલ્લાના ભૌગોલિક અને સાંસ્કૃતિક સ્થળોના નકશા સંકેતો સમજી શકે છે."
+  },
+  {
+    "q": "પ્રશ્ન 123. પર્યાવરણ અધ્યયનમાં 'સુગંધ દ્વારા ખોરાકની ઓળખ' કરાવવી એ મૂલ્યાંકનના કયા પાસાને સ્પર્શે છે?",
+    "options": [
+      "કેવળ લેખિત સ્મૃતિ.",
+      "ઘ્રાણેન્દ્રિય (Smell Sense) ની સક્રિયતા અને સૂક્ષ્મ અવલોકન ક્ષમતાનું મૂલ્યાંકન.",
+      "વિદ્યાર્થીની ભૂખ તપાસવી.",
+      "ખોરાક બનાવવાની રીત."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "પંચેન્દ્રિયો આધારિત મૂલ્યાંકન બાળકને ઇન્દ્રિયગમ્ય અનુભવો દ્વારા વૈજ્ઞાનિક સમજ કેળવવામાં મદદ કરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 124. જો કોઈ બાળક વર્ગમાં પ્રાણીઓ કે જીવજંતુઓને કારણ વગર ઇજા પહોંચાડતું હોય, તો શિક્ષકે કયા અભિગમથી કાર્ય કરવું જોઈએ?",
+    "options": [
+      "બાળકને આકરી શારીરિક સજા કરવી.",
+      "જીવદયા, પર્યાવરણીય સંતુલનમાં તેમનું મહત્ત્વ દર્શાવતી વાર્તાઓ અને ભૂમિકા-ભજવણી (Role Play) દ્વારા સંવેદનશીલતા કેળવવી.",
+      "બાળકને શાળામાંથી કાઢી મૂકવો.",
+      "તે બાબતને સંપૂર્ણપણે અવગણવી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "પર્યાવરણ શિક્ષણનું મુખ્ય ધ્યેય સજીવસૃષ્ટિ પ્રત્યે કરુણા, પ્રેમ અને સહ-અસ્તિત્વના સામાજિક મૂલ્યોનું સિંચન કરવાનું છે."
+  },
+  {
+    "q": "પ્રશ્ન 125. આપત્તિ વ્યવસ્થાપન સંદર્ભે 'જી.એસ.ડી.એમ.' (GSDM) નું પૂર્ણ નામ શું છે?",
+    "options": [
+      "Gujarat School Development Mission",
+      "Gujarat State Disaster Management",
+      "General Safety and Disaster Method",
+      "Gujarat Science and Defence Ministry"
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "મોડ્યુલ મુજબ આપત્તિ વ્યાખ્યા સંદર્ભે GSDM એટલે ગુજરાત સ્ટેટ ડિઝાસ્ટર મેનેજમેન્ટ."
+  },
+  {
+    "q": "પ્રશ્ન 126. જંગલની આગ (Forest Fire) લાગવાના કિસ્સામાં તે કુદરતી તેમજ માનવસર્જિત બંને હોઈ શકે છે, કારણ કે:",
+    "options": [
+      "વૃક્ષો પોતે જ દીવાસળી સળગાવે છે.",
+      "તે વીજળી પડવાથી કે ઘર્ષણથી (કુદરતી) પણ લાગે અને માનવીની બેદરકારી/બીડી-સિગારેટથી (માનવસર્જિત) પણ ભડકે છે.",
+      "જંગલની આગ ક્યારેય કુદરતી હોતી જ નથી.",
+      "માત્ર પ્રાણીઓ દ્વારા આગ લગાડવામાં આવે છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "આગ બંને પ્રકારની આપત્તિ હોઈ શકે છે: પ્રાકૃતિક ઘર્ષણ/વીજળી અને માનવીય ગફલત કે અવિચારી કૃત્યો."
+  },
+  {
+    "q": "પ્રશ્ન 127. રેલ કે હવાઈ અકસ્માત સમયે પ્રાથમિક શાળાના શિક્ષકની સામાજિક ભૂમિકા કઈ હોઈ શકે?",
+    "options": [
+      "માત્ર ફોટો પાડીને સોશિયલ મીડિયા પર મૂકવા.",
+      "અફવાઓ રોકવી, શાંતિ જાળવવી, સ્થાનિક તંત્રને મદદ કરવી અને અસરગ્રસ્તોને પ્રાથમિક સારવાર કે સાંત્વના આપવી.",
+      "ઘટનાસ્થળેથી ભાગી જવું.",
+      "તમાશો જોવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "આપત્તિ સમયે શિક્ષક સમાજનો જાગૃત અગ્રણી છે જે યોગ્ય માહિતી સંચાર અને માનવતાવાદી સહાયમાં ચાવીરૂપ ભૂમિકા ભજવે છે."
+  },
+  {
+    "q": "પ્રશ્ન 128. બાળક જ્યારે શાળાના બગીચામાં પતંગિયા અને ફૂલો વચ્ચેનો સંબંધ જુએ છે, ત્યારે તે વિજ્ઞાનનો કયો સિદ્ધાંત સ્વાનુભવે શીખે છે?",
+    "options": [
+      "ગુરુત્વાકર્ષણનો નિયમ.",
+      "પરાગનયન (Pollination) અને સજીવો વચ્ચેનું પરસ્પર પૂરક સહજીવન.",
+      "પ્રકાશનું વક્રીભવન.",
+      "ચુંબકીય આકર્ષણ."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "કીટકો ફૂલોમાંથી રસ ચૂસે છે અને બદલામાં પરાગનયન કરી વનસ્પતિના પ્રજનનમાં સહાય કરે છે તે પ્રત્યક્ષ અવલોકનથી શીખાય છે."
+  },
+  {
+    "q": "પ્રશ્ન 129. આસુબેલના અધ્યયન મોડેલમાં 'Cognitive Structure' (બોધાત્મક સંરચના) ની સરખામણી કોની સાથે કરી શકાય?",
+    "options": [
+      "પુસ્તકના કાગળ સાથે.",
+      "મગજમાં વિચારો, ખ્યાલો અને જ્ઞાનની વ્યવસ્થિત ગોઠવાયેલી પદાનુક્રમિત (Hierarchical) જાળી સાથે.",
+      "વર્ગખંડની બેન્ચ સાથે.",
+      "શાળાના સમયપત્રક સાથે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "બોધાત્મક સંરચના એ માનસિક ફ્રેમવર્ક છે જેમાં સામાન્યથી વિશિષ્ટ ખ્યાલો સંગઠિત થયેલા હોય છે."
+  },
+  {
+    "q": "પ્રશ્ન 130. બ્રુનરના 'Discovery Learning' (અન્વેષણાત્મક અધ્યયન) માં વિદ્યાર્થીની ભૂમિકા કેવી હોય છે?",
+    "options": [
+      "માત્ર નિષ્ક્રિય શ્રોતા તરીકે સાંભળવું.",
+      "એક સક્રિય સંશોધક તરીકે પ્રશ્નો પૂછવા, પરિકલ્પના બાંધવી અને જાતે સત્ય શોધવું.",
+      "શિક્ષકે લખાવેલ પ્રશ્નો ગોખવા.",
+      "વર્ગખંડની બહાર ઊભા રહેવું."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "અન્વેષણાત્મક અધ્યયનમાં બાળક સ્વયં વૈજ્ઞાનિકની જેમ સમસ્યા ઉકેલે છે અને જ્ઞાનની ખોજ કરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 131. પીયાજેના મતે બાળકોમાં 'અહંકથન' (Egocentric Speech) કઈ બાબત દર્શાવે છે?",
+    "options": [
+      "બાળક ખૂબ ઘમંડી છે.",
+      "પૂર્વ-ક્રિયાત્મક તબક્કામાં બાળક અન્યના દ્રષ્ટિકોણને સમજી શકતું નથી અને પોતાના વિચારો મોટેથી બોલે છે.",
+      "બાળકને બોલતાં આવડતું નથી.",
+      "બાળક શિક્ષકનો અનાદર કરે છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "પીયાજે મુજબ ઇગોસેન્ટ્રિક સ્પીચ એ બાળકના વિકાસની સાહજિક મર્યાદા છે જેમાં તે પોતાના દ્રષ્ટિબિંદુથી જ વિચારે છે."
+  },
+  {
+    "q": "પ્રશ્ન 132. વિગોત્સકી અનુસાર 'ખાનગી વાણી' (Private Speech) બાળકના વિકાસમાં શું કાર્ય કરે છે?",
+    "options": [
+      "સમય બગાડે છે.",
+      "બાળકના પોતાના વર્તન અને વિચાર પ્રક્રિયાનું સ્વ-નિયમન (Self-regulation) કરે છે.",
+      "માનસિક બીમારી દર્શાવે છે.",
+      "અન્ય બાળકોને હેરાન કરે છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "વિગોત્સકી માને છે કે ખાનગી વાણી એ વિચારવાનું મહત્વનું સાધન છે જે સમસ્યા ઉકેલમાં બાળકને દિશા આપે છે."
+  },
+  {
+    "q": "પ્રશ્ન 133. પર્યાવરણ શિક્ષણમાં 'કેસ સ્ટડી' (ઘટના અભ્યાસ) પદ્ધતિનો મુખ્ય ઉદ્દેશ્ય શો છે?",
+    "options": [
+      "કાયદાકીય કેસ લડતાં શીખવવું.",
+      "વાસ્તવિક પર્યાવરણીય સમસ્યા (જેમ કે કોઈ ગામમાં જળપ્રદૂષણ) નું ઊંડાણપૂર્વક વિશ્લેષણ કરી વ્યવહારુ ઉકેલો વિચારવા.",
+      "ગુનેગારોને પકડવા.",
+      "માત્ર સમાચાર વાંચવા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "કેસ સ્ટડી વિદ્યાર્થીઓમાં વિવેચનાત્મક ચિંતન અને વાસ્તવિક સમસ્યા ઉકેલવાની ક્ષમતા ખીલવે છે."
+  },
+  {
+    "q": "પ્રશ્ન 134. પ્રાથમિક શાળામાં 'કચરાનું વર્ગીકરણ' શીખવવા કઈ વ્યવહારુ પ્રવૃત્તિ સૌથી પ્રભાવશાળી રહેશે?",
+    "options": [
+      "કચરા વિશે ભાષણ આપવું.",
+      "શાળામાં લીલી (ભીનો કચરો) અને ભૂરી/કાળી (સૂકો કચરો) ડસ્ટબિન મૂકી બાળકો પાસે પ્રત્યક્ષ કચરો અલગ કરાવવો.",
+      "કચરાપેટીના ચિત્રો દોરાવવા.",
+      "કચરો સળગાવી દેવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "પ્રત્યક્ષ આચરણ અને ટેવ નિર્માણ દ્વારા જ પર્યાવરણ શિક્ષણ વાસ્તવિક વર્તનમાં રૂપાંતરિત થાય છે."
+  },
+  {
+    "q": "પ્રશ્ન 135. પર્યાવરણ શિક્ષણમાં 'સ્થાનિક કારીગરો' (કુંભાર, લુહાર, વણકર) નો વર્ગખંડમાં સંવાદ ગોઠવવો એ કયા સિદ્ધાંતને પોષે છે?",
+    "options": [
+      "શૈક્ષણિક ભંડોળ એકઠું કરવું.",
+      "સમુદાયને 'જ્ઞાનના સહભાગી' (Knowledge Partner) તરીકે સ્વીકારવો અને શ્રમજીવી જ્ઞાનનું સન્માન કરવું.",
+      "સમય પસાર કરવો.",
+      "વર્ગખંડમાં ધમાલ કરવી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "મોડ્યુલ સ્પષ્ટ જણાવે છે કે સમુદાય એ જ્ઞાનનો અખૂટ સ્રોત છે અને સ્થાનિક કારીગરો જીવંત પાઠ્યપુસ્તક સમાન છે."
+  },
+  {
+    "q": "પ્રશ્ન 136. ધોરણ ૪ ના પાઠ્યપુસ્તકમાં 'અમૃતાની વાર્તા' (ખેજડી વૃક્ષોનું રક્ષણ) કયા ઐતિહાસિક પર્યાવરણીય આંદોલન સાથે અનુબંધ ધરાવે છે?",
+    "options": [
+      "અસહકારનું આંદોલન.",
+      "રાજસ્થાનનું બિશ્નોઈ આંદોલન અને ચિપકો આંદોલન.",
+      "ઔદ્યોગિક ક્રાંતિ.",
+      "હરિયાળી ક્રાંતિ."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "અમૃતાદેવી બિશ્નોઈનું બલિદાન વૃક્ષો અને વન્યજીવોના રક્ષણ માટે પ્રેરણાદાયી પર્યાવરણીય ઇતિહાસ છે."
+  },
+  {
+    "q": "પ્રશ્ન 137. પર્યાવરણ શિક્ષણમાં 'રેખાંકન અને ચિત્રકામ કૌશલ્ય' શા માટે માત્ર લલિતકલા નથી?",
+    "options": [
+      "કારણ કે તેમાં માર્કસ મળતા નથી.",
+      "તે બાળકના અવલોકનો, સૂક્ષ્મ વિગતો અને સંકલ્પનાત્મક સમજને મૂર્ત સ્વરૂપે અભિવ્યક્ત કરવાનું શક્તિશાળી માધ્યમ છે.",
+      "માત્ર સમય પસાર કરવાનું સાધન છે.",
+      "તે ફક્ત ચિત્ર શિક્ષકનો વિષય છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "ચિત્ર કે આકૃતિ દોરવાથી બાળક જે જુએ છે તેનું માનસિક અર્થઘટન કરી કાગળ પર ઉતારે છે, જે બોધાત્મક પ્રક્રિયા છે."
+  },
+  {
+    "q": "પ્રશ્ન 138. પ્રાથમિક કક્ષાએ પર્યાવરણમાં 'જોડકણાં અને બાલગીતો' નો મુખ્ય શૈક્ષણિક ફાળો શો છે?",
+    "options": [
+      "વર્ગખંડમાં ઘોંઘાટ કરવો.",
+      "લય, તાલ અને આનંદ સાથે ઋતુઓ, પશુ-પંખી અને કુદરતી ઘટનાઓની સહજ સ્મૃતિ અને ભાવાત્મક લગાવ કેળવવો.",
+      "વ્યાકરણના નિયમો ગોખાવવા.",
+      "માત્ર વાર્ષિક ઉત્સવની તૈયારી કરવી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "બાલગીતો અને જોડકણાં નાના બાળકોમાં ભાષા અને પર્યાવરણીય સંકલ્પનાઓનો સમન્વય રચી રસપ્રદ શિક્ષણ આપે છે."
+  },
+  {
+    "q": "પ્રશ્ન 139. પર્યાવરણ શિક્ષણમાં 'સ્વ-મૂલ્યાંકન' (Self-Assessment) બાળકમાં કયા ઉચ્ચ ગુણનો વિકાસ કરે છે?",
+    "options": [
+      "પોતાને વધુ ગુણ આપી દેવાની વૃત્તિ.",
+      "પોતાના શીખવાની પ્રક્રિયા પર આત્મચિંતન (Metacognition) અને ભૂલો સુધારવાની સ્વાયત્તતા.",
+      "શિક્ષકથી ડરવું.",
+      "અન્ય વિદ્યાર્થીઓની ટીકા કરવી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "સ્વ-મૂલ્યાંકન દ્વારા વિદ્યાર્થી પોતાની શક્તિઓ અને નબળાઈઓને જાતે સમજી સ્વતંત્ર અધ્યેતા બને છે."
+  },
+  {
+    "q": "પ્રશ્ન 140. જ્યારે કોઈ વિદ્યાર્થી પરીક્ષામાં 'પર્યાવરણ પ્રદૂષણ' નો સાચો ઉત્તર લખે છે પરંતુ વર્ગખંડમાં પ્લાસ્ટિક ફેંકે છે, ત્યારે કયો હેતુ અધૂરો રહ્યો ગણાય?",
+    "options": [
+      "જ્ઞાનાત્મક હેતુ.",
+      "ભાવાત્મક અને ક્રિયાત્મક હેતુ (વર્તન પરિવર્તન).",
+      "ભાષાકીય હેતુ.",
+      "સ્મૃતિનો હેતુ."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "જ્ઞાન મેળવવું સહેલું છે પરંતુ તેનું આચરણમાં રૂપાંતર થવું તે જ સાચી કેળવણી છે."
+  },
+  {
+    "q": "પ્રશ્ન 141. વર્ગખંડમાં 'લઘુતાગ્રંથિ' ધરાવતા બાળકને પર્યાવરણ ચર્ચામાં જોડવા શિક્ષકે કઈ પ્રયુક્તિ અપનાવવી જોઈએ?",
+    "options": [
+      "તેને ક્યારેય કોઈ પ્રશ્ન ન પૂછવો.",
+      "નાના જૂથમાં જવાબદારી સોંપવી, તેના સ્થાનિક અનુભવોને બિરદાવવા અને પ્રોત્સાહક પ્રતિપુષ્ટિ આપવી.",
+      "વર્ગ સમક્ષ તેની મજાક ઉડાવવી.",
+      "તેને છેલ્લી પાટલી પર બેસાડી દેવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "સહાનુભૂતિપૂર્વક માર્ગદર્શન અને બાળકના સ્વાનુભવોનો સ્વીકાર તેની લઘુતાગ્રંથિ દૂર કરી આત્મવિશ્વાસ વધારે છે."
+  },
+  {
+    "q": "પ્રશ્ન 142. પર્યાવરણ શિક્ષણમાં 'અનાજ અને ખોરાકનો બગાડ અટકાવવો' કયા મૂલ્ય સાથે જોડાયેલ છે?",
+    "options": [
+      "ફક્ત આર્થિક નફો કરવો.",
+      "કુદરતી સંસાધનો અને માનવ શ્રમ પ્રત્યે આદર તથા ટકાઉ જીવનશૈલી.",
+      "ભૂખ્યા રહેવાની ટેવ.",
+      "ખોરાક ઓછો બનાવવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "અનાજનો દરેક દાણો ખેડૂતના શ્રમ અને કુદરતી ઘટકોનું ફળ છે, તેનો આદર એ પર્યાવરણીય સંસ્કાર છે."
+  },
+  {
+    "q": "પ્રશ્ન 143. પર્યાવરણના એકમ 'આબોહવા અને ઋતુઓ' શીખવતી વખતે શિક્ષકે કયા સ્થાનિક તત્વનો આધાર લેવો જોઈએ?",
+    "options": [
+      "વિદેશના બરફના તોફાનો.",
+      "સ્થાનિક વિસ્તારમાં થતા પાક, પહેરવેશ, ખાનપાન અને તહેવારોમાં આવતા મોસમી ફેરફારો.",
+      "ફક્ત પંખાની સ્પીડ.",
+      "એર કંડિશનરનું તાપમાન."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "સ્થાનિક ઋતુચક્ર સાથે સંકળાયેલા ખોરાક અને પહેરવેશના અનુભવો શિક્ષણને મૂર્ત અને પ્રસ્તુત બનાવે છે."
+  },
+  {
+    "q": "પ્રશ્ન 144. નીચેનામાંથી કઈ આપત્તિ 'ધીમી ગતિએ આવતી આપત્તિ' (Slow-onset Disaster) નું ઉદાહરણ છે?",
+    "options": [
+      "ભૂકંપ",
+      "દુષ્કાળ (Drought)",
+      "વાદળ ફાટવું (Cloudburst)",
+      "સિલિન્ડર બ્લાસ્ટ"
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "દુષ્કાળ મહિનાઓ કે વર્ષોની વરસાદી ખેંચના પરિણામે ધીમે ધીમે વિકરાળ સ્વરૂપ ધારણ કરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 145. આપત્તિ વ્યવસ્થાપનમાં 'પુનર્વસન' (Rehabilitation) નો મુખ્ય હેતુ કયો છે?",
+    "options": [
+      "લોકોને માત્ર રોકડ રકમ વહેંચવી.",
+      "આપત્તિગ્રસ્ત સમુદાયને શારીરિક, માનસિક, સામાજિક અને આર્થિક રીતે પુનઃ સ્વનિર્ભર અને સામાન્ય જીવન તરફ વાળવો.",
+      "લોકોને હંમેશ માટે શરણાર્થી કેમ્પમાં રાખવા.",
+      "નુકસાનીનો વીમો ન ચૂકવવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "પુનર્વસન એ લાંબાગાળાની પ્રક્રિયા છે જે અસરગ્રસ્તોનું ગૌરવપૂર્ણ જીવન પુનઃસ્થાપિત કરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 146. ધોરણ ૨ માં ગણિત વિષય દ્વારા પર્યાવરણ શિક્ષણ કેવી રીતે આપી શકાય?",
+    "options": [
+      "માત્ર આંકડાઓ ગોખાવીને.",
+      "સ્થાનિક વૃક્ષોની ગણતરી, પાંદડાઓની લંબાઈનું માપન, ઘરથી શાળાનું અંતર અને પાણીના ગ્લાસની ક્ષમતા દ્વારા.",
+      "ગણિત અને પર્યાવરણને ક્યારેય ભેગા ન કરવા.",
+      "કેવળ કેલ્ક્યુલેટર વાપરતાં શીખવવું."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "પર્યાવરણીય પદાર્થોની ગણતરી અને માપન દ્વારા ગાણિતિક અને પર્યાવરણીય બંને સંકલ્પનાઓ સમન્વિત થાય છે."
+  },
+  {
+    "q": "પ્રશ્ન 147. ભાષા શિક્ષણ દ્વારા પર્યાવરણ શિક્ષણ આપવાનું શ્રેષ્ઠ માધ્યમ કયું છે?",
+    "options": [
+      "કઠિન સંસ્કૃત શ્લોકોનું ગોખણપટ્ટી પઠન.",
+      "પ્રકૃતિ, પ્રાણીઓ, નદીઓ અને ઋતુઓ આધારિત વાર્તાઓ, સંવાદો, કાવ્યો અને વર્ણનાત્મક લેખન.",
+      "માત્ર વ્યાકરણના નિયમો ભણાવવા.",
+      "મૌન બેસી રહેવું."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "ભાષા એ પર્યાવરણની અનુભૂતિ અને સંવેદનાઓને વ્યક્ત કરવાનું પ્રાથમિક માધ્યમ છે."
+  },
+  {
+    "q": "પ્રશ્ન 148. પર્યાવરણ શિક્ષણમાં 'ખોજવૃત્તિ' (Inquiry Spirit) જગાડવા શિક્ષકે કેવા પ્રશ્નો પૂછવા જોઈએ?",
+    "options": [
+      "જેનો જવાબ માત્ર 'હા' કે 'ના' માં હોય.",
+      "'શા માટે?', 'કેવી રીતે?', 'જો આમ થાય તો શું પરિણામ આવે?' જેવા વિચારપ્રેરક અને ખુલ્લા પ્રશ્નો.",
+      "પુસ્તકના પાના નંબર પૂછવા.",
+      "કોઈ પ્રશ્ન જ ન પૂછવા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "ઓપન-એન્ડેડ પ્રશ્નો બાળકના મગજને ઉત્તેજિત કરે છે અને સંશોધનાત્મક તર્ક તરફ દોરી જાય છે."
+  },
+  {
+    "q": "પ્રશ્ન 149. શાળાના વર્ગખંડમાં 'બુલેટિન બોર્ડ' નું આયોજન કરતી વખતે શિક્ષકે કઈ બાબતને અગ્રતા આપવી જોઈએ?",
+    "options": [
+      "બજારમાંથી ખરીદેલા પોસ્ટરો જ કાયમ લગાવી રાખવા.",
+      "વિદ્યાર્થીઓએ જાતે દોરેલા ચિત્રો, એકત્ર કરેલા નમૂના, સ્થાનિક પર્યાવરણીય સમાચાર અને સર્જનાત્મક લેખોનું સમયાંતરે નવીનીકરણ કરવું.",
+      "બોર્ડ ખાલી રાખવું જેથી ખરાબ ન થાય.",
+      "ફક્ત શિક્ષકના પોતાના પ્રમાણપત્રો લગાવવા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "બુલેટિન બોર્ડ વિદ્યાર્થીઓની સર્જનાત્મકતાનું જીવંત દર્પણ હોવું જોઈએ."
+  },
+  {
+    "q": "પ્રશ્ન 150. NCF-2005 ના મતે 'બાળક જ્ઞાનનો ઉપભોક્તા નથી પરંતુ સર્જક છે' - આ વિધાન પર્યાવરણ શિક્ષણમાં શું સૂચવે છે?",
+    "options": [
+      "બાળકે બધી જ ફેક્ટરીઓ ચલાવવી.",
+      "બાળક માત્ર માહિતી સાંભળીને યાદ રાખનાર નથી, પરંતુ પોતાના સ્વાનુભવો અને ચિંતન દ્વારા સક્રિય રીતે પોતાના જ્ઞાનનું નિર્માણ કરે છે.",
+      "શિક્ષકની હવે કોઈ જરૂર નથી.",
+      "પાઠ્યપુસ્તકો બંધ કરી દેવા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "આ રચનાવાદ (Constructivism) નો મૂળભૂત સિદ્ધાંત છે, જ્યાં અધ્યેતા સ્વાનુભવથી જ્ઞાન ઘડે છે."
+  },
+  {
+    "q": "પ્રશ્ન 151. પર્યાવરણ શિક્ષણમાં 'સ્થાનિક જૈવવિવિધતા' (Local Biodiversity) સમજાવવા માટે કઈ પદ્ધતિ નિરર્થક છે?",
+    "options": [
+      "શાળા પરિસરમાં પક્ષી દર્શન (Bird Watching).",
+      "વિદેશી જંગલોના પ્રાણીઓના માત્ર વીડિયો બતાવી સ્થાનિક સજીવોની ઉપેક્ષા કરવી.",
+      "સ્થાનિક વૃક્ષો અને વનસ્પતિઓની ઓળખ પોથી બનાવવી.",
+      "કીટકો અને પતંગિયાઓનું જીવનચક્ર નિહાળવું."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "સ્થાનિક જૈવવિવિધતાને નજરઅંદાજ કરી કેવળ દૂરના ઉદાહરણો આપવાથી પર્યાવરણીય શિક્ષણ મૂળિયાં વિનાનું બને છે."
+  },
+  {
+    "q": "પ્રશ્ન 152. વિદ્યાર્થીઓમાં 'જળ સંરક્ષણ' (Water Conservation) ની ટેવ પાડવા માટે શાળા કક્ષાએ કયું મોનિટરિંગ સફળ નીવડે?",
+    "options": [
+      "પાણીના બગાડ પર દંડ ફટકારવો.",
+      "વિદ્યાર્થીઓની 'જળ રક્ષક સમિતિ' બનાવી ખુલ્લા નળ બંધ કરવાની અને ટપકતા નળની ફરિયાદ નોંધવાની સામૂહિક જવાબદારી સોંપવી.",
+      "પીવાનું પાણી બંધ કરી દેવું.",
+      "માત્ર પ્રાર્થનાસભામાં ભાષણ આપવું."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "જવાબદારીની સોંપણી અને પીઅર મોનિટરિંગથી વિદ્યાર્થીઓમાં આંતરિક શિસ્ત અને માલિકીભાવ જન્મે છે."
+  },
+  {
+    "q": "પ્રશ્ન 153. પીયાજેના જ્ઞાનાત્મક વિકાસમાં 'સંરક્ષણ' (Conservation of Mass/Volume) ની સંકલ્પના પર્યાવરણમાં કેવી રીતે ચકાસી શકાય?",
+    "options": [
+      "બાળકને વજન કાંટો બતાવીને.",
+      "સમાન જથ્થાનું પાણી પહોળા વાસણમાંથી ઊંચા સાંકડા ગ્લાસમાં રેડીને પૂછવું કે કયા ગ્લાસમાં પાણી વધારે છે.",
+      "પાણી ગરમ કરીને.",
+      "પાણીનો રંગ બદલીને."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "આ પીયાજેનો પ્રખ્યાત પ્રયોગ છે, જે દર્શાવે છે કે આકાર બદલાવાથી પદાર્થનો જથ્થો બદલાતો નથી તે બાળક સમજે છે કે નહીં."
+  },
+  {
+    "q": "પ્રશ્ન 154. બ્રુનરના 'Iconic' (ચિત્રાત્મક) તબક્કામાં પર્યાવરણના કયા સાધનનો સર્વાધિક વિનિયોગ થાય છે?",
+    "options": [
+      "અમૂર્ત સૂત્રો.",
+      "દ્રશ્ય ચિત્રો, ફ્લેશકાર્ડ, ફોટોગ્રાફ્સ અને વિઝ્યુઅલ મોડેલ્સ.",
+      "અવાજ વગરનું લખાણ.",
+      "માત્ર વ્યાખ્યાઓ."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "આઇકોનિક મોડમાં બાળક માનસિક ચિત્રો અને વિઝ્યુઅલ ઈમેજીસ દ્વારા સંકલ્પનાઓને ગ્રહણ કરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 155. આસુબેલના મતે 'યાંત્રિક અધ્યયન' (Rote Learning) પર્યાવરણ શિક્ષણ માટે કેમ હાનિકારક છે?",
+    "options": [
+      "કારણ કે તેમાં સમય ઓછો લાગે છે.",
+      "કારણ કે ગોખેલું જ્ઞાન બોધાત્મક સંરચના સાથે જોડાતું નથી અને નવી વાસ્તવિક સમસ્યા ઉકેલવામાં નિષ્ફળ નીવડે છે.",
+      "કારણ કે તેનાથી અક્ષરો બગડે છે.",
+      "કારણ કે પુસ્તકો ફાટી જાય છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "યાંત્રિક સ્મૃતિ અલ્પજીવી હોય છે અને તેનો જીવનવ્યવહારમાં કોઈ વિનિયોગ થઈ શકતો નથી."
+  },
+  {
+    "q": "પ્રશ્ન 156. વિગોત્સકીના સિદ્ધાંત મુજબ 'વધુ જાણકાર અન્ય' (MKO - More Knowledgeable Other) તરીકે કોણ હોઈ શકે?",
+    "options": [
+      "ફક્ત શાળાના આચાર્ય.",
+      "શિક્ષક, માતા-પિતા, વડીલો, હોશિયાર સાથીદાર અથવા કોઈ ક્ષેત્રિય તજજ્ઞ.",
+      "માત્ર કમ્પ્યુટર સોફ્ટવેર.",
+      "કોઈપણ અજાણી વ્યક્તિ."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "MKO એટલે કોઈપણ વ્યક્તિ જે ચોક્કસ વિષય કે કૌશલ્યમાં શીખનાર કરતાં વધુ ક્ષમતા અને સમજ ધરાવે છે."
+  },
+  {
+    "q": "પ્રશ્ન 157. વર્ગખંડ પ્રત્યાયનમાં 'અશાબ્દિક પ્રત્યાયન' (Non-verbal Communication) નું પર્યાવરણ શિક્ષણમાં શું મહત્ત્વ છે?",
+    "options": [
+      "તેનો કોઈ ઉપયોગ નથી.",
+      "શિક્ષકના ચહેરાના હાવભાવ, આંખોનો સંપર્ક, સ્મિત અને સંકેતો બાળકોમાં આત્મીયતા અને ઉત્સાહ વધારે છે.",
+      "તે માત્ર મૂંગા બાળકો માટે છે.",
+      "તેનાથી વર્ગમાં શાંતિ રહે છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "હકારાત્મક બોડી લેંગ્વેજ અને લાગણીશીલ વર્તણૂક પ્રત્યાયનને અત્યંત જીવંત અને પ્રભાવી બનાવે છે."
+  },
+  {
+    "q": "પ્રશ્ન 158. પર્યાવરણ અભ્યાસમાં 'મૌખિક કસોટી' (Oral Test) નો સૌથી મોટો ફાયદો કયો છે?",
+    "options": [
+      "કાગળની બચત થાય છે.",
+      "બાળકની મૌખિક અભિવ્યક્તિ, ત્વરિત વિચારશક્તિ, આત્મવિશ્વાસ અને સંકલ્પનાત્મક સ્પષ્ટતા સીધી જાણી શકાય છે.",
+      "શિક્ષકને લખવું પડતું નથી.",
+      "પરીક્ષા એક મિનિટમાં પૂરી થાય છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "નાના બાળકો લેખિત કરતાં બોલીને પોતાના વિચારો વધુ સહજતાથી અને સમૃદ્ધ રીતે રજૂ કરી શકે છે."
+  },
+  {
+    "q": "પ્રશ્ન 159. વસ્તુલક્ષી પ્રશ્નોમાં 'ભ્રામકો' (Distractors) ની ગુણવત્તા ક્યારે ઉત્તમ ગણાય?",
+    "options": [
+      "જ્યારે બધા જ વિદ્યાર્થીઓ તેને સાચો માની લે.",
+      "જ્યારે તે વિષયવસ્તુ સાથે સુસંગત હોય, તાર્કિક રીતે સંભવિત લાગે પરંતુ ઊંડાણપૂર્વક વિચારનાર જ સાચો ભેદ પારખી શકે.",
+      "જ્યારે તે સાવ હાસ્યાસ્પદ અને અસંબદ્ધ હોય.",
+      "જ્યારે કોઈ વિદ્યાર્થી તેને પસંદ ન કરે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "શક્તિશાળી ભ્રામકો વિદ્યાર્થીના ઉપરછલ્લા જ્ઞાનને પડકારે છે અને વાસ્તવિક સંકલ્પનાત્મક સમજની કસોટી કરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 160. પર્યાવરણ શિક્ષણમાં 'સામાજિક ઓડિટ' (Social Audit) જેવી પ્રવૃત્તિ પ્રાથમિક સ્તરે કયા સ્વરૂપે થઈ શકે?",
+    "options": [
+      "શાળાના હિસાબો તપાસવા.",
+      "શાળા પરિસરમાં પાણી, વીજળી, મધ્યાહ્ન ભોજનની ગુણવત્તા અને સ્વચ્છતાની વિદ્યાર્થીઓ દ્વારા સામૂહિક સમીક્ષા.",
+      "ગામના સરપંચની ચૂંટણી કરવી.",
+      "પોલીસ સ્ટેશનની તપાસ કરવી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "બાળકો પોતાની શાળાની સુવિધાઓ અને સંસાધનોનું ઓડિટ કરી નાગરિક સભાનતા અને લોકશાહી મૂલ્યો શીખે છે."
+  },
+  {
+    "q": "પ્રશ્ન 161. ધોરણ ૩ ના એકમ 'અમારું ઘર' માં ઘરના પ્રકારો (કાચું, પાકું, ઝૂંપડી, બહુમાળી) શીખવતી વખતે કયું સામાજિક મૂલ્ય શીખવવું અનિવાર્ય છે?",
+    "options": [
+      "બહુમાળી મકાનો જ શ્રેષ્ઠ છે.",
+      "મકાન નાનું હોય કે મોટું, કાચું હોય કે પાકું, તેમાં રહેતા પરિવારોની ગરિમા સમાન છે અને તે ભૌગોલિક જરૂરિયાત મુજબ બને છે.",
+      "કાચા મકાનમાં રહેવું શરમજનક છે.",
+      "ઝૂંપડીઓ તોડી પાડવી જોઈએ."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "પર્યાવરણ શિક્ષણ સામાજિક સમાનતા, વિવિધતાનો આદર અને ભૌગોલિક અનુકૂલનની સમજ આપે છે."
+  },
+  {
+    "q": "પ્રશ્ન 162. પર્યાવરણ અધ્યયનમાં 'ખોરાકની જાળવણી' (Food Preservation) શીખવવા કયો ઘરેલું પ્રયોગ સૌથી સરળ અને પ્રત્યક્ષ છે?",
+    "options": [
+      "ફ્રીજની ફેક્ટરીની મુલાકાત.",
+      "લીંબુ કે કેરીનું અથાણું બનાવવું, પાપડ સૂકવવા અથવા દૂધ ઉકાળવાની પદ્ધતિનું અવલોકન.",
+      "રાસાયણિક પ્રિઝર્વેટિવ્સ ખરીદવા.",
+      "હોટેલમાંથી જમવાનું મંગાવવું."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "પરંપરાગત પદ્ધતિઓ (મીઠું ચડાવવું, તડકામાં સૂકવવું) સ્થાનિક જ્ઞાન અને વિજ્ઞાનનો અદભુત સમન્વય દર્શાવે છે."
+  },
+  {
+    "q": "પ્રશ્ન 163. જ્યારે શાળામાં ભૂકંપનો આંચકો આવે અને વિદ્યાર્થીઓ વર્ગખંડમાં હોય, ત્યારે શિક્ષકે કઈ તાત્કાલિક આજ્ઞા આપવી જોઈએ?",
+    "options": [
+      "બધા બારીઓ તરફ દોડો.",
+      "'નીચે નમો, ઢંકાઈ જાઓ અને મજબૂત પકડી રાખો' (Drop, Cover and Hold On) - બેન્ચ નીચે માથું ઢાંકી બેસી જાઓ.",
+      "તાત્કાલિક સામાન બેગમાં ભરો.",
+      "જોરજોરથી બૂમો પાડો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "ભૂકંપ વખતે માથાનું રક્ષણ કરવું અને ભારે ફર્નિચર નીચે આશ્રય લેવો એ આંતરરાષ્ટ્રીય સ્તરે પ્રમાણિત સલામતી પગલું છે."
+  },
+  {
+    "q": "પ્રશ્ન 164. વાવાઝોડાની આગાહી સમયે દરિયાકાંઠાના વિસ્તારોમાં 'સંચાર માધ્યમ' તરીકે કયું ઉપકરણ સૌથી વધુ વિશ્વસનીય નીવડે છે?",
+    "options": [
+      "કેબલ ટીવી.",
+      "બેટરીથી ચાલતો ટ્રાન્ઝિસ્ટર રેડિયો (Radio).",
+      "લેન્ડલાઇન ટેલિફોન.",
+      "ડેસ્કટોપ કમ્પ્યુટર."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "વીજળી અને મોબાઈલ ટાવર ડૂલ થઈ જવા છતાં બેટરીથી ચાલતો રેડિયો સતત સત્તાવાર હવામાન બુલેટિન આપતો રહે છે."
+  },
+  {
+    "q": "પ્રશ્ન 165. દાઝી ગયેલી વ્યક્તિના કપડાં જો ચામડી સાથે ચોંટી ગયા હોય તો શું કરવું જોઈએ?",
+    "options": [
+      "જોરથી ખેંચીને ઉખાડી લેવા.",
+      "ચોંટેલા કપડાંને જબરદસ્તી ખેંચવા નહીં, તેની આસપાસથી કાતર વડે કાપી લેવા અને તબીબી સારવાર લેવી.",
+      "તેના પર ગરમ તેલ રેડવું.",
+      "ચામડી છોલી નાખવી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "ચોંટેલા કપડાં ખેંચવાથી ચામડી ઉતરી જાય છે અને ગંભીર ઘા પડે છે, તેથી તેને તબીબી સહાય વગર ખેંચવા નહીં."
+  },
+  {
+    "q": "પ્રશ્ન 166. પૂરની સ્થિતિમાં 'વાંસના તરાપા' (Bamboo Rafts) બનાવવાની જાણકારી મોડ્યુલમાં કયા હેતુ માટે આપવામાં આવી છે?",
+    "options": [
+      "નદીમાં સ્પોર્ટ્સ હરીફાઈ કરવા.",
+      "કટોકટીના સમયે સ્થાનિક સંસાધનો દ્વારા સલામત સ્થળે સ્થળાંતર કરવા માટેની જીવનરક્ષક કુશળતા તરીકે.",
+      "વાંસ વેચવા માટે.",
+      "હોડીઓ તોડી પાડવા માટે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "સ્થાનિક સામગ્રીમાંથી તાત્કાલિક બચાવ સાધનો બનાવવા એ પરંપરાગત આપત્તિ વ્યવસ્થાપન કૌશલ્ય છે."
+  },
+  {
+    "q": "પ્રશ્ન 167. રોગચાળો ફેલાતો અટકાવવા માટે 'સડી ગયેલા પશુપંખીના મૃતદેહો' નો નિકાલ કેવી રીતે થવો જોઈએ?",
+    "options": [
+      "નદી કે તળાવના પાણીમાં વહાવી દેવા.",
+      "ગામથી દૂર ઊંડો ખાડો ખોદી, ચૂનો કે જંતુનાશક પાવડર નાખી જમીનમાં દાટી દેવા.",
+      "ખુલ્લા મેદાનમાં ફેંકી દેવા.",
+      "શાળાના કમ્પાઉન્ડમાં રાખવા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "ઊંડા ખાડામાં દાટવાથી દુર્ગંધ અને જીવાણુઓનો ફેલાવો અટકે છે અને જળસ્રોતો પ્રદૂષિત થતા બચે છે."
+  },
+  {
+    "q": "પ્રશ્ન 168. પ્રાથમિક શાળામાં 'પ્રકૃતિ શિક્ષણ શિબિર' (Nature Camp) નું આયોજન કરવાથી બાળકમાં કયું પરિવર્તન આવે છે?",
+    "options": [
+      "બાળક ઘર ભૂલી જાય છે.",
+      "પ્રકૃતિ સાથે તાદાત્મ્ય, પર્યાવરણની ભવ્યતાની અનુભૂતિ, સમૂહજીવન અને સાહસવૃત્તિનો વિકાસ થાય છે.",
+      "બાળક બીમાર પડી જાય છે.",
+      "શાળાનું શૈક્ષણિક કામ બગડે છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "પ્રકૃતિ શિબિરો વર્ગખંડની ચાર દીવાલો તોડી બાળકને પર્યાવરણ સાથે જીવંત રીતે ઓતપ્રોત કરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 169. પર્યાવરણ શિક્ષણમાં 'સાયકલ ચલાવવી' એ કયા પ્રકારના મૂલ્યનું સમર્થન કરે છે?",
+    "options": [
+      "ગરીબીનું પ્રતીક છે.",
+      "શારીરિક સ્વાસ્થ્ય, પ્રદૂષણમુક્તિ, અશ્મિભૂત બળતણની બચત અને પર્યાવરણમિત્ર (Eco-friendly) જીવનશૈલી.",
+      "માત્ર સમયનો બગાડ છે.",
+      "મોટરગાડીઓનો વિરોધ છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "સાયકલિંગ એ શૂન્ય ઉત્સર્જન (Zero Emission) ધરાવતું ઉત્તમ પર્યાવરણીય પરિવહન સાધન છે."
+  },
+  {
+    "q": "પ્રશ્ન 170. બાળક જ્યારે પૂછે છે: 'ઝાડને પણ ભૂખ લાગે? તે શું ખાય?' ત્યારે શિક્ષકે કઈ પ્રક્રિયા સમજાવવી જોઈએ?",
+    "options": [
+      "ઝાડ રોટલી ખાય છે.",
+      "પ્રકાશસંશ્લેષણ (Photosynthesis) - સૂર્યપ્રકાશ, પાણી અને કાર્બનડાયોક્સાઈડ દ્વારા વનસ્પતિનો ખોરાક નિર્માણ.",
+      "ઝાડ ક્યારેય ખાતું નથી.",
+      "માત્ર ખાતર જ ખાય છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "આ પ્રશ્ન દ્વારા વિજ્ઞાન અને પર્યાવરણનો સમન્વય કરી વનસ્પતિને સ્વયંપોષી ઉત્પાદક તરીકે સમજાવી શકાય છે."
+  },
+  {
+    "q": "પ્રશ્ન 171. પર્યાવરણ શિક્ષણમાં 'ઋતુચર્યા' (Seasonal Lifestyle) ની સમજ શા માટે જરૂરી છે?",
+    "options": [
+      "માત્ર કેલેન્ડર જોવા.",
+      "બદલાતી ઋતુઓ અનુસાર સમતોલ આહાર, યોગ્ય પોશાક અને સ્વાસ્થ્યપ્રદ જીવનપદ્ધતિ અપનાવવા માટે.",
+      "દવાઓનો વેપાર વધારવા.",
+      "શાળાના સમય બદલવા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "આયુર્વેદ અને પર્યાવરણ વિજ્ઞાન અનુસાર ઋતુચર્યાનું પાલન રોગપ્રતિકારક શક્તિ અને આરોગ્ય જાળવે છે."
+  },
+  {
+    "q": "પ્રશ્ન 172. ધોરણ ૫ ના વિદ્યાર્થીઓમાં 'ઊર્જા સંરક્ષણ' ની સંકલ્પના દ્રઢ કરવા માટે કઈ દૈનિક ટેવ કેળવવી જોઈએ?",
+    "options": [
+      "જરૂર ન હોય ત્યારે લાઇટ, પંખા અને પાણીની મોટર બંધ કરવી.",
+      "ઘરના તમામ ઉપકરણો તોડી નાખવા.",
+      "રાત્રે અંધારામાં જ રહેવું.",
+      "ટીવી આખો દિવસ ચાલુ રાખવું."
+    ],
+    "ans": 0,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "નાની નાની દૈનિક ટેવોથી જ મોટો પર્યાવરણીય પ્રભાવ ઊભો થાય છે, જે મોડ્યુલમાં ભારપૂર્વક દર્શાવેલ છે."
+  },
+  {
+    "q": "પ્રશ્ન 173. પર્યાવરણ શિક્ષણમાં 'સી.એફ.એલ./એલ.ઇ.ડી. બલ્બ' નો ઉપયોગ કઈ બાબત સાબિત કરે છે?",
+    "options": [
+      "તે વધારે સુંદર દેખાય છે.",
+      "વિજ્ઞાન દર્શાવે છે કે તે ઓછી વીજળી વાપરે છે, અને તેનો વ્યવહારમાં અમલ કરવો એ પર્યાવરણ શિક્ષણ છે.",
+      "તે બિલકુલ પ્રકાશ આપતા નથી.",
+      "તે ખૂબ ગરમ થાય છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "મોડ્યુલ મુજબ વૈજ્ઞાનિક તથ્યને ઘરમાં લાવી વર્તનમાં પરિવર્તન લાવવું તે જ પર્યાવરણ શિક્ષણની ખરી સફળતા છે."
+  },
+  {
+    "q": "પ્રશ્ન 174. શિક્ષકે વર્ગખંડમાં 'પ્રશ્ન કૌશલ્ય' (Questioning Skill) પ્રયોજતી વખતે કઈ બાબત ટાળવી જોઈએ?",
+    "options": [
+      "વિચારપ્રેરક પ્રશ્નો પૂછવા.",
+      "પ્રશ્ન પૂછીને તરત જ જાતે જવાબ આપી દેવો અથવા બાળકને વિચારવાનો સમય ન આપવો.",
+      "ઉત્તર આપવા માટે વિદ્યાર્થીઓને પ્રોત્સાહિત કરવા.",
+      "સરળથી કઠિન પ્રશ્નો તરફ જવું."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "પ્રશ્ન પૂછ્યા પછી વિદ્યાર્થીને વિચારવાનો સમય (Wait Time) આપવો અનિવાર્ય છે, ઉતાવળે જવાબ આપવો શિક્ષણ વિરોધી છે."
+  },
+  {
+    "q": "પ્રશ્ન 175. પર્યાવરણ શિક્ષણ અંતર્ગત 'નિબંધ પ્રકારના પ્રશ્નો' નો મુખ્ય ફાયદો કયો છે?",
+    "options": [
+      "પેપર ઝડપથી તપાસાઈ જાય છે.",
+      "વિદ્યાર્થી પોતાના વિચારો, તાર્કિક દલીલો, ભાષા પ્રભુત્વ અને સર્જનાત્મક ઉકેલો મુક્તપણે વિસ્તૃત રીતે રજૂ કરી શકે છે.",
+      "તેમાં કોઈ માર્કસ કપાતા નથી.",
+      "બધા જ વિદ્યાર્થીઓ એકસરખો જવાબ લખે છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "મુક્ત ઉત્તર પ્રશ્નો (Open Response) વિદ્યાર્થીની ઉચ્ચ વિચારણા અને લેખિત અભિવ્યક્તિને માપવા માટે અનિવાર્ય છે."
+  },
+  {
+    "q": "પ્રશ્ન 176. લેખિત કસોટીમાં 'ટૂંકજવાબી પ્રશ્નો' ની આદર્શ શબ્દમર્યાદા પ્રાથમિક સ્તરે કેટલી હોવી જોઈએ?",
+    "options": [
+      "૧૦ થી ૧૫ પાના.",
+      "ધોરણ અને કક્ષા અનુસાર એક-બે વાક્યોથી માંડીને ચાર-પાંચ વાક્યો.",
+      "માત્ર એક જ અક્ષર.",
+      "આખું પુસ્તક."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "મોડ્યુલ મુજબ ટૂંકજવાબી પ્રશ્નો ચોક્કસ મુદ્દાસર ઉત્તર માંગે છે જે પ્રાથમિક બાળકોની ક્ષમતાને અનુરૂપ હોય."
+  },
+  {
+    "q": "પ્રશ્ન 177. વસ્તુલક્ષી કસોટીમાં 'ખાલી જગ્યા પૂરો' પ્રકારના પ્રશ્નમાં કયો નિયમ પાળવો જોઈએ?",
+    "options": [
+      "વાક્યમાં પાંચ-છ જગ્યાએ ખાલી જગ્યા રાખવી.",
+      "વિધાનમાં એક જ નિશ્ચિત ખાલી જગ્યા હોવી જોઈએ અને બને ત્યાં સુધી વાક્યની શરૂઆતમાં ખાલી જગ્યા ન રાખવી.",
+      "કોઈપણ શબ્દ વગર આખું વાક્ય ખાલી રાખવું.",
+      "જવાબ ગમે તે હોઈ શકે તેવો ખુલ્લો રાખવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "મોડ્યુલના પ્રશ્ન રચના નિયમ મુજબ ખાલી જગ્યા એક જ અને ચોક્કસ અર્થપૂર્ણ હોવી જોઈએ જેથી અનિશ્ચિતતા ન રહે."
+  },
+  {
+    "q": "પ્રશ્ન 178. પર્યાવરણ શિક્ષણમાં 'ક્રમ નિર્ણાયકતા' (Sequencing) પ્રકારના પ્રશ્નો વિદ્યાર્થીની કઈ શક્તિ ચકાસે છે?",
+    "options": [
+      "દોડવાની ગતિ.",
+      "ઘટનાઓ, પ્રક્રિયાઓ કે જીવનચક્રના તાર્કિક અને કાલક્રમિક સંબંધોને યોગ્ય ક્રમમાં ગોઠવવાની સમજ.",
+      "ચિત્ર દોરવાની કળા.",
+      "અવાજની તીવ્રતા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "જેમ કે બીજમાંથી છોડ બનવાની પ્રક્રિયા, અથવા ખોરાક પાચનના તબક્કાઓનો ક્રમ ગોઠવવો એ તાર્કિક ક્ષમતા માપે છે."
+  },
+  {
+    "q": "પ્રશ્ન 179. શાળામાં 'વન મહોત્સવ' ની ઉજવણી માત્ર એક દિવસીય ઉત્સવ ન બની રહે તે માટે શું કરવું જોઈએ?",
+    "options": [
+      "બીજા દિવસે છોડવાઓ ભૂલી જવા.",
+      "પ્રત્યેક બાળકને વાવેલા છોડના 'દત્તક વાલી' બનાવી સમગ્ર વર્ષ દરમિયાન તેના ઉછેર અને વૃદ્ધિની નોંધ રખાવવી.",
+      "વૃક્ષો કાપી નાખવા.",
+      "માત્ર ફોટા પાડીને આલ્બમ બંધ કરવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "દીર્ઘકાલીન જવાબદારી અને ફોલો-અપ વગર પર્યાવરણ શિક્ષણનું ધ્યેય સિદ્ધ થઈ શકતું નથી."
+  },
+  {
+    "q": "પ્રશ્ન 180. પર્યાવરણ શિક્ષણમાં 'શિક્ષક મિત્ર, માર્ગદર્શક અને ફિલસૂફ' બને છે - આ સ્થિતિ કઈ શિક્ષણ પદ્ધતિમાં સૌથી વધુ જોવા મળે છે?",
+    "options": [
+      "રૂઢિચુસ્ત વ્યાખ્યાન પદ્ધતિમાં.",
+      "પ્રોજેક્ટ પદ્ધતિ અને અન્વેષણાત્મક પ્રવૃત્તિ પદ્ધતિમાં.",
+      "વિદ્યાર્થીઓને દંડ આપતી વખતે.",
+      "પરીક્ષાખંડમાં સુપરવિઝન કરતી વખતે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "પ્રોજેક્ટ પદ્ધતિમાં વિદ્યાર્થીઓ સ્વતંત્ર કાર્ય કરે છે અને શિક્ષક સહાયક, પ્રેરક અને સુગમકર્તા બની માર્ગદર્શન આપે છે."
+  },
+  {
+    "q": "પ્રશ્ન 181. બાળક જ્યારે 'માટીના રમકડાં' બનાવે છે, ત્યારે પર્યાવરણ અને શિક્ષણનું કયું સંકલન થાય છે?",
+    "options": [
+      "માત્ર સમય પસાર થાય છે.",
+      "કુદરતી માટી સાથે સંવેદનાત્મક જોડાણ, આકાર-કદની ગાણિતિક સમજ અને સ્નાયુઓનું ઉત્તમ કૌશલ્ય (Fine Motor Development).",
+      "કપડાં ગંદા થાય છે એટલે તે પ્રવૃત્તિ બંધ કરવી જોઈએ.",
+      "માટીનો વ્યય થાય છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "માટીકામ એ ગાંધીજીની બુનિયાદી કેળવણી અને પર્યાવરણ શિક્ષણની પાયાની હસ્તકૌશલ્ય પ્રવૃત્તિ છે."
+  },
+  {
+    "q": "પ્રશ્ન 182. પર્યાવરણ અધ્યયનમાં 'સ્થાનિક રમતો' (જેમ કે લંગડી, કબડ્ડી, ખો-ખો, ગિલ્લી-દંડા) નું શું મહત્ત્વ છે?",
+    "options": [
+      "તે ખૂબ જૂની થઈ ગઈ છે એટલે ન રમાડવી.",
+      "સ્થાનિક સંસ્કૃતિ સાથે જોડાણ, શારીરિક તંદુરસ્તી, જૂથભાવના અને શૂન્ય ખર્ચે રમી શકાય તેવો આનંદ.",
+      "માત્ર મોબાઈલ વિડીયો ગેમ્સ જ શ્રેષ્ઠ છે.",
+      "તેનાથી બાળકો થાકી જાય છે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "સ્થાનિક રમતો બાળકના સામાજિક-સાંસ્કૃતિક પર્યાવરણનું અભિન્ન અંગ છે જે તેને પ્રકૃતિ અને સાથીઓ સાથે જોડે છે."
+  },
+  {
+    "q": "પ્રશ્ન 183. ધોરણ ૧ માં બાળક જ્યારે શાળામાં પ્રવેશે છે ત્યારે તેનું પ્રાથમિક પર્યાવરણ ક્યાં સુધી સીમિત હોય છે?",
+    "options": [
+      "સમગ્ર દેશ અને વિશ્વ સુધી.",
+      "તેનું કુટુંબ, ઘર, આડોશ-પાડોશ અને તેના પોતાના રમકડાં/સંબંધીઓ.",
+      "માત્ર પુસ્તકાલય સુધી.",
+      "સરકારી કચેરીઓ સુધી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "મોડ્યુલ મુજબ બાળકની ઉંમર વધવાની સાથે તેનું પર્યાવરણ ઘરથી શેરી, ગામ, તાલુકો અને જિલ્લા તરફ વિસ્તાર પામે છે."
+  },
+  {
+    "q": "પ્રશ્ન 184. પર્યાવરણ શિક્ષણમાં 'સાંસ્કૃતિક પર્યાવરણ' (Cultural Environment) માં કોનો સમાવેશ થાય છે?",
+    "options": [
+      "પર્વતો અને ખડકો.",
+      "તહેવારો, મેળાઓ, લોકગીતો, રીતરિવાજો, પરંપરાગત વસ્ત્રો અને જીવનશૈલી.",
+      "કેવળ વાતાવરણના વાયુઓ.",
+      "સમુદ્રનું ખારું પાણી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "સાંસ્કૃતિક પર્યાવરણ એ માનવસર્જિત સામાજિક મૂલ્યો અને પરંપરાઓનું પરિવેશ છે જે પર્યાવરણ સાથે ગાઢ રીતે જોડાયેલું છે."
+  },
+  {
+    "q": "પ્રશ્ન 185. વિદ્યાર્થીઓને 'બીજનું અંકુરણ' (Germination of Seed) શીખવતી વખતે શ્રેષ્ઠ અધ્યાપન પદ્ધતિ કઈ રહેશે?",
+    "options": [
+      "બોર્ડ પર બીજનું ચિત્ર દોરી વ્યાખ્યા લખાવી દેવી.",
+      "પ્રત્યેક વિદ્યાર્થી પાસે કૂંડામાં કે પ્લાસ્ટિકના કપમાં કઠોળ વાવડાવી, રોજિંદા ફેરફારોનું અવલોકન કોષ્ટકમાં નોંધાવવું.",
+      "ગૂગલ પરથી ફોટો બતાવી દેવો.",
+      "બજારમાંથી તૈયાર છોડ લાવી મૂકી દેવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "મોડ્યુલ મુજબ ERAC ચક્ર અનુસાર પ્રત્યક્ષ અનુભવ અને અવલોકન નોંધવાથી જ સાચા વિજ્ઞાન અને પર્યાવરણનું જ્ઞાન સર્જાય છે."
+  },
+  {
+    "q": "પ્રશ્ન 186. જો કોઈ બાળક વર્ગમાં વારંવાર એક જ પ્રકારની ભૂલો કરતું હોય તો શિક્ષકે કયા પ્રકારની કસોટી યોજવી જોઈએ?",
+    "options": [
+      "સજા કસોટી.",
+      "નિદાનાત્મક કસોટી (Diagnostic Test).",
+      "બોર્ડ વાર્ષિક કસોટી.",
+      "સ્પીડ ટેસ્ટ."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "વારંવાર થતી ભૂલો પાછળના ચોક્કસ કારણો અને અધ્યયન ખામીઓ શોધવા માટે નિદાનાત્મક મૂલ્યાંકન અનિવાર્ય છે."
+  },
+  {
+    "q": "પ્રશ્ન 187. પર્યાવરણ શિક્ષણમાં 'અભિક્રમિત અધ્યયન' (Programmed Learning) નો ઉપયોગ ક્યારે ફાયદાકારક બને છે?",
+    "options": [
+      "જ્યારે બધા બાળકો સાથે બેસીને વાંચતા હોય.",
+      "વ્યક્તિગત ભિન્નતા ધરાવતા બાળકો પોતાની શીખવાની ગતિએ ક્રમિક નાના સોપાનો દ્વારા સ્વ-અધ્યયન કરી શકે તે માટે.",
+      "જ્યારે શિક્ષક ગેરહાજર હોય ત્યારે જ.",
+      "માત્ર પરીક્ષાના દિવસે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "અભિક્રમિત અધ્યયન સ્વ-ગતિ, તાત્કાલિક પ્રતિપુષ્ટિ અને તાર્કિક ક્રમબદ્ધતા પૂરી પાડે છે."
+  },
+  {
+    "q": "પ્રશ્ન 188. શિક્ષક વર્ગમાં પૂછે છે: 'દિવસ અને રાત કેમ થાય છે?' - આ પ્રશ્ન વિદ્યાર્થીની કઈ માનસિક શક્તિને પડકારે છે?",
+    "options": [
+      "માત્ર સ્મરણ શક્તિ.",
+      "તર્કશક્તિ, કાર્યકારણ સંબંધની સમજ અને વૈજ્ઞાનિક વિશ્લેષણ શક્તિ.",
+      "અક્ષર લેખન શક્તિ.",
+      "શારીરિક શક્તિ."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "કાર્યકારણ આધારિત પ્રશ્નો ગોખણપટ્ટીથી પર જઈ વૈજ્ઞાનિક તર્ક અને સંકલ્પનાત્મક ઊંડાણની કસોટી કરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 189. પર્યાવરણ શિક્ષણમાં 'સામાજિક વિજ્ઞાનમાંથી નિષ્પન્ન થતી સમજ' વિદ્યાર્થીમાં કઈ ભાવનાનું નિર્માણ કરે છે?",
+    "options": [
+      "જ્ઞાતિવાદ અને ભેદભાવ.",
+      "રાષ્ટ્રીય ચારિત્ર્ય, દેશપ્રેમ, સામાજિક સમરસતા અને સાંસ્કૃતિક વારસાના જતનનું મૂલ્ય.",
+      "આર્થિક લાલચ.",
+      "અલગતાવાદ."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "સામાજિક વિજ્ઞાન બાળકને સુશિક્ષિત, સમર્થ અને સંવેદનશીલ નાગરિક બનાવી રાષ્ટ્રીય ચારિત્ર્યનું નિર્માણ કરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 190. મોડ્યુલ અનુસાર 'પર્યાવરણ અભ્યાસ' અને 'પર્યાવરણ શિક્ષણ' વચ્ચેનો મૂળભૂત સંબંધ કેવો છે?",
+    "options": [
+      "બંને એકબીજાના વિરોધી છે.",
+      "બંને એક જ સિક્કાની બે બાજુ સમાન છે; પર્યાવરણ અભ્યાસ એ વિષયવસ્તુ છે અને પર્યાવરણ શિક્ષણ એ સમગ્ર જીવનલક્ષી અભિગમ છે.",
+      "પર્યાવરણ અભ્યાસ માત્ર વિજ્ઞાન છે જ્યારે પર્યાવરણ શિક્ષણ માત્ર સાહિત્ય છે.",
+      "બંને વચ્ચે કોઈ સંબંધ નથી."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "મોડ્યુલ સ્પષ્ટ જણાવે છે કે પર્યાવરણ અભ્યાસ વિના પર્યાવરણ શિક્ષણ અસંભવ છે, બંને પરસ્પર પૂરક અને ઓતપ્રોત છે."
+  },
+  {
+    "q": "પ્રશ્ન 191. ધોરણ ૪ ના વિદ્યાર્થીઓને 'પાણીના પ્રદૂષણના સ્ત્રોતો' શીખવતી વખતે કયું ઉદાહરણ સ્થાનિક સંદર્ભે સૌથી સચોટ નીવડે?",
+    "options": [
+      "આર્ક્ટિક મહાસાગરનું પાણી.",
+      "ગામના તળાવ કે નદીમાં કપડાં-ઢોર ધોવા, ગંદા પાણીનો નિકાલ અને કારખાનાના કેમિકલયુક્ત પાણીનું ભળવું.",
+      "અંતરિક્ષમાંથી પાણી લાવવું.",
+      "મિનરલ વોટર પ્લાન્ટ."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૩ : વર્ગખંડ પ્રત્યાયન અને મૂલ્યાંકન",
+    "exp": "સ્થાનિક જળાશયોમાં પ્રત્યક્ષ જોવા મળતું પ્રદૂષણ બાળકને વાસ્તવિક પરિસ્થિતિ સાથે જોડે છે અને સંવેદનશીલ બનાવે છે."
+  },
+  {
+    "q": "પ્રશ્ન 192. પર્યાવરણ શિક્ષણમાં 'ક્ષમતાકેન્દ્રી અભિગમ' (Competency-Based) માંથી 'અધ્યયન નિષ્પત્તિ આધારિત અભિગમ' (Learning Outcomes) તરફનું સંક્રમણ કયા વર્ષમાં D.El.Ed. માં સ્વીકારાયું?",
+    "options": [
+      "૧૯૯૫ માં",
+      "૨૦૧૪ ના પુનઃગઠિત અભ્યાસક્રમમાં",
+      "૧૯૮૬ માં",
+      "૨૦૨૫ માં"
+    ],
+    "ans": 1,
+    "unit": "પ્રસ્તાવના (મોડ્યુલ)",
+    "exp": "મોડ્યુલની પ્રસ્તાવના મુજબ ૨૦૧૪ માં ડી.એલ.એડ્. અભ્યાસક્રમના પુનઃગઠન વખતે ક્ષમતાઓને બદલે 'અધ્યયન નિષ્પત્તિઓ' ને સ્થાન આપવામાં આવ્યું."
+  },
+  {
+    "q": "પ્રશ્ન 193. ડી.એલ.એડ્. ના બે વર્ષીય અભ્યાસક્રમના ત્રણ વિભાગોમાં નીચેનામાંથી કોનો સમાવેશ થતો નથી?",
+    "options": [
+      "સાત અધ્યયન ક્ષેત્રો.",
+      "પાંચ કાર્ય કૌશલ્ય ક્ષેત્રો.",
+      "પાંચ પ્રતિબદ્ધતા ક્ષેત્રો.",
+      "દસ વિદેશી ભાષા ક્ષેત્રો."
+    ],
+    "ans": 3,
+    "unit": "પ્રસ્તાવના (મોડ્યુલ)",
+    "exp": "મોડ્યુલ મુજબ અભ્યાસક્રમ ત્રણ વિભાગમાં છે: ૭ અધ્યયન ક્ષેત્રો, ૫ કાર્ય કૌશલ્ય ક્ષેત્રો અને ૫ પ્રતિબદ્ધતા ક્ષેત્રો."
+  },
+  {
+    "q": "પ્રશ્ન 194. અભ્યાસક્રમ સમિતિના અધ્યક્ષ તરીકે કોના માર્ગદર્શન હેઠળ ડી.એલ.એડ્. અભ્યાસક્રમનું ઘડતર થયું હતું?",
+    "options": [
+      "ડૉ. યશપાલ",
+      "ડૉ. રવીન્દ્રભાઈ દવે",
+      "ડૉ. એ.પી.જે. અબ્દુલ કલામ",
+      "ઈશ્વરભાઈ પટેલ"
+    ],
+    "ans": 1,
+    "unit": "પ્રસ્તાવના (મોડ્યુલ)",
+    "exp": "પ્રસ્તાવના મુજબ ડૉ. રવીન્દ્રભાઈ દવેના અધ્યક્ષપણા હેઠળ રચાયેલ સમિતિ દ્વારા આ અભ્યાસક્રમ ઘડાયો હતો."
+  },
+  {
+    "q": "પ્રશ્ન 195. પર્યાવરણ શિક્ષણના મોડ્યુલ નિર્માણમાં આર્થિક તેમજ શૈક્ષણિક સહયોગ આપનાર વૈશ્વિક સંસ્થા કઈ હતી?",
+    "options": [
+      "યુનેસ્કો (UNESCO)",
+      "યુનિસેફ (UNICEF)",
+      "વિશ્વ બેંક (World Bank)",
+      "ડબલ્યુ.એચ.ઓ. (WHO)"
+    ],
+    "ans": 1,
+    "unit": "પ્રસ્તાવના (મોડ્યુલ)",
+    "exp": "મોડ્યુલની પ્રસ્તાવના અનુસાર GCERT ના આ મોડ્યુલ નિર્માણમાં UNICEF નો આર્થિક તેમજ શૈક્ષણિક સહયોગ પ્રાપ્ત થયો હતો."
+  },
+  {
+    "q": "પ્રશ્ન 196. પર્યાવરણ શિક્ષણ અંતર્ગત 'જીવાતા જીવન સાથેનો અનુબંધ' (Correlation with Life) એટલે શું?",
+    "options": [
+      "માત્ર પરીક્ષા પાસ કરી નોકરી મેળવવી.",
+      "સૃષ્ટિમાં જીવન જીવવા માટે કોઈપણ જીવે અન્ય જીવો, પદાર્થો અને પ્રકૃતિ સાથે સાધેલો અનિવાર્ય સેતુ અને પરસ્પરાવલંબન.",
+      "એકાંતવાસ ભોગવવો.",
+      "કુદરતી તત્વોથી દૂર રહેવું."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "કોઈપણ સજીવ પ્રકૃતિ અને અન્ય ઘટકો સાથે સંબંધ બાંધ્યા વિના જીવી શકતો નથી, આ અનુબંધ જીવનનો આધાર છે."
+  },
+  {
+    "q": "પ્રશ્ન 197. પર્યાવરણ શિક્ષણમાં શિક્ષકની ભૂમિકા અંગે મોડ્યુલમાં કઈ બાબતને સૌથી નિર્ણાયક ગણાવી છે?",
+    "options": [
+      "શિક્ષકે માત્ર વર્ગમાં વ્યાખ્યાન આપવું.",
+      "શિક્ષકે સ્વયં પર્યાવરણ પ્રત્યે જાગરૂકતા, ઊંડો રસ અને હકારાત્મક વલણ દાખવવું જેથી વિદ્યાર્થીઓ શિક્ષકના વ્યક્તિત્વનો પ્રભાવ આપોઆપ ઝીલે.",
+      "શિક્ષકે કડક દંડ કરવો.",
+      "શિક્ષકે પર્યાવરણના પ્રશ્નો અવગણવા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "શિક્ષકનું જીવંત આચરણ અને રોલ મોડેલિંગ વિદ્યાર્થીઓના પર્યાવરણીય સંસ્કાર ઘડવામાં સૌથી પ્રભાવશાળી પરિબળ છે."
+  },
+  {
+    "q": "પ્રશ્ન 198. શિક્ષક આવૃત્તિમાં જણાવ્યા અનુસાર પર્યાવરણ શિક્ષણ ક્યારે ખરેખર સિદ્ધ થયું ગણાય?",
+    "options": [
+      "જ્યારે બાળક પુસ્તક આખું મોઢે બોલી જાય.",
+      "જ્યારે મેળવેલું જ્ઞાન બાળકના રોજીંદા જીવનના આચરણ અને વર્તન-પરિવર્તનમાં પરિણમે.",
+      "જ્યારે બાળક પરીક્ષામાં ૧૦૦% લાવે.",
+      "જ્યારે શાળાને એવોર્ડ મળે."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૨ : બાળકોના વિચારોની સમજ",
+    "exp": "મોડ્યુલ સ્પષ્ટ કરે છે કે જ્ઞાનથી અમલ સુધીનો રસ્તો કઠિન છે, અને શિક્ષણ ત્યારે જ સિદ્ધ થયું કહેવાય જ્યારે તે વ્યવહારમાં ઉતરે."
+  },
+  {
+    "q": "પ્રશ્ન 199. ધોરણ ૩ થી ૫ ના પાઠ્યપુસ્તકોમાં પ્રકરણોના અંતે કેવા પ્રશ્નો મૂકવાની ભલામણ શિક્ષક આવૃત્તિ કરે છે?",
+    "options": [
+      "કેવળ બેઠા ગોખેલા જવાબો વાળા પ્રશ્નો.",
+      "'વિચારો અને કહો', 'આટલું કરો', 'શોધી કાઢો' જેવા સ્વાનુભવ, ચિંતન અને પ્રક્રિયા કૌશલ્ય પ્રેરે તેવા મુક્ત પ્રશ્નો.",
+      "માત્ર વિકલ્પો વાળા પ્રશ્નો.",
+      "ક્યારેય પ્રશ્નો ન મૂકવા."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૪ : અધ્યાપનનું આયોજન",
+    "exp": "આવા પ્રશ્નો બાળકને જાતે વિચારવા, અવલોકન કરવા અને પોતાના પરિવેશમાંથી સત્ય શોધવા પ્રોત્સાહિત કરે છે."
+  },
+  {
+    "q": "પ્રશ્ન 200. પર્યાવરણ શિક્ષણનો અંતિમ અને સર્વોચ્ચ હેતુ કયો છે?",
+    "options": [
+      "વિદ્યાર્થીઓને વૈજ્ઞાનિક બનાવી વિદેશ મોકલવા.",
+      "પર્યાવરણ પ્રત્યે સંવેદનશીલ, સભાન, કુદરતી સંપત્તિનું જતન કરનાર અને ટકાઉ ભવિષ્ય માટે પ્રતિબદ્ધ 'પર્યાવરણપ્રેમી વૈશ્વિક નાગરિક' નું ઘડતર કરવું.",
+      "માત્ર પ્રકૃતિ પર વિજય મેળવવો.",
+      "તમામ જંગલોનો ઔદ્યોગિક ઉપયોગ કરવો."
+    ],
+    "ans": 1,
+    "unit": "એકમ ૧ : પર્યાવરણ શિક્ષણની સંકલ્પના",
+    "exp": "મોડ્યુલનો સારાંશ સ્પષ્ટપણે દર્શાવે છે કે પર્યાવરણ શિક્ષણનું અંતિમ લક્ષ્ય શ્રેષ્ઠ જીવન માટે આદર્શ અને સંવેદનશીલ નાગરિક તૈયાર કરવાનું છે."
+  }
+];
+
+let studentName = "", studentPhone = "", studentEmail = "";
+let currentQ = 0;
+let userAnswers = new Array(questions.length).fill(null);
+let flaggedQuestions = new Array(questions.length).fill(false);
+let startTime, timerInterval;
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    const btn = document.getElementById("themeToggleBtn");
+    btn.innerHTML = isDark ? '<i class="fa-solid fa-sun"></i> લાઈટ મોડ' : '<i class="fa-solid fa-moon"></i> ડાર્ક મોડ';
+}
+
+function showNotice(msg, type = "info") {
+    const box = document.getElementById("noticeMsg");
+    box.className = "msg-box " + (type === "error" ? "msg-error" : "msg-info");
+    box.innerText = msg;
+    box.style.display = "block";
+    setTimeout(() => { box.style.display = "none"; }, 6000);
+}
+
+function requestOTP() {
+    studentName = document.getElementById("name").value.trim();
+    studentPhone = document.getElementById("phone").value.trim();
+    studentEmail = document.getElementById("email").value.trim();
+
+    if (!studentName || studentPhone.length < 10 || !studentEmail.includes("@")) {
+        showNotice("કૃપા કરીને પૂરું નામ, ૧૦ અંકનો સાચો મોબાઇલ નંબર અને માન્ય ઇમેઇલ દાખલ કરો.", "error");
+        return;
+    }
+
+    const btn = document.getElementById("getOtpBtn");
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> OTP મોકલાઈ રહ્યો છે...';
+
+    fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({
+            action: "sendOTP",
+            name: studentName,
+            email: studentEmail
+        })
+    })
+    .then(function() {
+        showNotice("આપના ઈમેઈલ પર ૪ અંકનો OTP મોકલવામાં આવ્યો છે. ઇનબોક્સ/સ્પામ તપાસો.", "info");
+        document.getElementById("otpContainer").style.display = "block";
+        btn.innerHTML = '<i class="fa-solid fa-rotate-right"></i> OTP ફરીથી મોકલો';
+        btn.disabled = false;
+    })
+    .catch(function() {
+        showNotice("OTP મોકલવામાં ક્ષતિ આવી. ફરી પ્રયાસ કરો.", "error");
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> OTP મેળવો અને આગળ વધો';
+    });
+}
+
+function verifyAndStart() {
+    const enteredOTP = document.getElementById("otpInput").value.trim();
+    if (enteredOTP.length !== 4) {
+        showNotice("કૃપા કરીને ૪ અંકનો સાચો OTP દાખલ કરો.", "error");
+        return;
+    }
+
+    const vBtn = document.getElementById("verifyBtn");
+    vBtn.disabled = true;
+    vBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ચકાસણી ચાલુ છે...';
+
+    fetch(SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({
+            action: "verifyOTP",
+            email: studentEmail,
+            otp: enteredOTP
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success" && data.verified) {
+            document.getElementById("loginScreen").style.display = "none";
+            document.getElementById("quizScreen").style.display = "block";
+            initQuestionPalette();
+            startTime = new Date();
+            timerInterval = setInterval(updateTimer, 1000);
+            loadQuestion();
+        } else {
+            showNotice("ખોટો OTP અથવા સમય વીતી ગયો છે! ફરી ચકાસો.", "error");
+            vBtn.disabled = false;
+            vBtn.innerHTML = '<i class="fa-solid fa-unlock-keyhole"></i> OTP ચકાસો અને મોક ટેસ્ટ શરૂ કરો';
+        }
+    })
+    .catch(() => {
+        showNotice("ચકાસણીમાં ભૂલ થઈ. ફરી પ્રયાસ કરો.", "error");
+        vBtn.disabled = false;
+        vBtn.innerHTML = '<i class="fa-solid fa-unlock-keyhole"></i> OTP ચકાસો અને મોક ટેસ્ટ શરૂ કરો';
+    });
+}
+
+function updateTimer() {
+    const elapsed = Math.floor((new Date() - startTime) / 1000);
+    const mins = String(Math.floor(elapsed / 60)).padStart(2, '0');
+    const secs = String(elapsed % 60).padStart(2, '0');
+    document.getElementById("timerDisplay").innerText = `${mins}:${secs}`;
+}
+
+function initQuestionPalette() {
+    const container = document.getElementById("questionGridContainer");
+    container.innerHTML = "";
+    for (let i = 0; i < questions.length; i++) {
+        const pill = document.createElement("div");
+        pill.className = "q-pill";
+        pill.id = `qPill_${i}`;
+        pill.innerText = i + 101; // ૧૦૧ થી ૨૦૦ પ્રશ્ન નંબર
+        pill.onclick = () => jumpToQuestion(i);
+        container.appendChild(pill);
+    }
+    updatePaletteStats();
+}
+
+function updatePaletteStats() {
+    let answered = 0;
+    for (let i = 0; i < questions.length; i++) {
+        const pill = document.getElementById(`qPill_${i}`);
+        if (!pill) continue;
+        pill.className = "q-pill";
+        
+        if (i === currentQ) {
+            pill.classList.add("status-current");
+        }
+        if (flaggedQuestions[i]) {
+            pill.classList.add("status-flagged");
+        } else if (userAnswers[i] !== null) {
+            pill.classList.add("status-answered");
+            answered++;
+        }
+    }
+    const totalAns = userAnswers.filter(a => a !== null).length;
+    document.getElementById("answeredCountBadge").innerText = `${totalAns} / ${questions.length} પૂર્ણ`;
+}
+
+function jumpToQuestion(idx) {
+    currentQ = idx;
+    loadQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function loadQuestion() {
+    const q = questions[currentQ];
+    document.getElementById("qProgress").innerText = `પ્રશ્ન ${currentQ + 101} / ૨૦૦`;
+    document.getElementById("unitBadge").innerText = `📘 ${q.unit}`;
+    document.getElementById("questionText").innerText = q.q;
+
+    const flagBtn = document.getElementById("flagBtn");
+    if (flaggedQuestions[currentQ]) {
+        flagBtn.className = "btn-flag active-flag";
+        flagBtn.innerHTML = '<i class="fa-solid fa-bookmark"></i> Flag કરેલ છે 🚩';
+    } else {
+        flagBtn.className = "btn-flag";
+        flagBtn.innerHTML = '<i class="fa-regular fa-bookmark"></i> Flag (રિવ્યુ માટે)';
+    }
+
+    const optContainer = document.getElementById("optionsContainer");
+    optContainer.innerHTML = "";
+
+    q.options.forEach((opt, idx) => {
+        const label = document.createElement("label");
+        label.className = "option-label";
+        const isChecked = userAnswers[currentQ] === idx ? "checked" : "";
+        label.innerHTML = `
+            <input type="radio" name="opt" value="${idx}" ${isChecked} onchange="onOptionSelect(${idx})">
+            <span><strong>(${String.fromCharCode(65 + idx)})</strong> ${opt}</span>
+        `;
+        optContainer.appendChild(label);
+    });
+
+    document.getElementById("prevBtn").style.visibility = (currentQ === 0) ? "hidden" : "visible";
+    document.getElementById("nextBtn").innerHTML = (currentQ === questions.length - 1) 
+        ? '<i class="fa-solid fa-flag-checkered"></i> કસોટી પૂર્ણ કરો' 
+        : 'આગળ <i class="fa-solid fa-arrow-right"></i>';
+
+    updatePaletteStats();
+}
+
+function onOptionSelect(idx) {
+    userAnswers[currentQ] = idx;
+    updatePaletteStats();
+}
+
+function toggleFlagCurrentQuestion() {
+    flaggedQuestions[currentQ] = !flaggedQuestions[currentQ];
+    loadQuestion();
+}
+
+function prevQuestion() {
+    if (currentQ > 0) {
+        currentQ--;
+        loadQuestion();
+    }
+}
+
+function nextQuestion() {
+    if (currentQ < questions.length - 1) {
+        currentQ++;
+        loadQuestion();
+    } else {
+        confirmSubmitQuiz();
+    }
+}
+
+function confirmSubmitQuiz() {
+    const unans = userAnswers.filter(a => a === null).length;
+    const flagCount = flaggedQuestions.filter(f => f === true).length;
+    
+    let msg = "શું આપ ખરેખર કસોટી સબમિટ કરવા માંગો છો?";
+    if (unans > 0 || flagCount > 0) {
+        msg = `ધ્યાન આપો:\n- ${unans} પ્રશ્નોના ઉત્તર બાકી છે.\n- ${flagCount} પ્રશ્નો Flag કરેલા છે.\n\nશું આપ કસોટી સબમિટ કરવા માંગો છો?`;
+    }
+    
+    if (confirm(msg)) {
+        submitQuiz();
+    }
+}
+
+function submitQuiz() {
+    clearInterval(timerInterval);
+    const elapsed = Math.floor((new Date() - startTime) / 1000);
+    const mins = Math.floor(elapsed / 60);
+    const secs = elapsed % 60;
+    const formattedTime = `${mins} મિનિટ ${secs} સેકન્ડ`;
+
+    let score = 0;
+    let wrongIndices = [];
+    questions.forEach((q, i) => {
+        if (userAnswers[i] === q.ans) {
+            score++;
+        } else {
+            wrongIndices.push(i);
+        }
+    });
+    const percent = ((score / questions.length) * 100).toFixed(2);
+    const flagCount = flaggedQuestions.filter(f => f === true).length;
+
+    document.getElementById("quizScreen").style.display = "none";
+    document.getElementById("resultScreen").style.display = "block";
+
+    document.getElementById("resName").innerText = studentName;
+    document.getElementById("resPhone").innerText = studentPhone;
+    document.getElementById("resTime").innerText = `${mins}m ${secs}s`;
+    document.getElementById("resScore").innerText = `${score} / ${questions.length}`;
+    document.getElementById("resPercent").innerText = `${percent}% ગુણાંક`;
+    document.getElementById("resCorrectCount").innerText = score;
+    document.getElementById("resWrongCount").innerText = questions.length - score;
+    document.getElementById("resFlagCount").innerText = flagCount;
+
+    renderWrongQuestions(wrongIndices);
+    renderFullAnswerKey();
+    renderBlankPaper();
+    prepareAndSendBackendResult(score, percent, formattedTime);
+}
+
+function switchResultTab(tabName) {
+    document.getElementById("tabBtnWrong").classList.remove("active-tab");
+    document.getElementById("tabBtnAnswers").classList.remove("active-tab");
+    document.getElementById("tabBtnBlank").classList.remove("active-tab");
+
+    document.getElementById("tabContentWrong").style.display = "none";
+    document.getElementById("tabContentAnswers").style.display = "none";
+    document.getElementById("tabContentBlank").style.display = "none";
+
+    if (tabName === "wrong") {
+        document.getElementById("tabBtnWrong").classList.add("active-tab");
+        document.getElementById("tabContentWrong").style.display = "block";
+    } else if (tabName === "answers") {
+        document.getElementById("tabBtnAnswers").classList.add("active-tab");
+        document.getElementById("tabContentAnswers").style.display = "block";
+    } else if (tabName === "blank") {
+        document.getElementById("tabBtnBlank").classList.add("active-tab");
+        document.getElementById("tabContentBlank").style.display = "block";
+    }
+}
+
+function renderWrongQuestions(wrongIndices) {
+    const container = document.getElementById("wrongQuestionsList");
+    container.innerHTML = "";
+
+    if (wrongIndices.length === 0) {
+        container.innerHTML = `
+            <div style="text-align: center; padding: 35px; background: var(--container-bg); border-radius: 12px; border: 2px solid #10b981;">
+                <i class="fa-solid fa-circle-check fa-3x" style="color: #10b981; margin-bottom: 12px;"></i>
+                <h3 style="color: #065f46; font-size: 18px;">અભિનંદન! તમારો એક પણ પ્રશ્ન ખોટો પડ્યો નથી!</h3>
+                <p style="color: var(--subheading-color); font-size: 13.5px; margin-top: 6px;">આપે ૧૦૦ માંથી ૧૦૦ સંપૂર્ણ ગુણ મેળવી શ્રેષ્ઠ પ્રદર્શન કરેલ છે.</p>
+            </div>
+        `;
+        return;
+    }
+
+    wrongIndices.forEach((i) => {
+        const q = questions[i];
+        const userChoiceText = userAnswers[i] !== null ? q.options[userAnswers[i]] : "જવાબ આપ્યો નથી (ખાલી છોડેલ)";
+        const correctChoiceText = q.options[q.ans];
+
+        const item = document.createElement("div");
+        item.className = "review-item is-wrong";
+        item.innerHTML = `
+            <p style="font-weight: 800; font-size: 15px; margin-bottom: 8px;">
+                ${q.q}
+            </p>
+            <p style="margin: 4px 0; font-weight: 700; color: #b91c1c;">
+                ❌ તમારો ઉત્તર: ${userChoiceText}
+            </p>
+            <p style="margin: 4px 0; font-weight: 700; color: #047857;">
+                ✅ સાચો ઉત્તર: <strong>(${String.fromCharCode(65 + q.ans)}) ${correctChoiceText}</strong>
+            </p>
+            <div class="exp-box">
+                <div style="font-size: 11.5px; font-weight: 800; color: #059669; margin-bottom: 3px;">📘 ${q.unit}</div>
+                <strong>વિગતવાર સમજૂતી:</strong> ${q.exp}
+            </div>
+        `;
+        container.appendChild(item);
+    });
+}
+
+function renderFullAnswerKey() {
+    const container = document.getElementById("allAnswersList");
+    container.innerHTML = "";
+
+    questions.forEach((q, i) => {
+        const isCorrect = (userAnswers[i] === q.ans);
+        const userChoiceText = userAnswers[i] !== null ? q.options[userAnswers[i]] : "જવાબ આપ્યો નથી";
+        const correctChoiceText = q.options[q.ans];
+
+        const item = document.createElement("div");
+        item.className = "review-item " + (isCorrect ? "is-correct" : "is-wrong");
+        item.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                <span style="font-weight: 800; font-size: 15px;">${q.q}</span>
+                <span style="font-size: 12px; font-weight: 800; padding: 2px 8px; border-radius: 6px; background:${isCorrect ? '#10b981' : '#ef4444'}; color:white; white-space:nowrap;">
+                    ${isCorrect ? '✅ સાચો' : '❌ ખોટો'}
+                </span>
+            </div>
+            <div style="margin: 6px 0; font-size: 13.5px;">
+                ${q.options.map((opt, oIdx) => `
+                    <div style="padding: 2px 0; ${oIdx === q.ans ? 'font-weight:bold; color:#047857;' : ''}">
+                        (${String.fromCharCode(65 + oIdx)}) ${opt} ${oIdx === q.ans ? '⭐ (સાચો ઉત્તર)' : ''}
+                    </div>
+                `).join('')}
+            </div>
+            <p style="margin: 6px 0; font-weight: 700;">
+                તમે પસંદ કરેલ જવાબ: <span style="color:${isCorrect ? '#047857' : '#b91c1c'};">${userChoiceText}</span>
+            </p>
+            <div class="exp-box">
+                <div style="font-size: 11.5px; font-weight: 800; color: #059669; margin-bottom: 3px;">📘 ${q.unit}</div>
+                <strong>સમજૂતી:</strong> ${q.exp}
+            </div>
+        `;
+        container.appendChild(item);
+    });
+}
+
+function renderBlankPaper() {
+    const container = document.getElementById("blankQuestionsList");
+    container.innerHTML = `
+        <div style="background: var(--card-gradient); padding: 14px; border-radius: 10px; margin-bottom: 14px; border: 1.5px solid var(--border-color); text-align: center;">
+            <h3 style="color: var(--heading-color); font-size: 16px; font-weight: 800;">📝 મૂળ પ્રશ્નપત્ર (Offline / Practice View)</h3>
+            <p style="color: var(--subheading-color); font-size: 12.5px;">આ પ્રશ્નપત્રમાં કોઈપણ જવાબ ટીક કરેલ નથી. તમે સ્વ-અધ્યયન કે પુનરાવર્તન માટે તેનો ઉપયોગ કરી શકો છો.</p>
+        </div>
+    `;
+
+    questions.forEach((q, i) => {
+        const box = document.createElement("div");
+        box.className = "blank-q-card";
+        box.innerHTML = `
+            <div style="font-weight: 800; font-size: 14.5px; margin-bottom: 8px; color: var(--heading-color);">${q.q}</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13.5px; color: var(--text-color);">
+                ${q.options.map((opt, oIdx) => `
+                    <div style="background: var(--option-bg); padding: 7px 10px; border-radius: 6px; border: 1px solid var(--border-color);">
+                        <strong>(${String.fromCharCode(65 + oIdx)})</strong> ${opt}
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        container.appendChild(box);
+    });
+}
+
+function prepareAndSendBackendResult(score, percent, formattedTime) {
+    let emailReviewHtml = "";
+    
+    questions.forEach((q, i) => {
+        const isCorrect = (userAnswers[i] === q.ans);
+        const userChoiceText = userAnswers[i] !== null ? q.options[userAnswers[i]] : "જવાબ આપ્યો નથી";
+        const correctChoiceText = q.options[q.ans];
+
+        emailReviewHtml += `
+            <div style="border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 12px; background-color: ${isCorrect ? '#f0fdf4' : '#fff1f2'};">
+                <p style="margin: 0 0 6px 0; font-weight: bold; color: #1e293b;">${q.q}</p>
+                <p style="margin: 3px 0; color: ${isCorrect ? '#166534' : '#9f1239'};">
+                    <strong>પરીક્ષાર્થીનો ઉત્તર:</strong> ${userChoiceText} ${isCorrect ? '✅' : '❌'}
+                </p>
+                ${!isCorrect ? `<p style="margin: 3px 0; color: #166534; font-weight: bold;"><strong>સાચો ઉત્તર:</strong> (${String.fromCharCode(65 + q.ans)}) ${correctChoiceText}</p>` : ''}
+                <div style="background-color: #f8fafc; padding: 8px; border-radius: 4px; margin-top: 6px; font-size: 12.5px; border-left: 3px solid #059669;">
+                    <div style="color: #047857; font-weight: bold; margin-bottom: 2px;">📘 ${q.unit}</div>
+                    <strong>સમજૂતી:</strong> ${q.exp}
+                </div>
+            </div>
+        `;
+    });
+
+    fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({
+            action: "submitResult",
+            dateTime: new Date().toLocaleString('gu-IN', { timeZone: 'Asia/Kolkata' }),
+            name: studentName,
+            phone: studentPhone,
+            email: studentEmail,
+            timeTaken: formattedTime,
+            score: `${score} / ${questions.length}`,
+            percentage: `${percent}%`,
+            subject: "ડી.એલ.એડ્. કોર્સ – ૫ (બ) : પર્યાવરણ શિક્ષણ (HOT ૧૦૧ થી ૨૦૦)",
+            detailedReviewHtml: emailReviewHtml,
+            repoName: "evs",
+            testFileName: "evs_hot_part2.html",
+            testUploadDate: "2026-11-07"
+        })
+    });
+}
+</script>
+</body>
+</html>
